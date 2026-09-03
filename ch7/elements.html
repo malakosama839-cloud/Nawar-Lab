@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elements of the Laser — Chapter 7: Lasers — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch7-elements">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 7 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 7</a><span class="sep">›</span> Elements of the Laser</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="emission.html">Emission Types</a>
+    <a href="elements.html" class="active">Laser Elements</a>
+    <a href="hene.html">He-Ne Laser</a>
+    <a href="properties.html">Properties &amp; Uses</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 7</span>
+  <h1>Elements of the Laser</h1>
+  <p style="color:var(--muted)">Every laser — gas, crystal or semiconductor — is built from the same five ingredients.</p>
+
+  <h2 class="section-title">The Five Elements</h2>
+  <div class="panel">
+    <h3>① The active medium</h3>
+    <p>The material with the right energy levels that actually amplifies the light: a helium–neon gas mixture, a ruby crystal, a semiconductor diode… The medium often works with a <strong>three-level (or four-level) scheme</strong>: atoms are lifted to a short-lived upper level, then fall quickly into a long-lived <strong>metastable state</strong> and pile up there, waiting to be stimulated.</p>
+    <h3>② The pumping source</h3>
+    <p>Something must lift the atoms up continuously. This is called <strong>pumping</strong>, and it can be:</p>
+    <ul class="clean">
+      <li><strong>Optical pumping</strong> — a powerful flash lamp shining intense light on the medium (e.g. ruby laser).</li>
+      <li><strong>Electrical pumping</strong> — an electric discharge (a current) through the gas, e.g. in the He-Ne laser.</li>
+    </ul>
+    <h3>③ The metastable state</h3>
+    <p>Ordinary excited states last only ~10⁻⁸ s — far too short to build up a population. A <strong>metastable state</strong> is an excited state with a much longer lifetime, so pumped atoms <em>accumulate</em> in it instead of spontaneously falling straight back down. Without it, population inversion would be impossible.</p>
+    <h3>④ Population inversion</h3>
+    <p>Normally most atoms sit in the low level, so a passing photon is more likely to be <em>absorbed</em> than to stimulate emission. Pumping hard enough puts <strong>more atoms in the excited (metastable) level than in the lower level</strong> — an <em>inverted</em> population. Only then does stimulated emission win over absorption and the medium amplifies light.</p>
+    <h3>⑤ The resonant cavity (two parallel mirrors)</h3>
+    <p>The active medium is closed between two exactly parallel <strong>mirrors</strong>: one reflects 100%, the other is <em>partially</em> transparent (~98%). Photons bounce back and forth thousands of times, stimulating more and more emissions on every pass — and the small fraction that leaks through the half-silvered mirror escapes as the <strong>laser beam</strong>.</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Start with 1 photon bouncing in the cavity. On each pass, every photon stimulates one identical twin, so the number of photons doubles per pass.<br>
+    After 1 pass: 2 → after 2 passes: 4 → after 3 passes: 8 … after <strong>n</strong> passes: 2<sup>n</sup> photons.<br>
+    After 10 passes: 2¹⁰ = <strong>1024 photons</strong>. After 20 passes: 2²⁰ ≈ <strong>1.05 million</strong> — this explosive growth is why a laser beam is so intense.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Inside the Resonant Cavity</h2>
+  <div class="sim">
+    <h3>Pump the medium and watch photons multiply on every bounce</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 150" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="55" width="8" height="40" fill="#7fd3ff"/>
+          <rect x="312" y="55" width="8" height="40" fill="#7fd3ff" opacity="0.5"/>
+          <rect x="28" y="60" width="284" height="30" fill="rgba(255,152,0,0.06)"/>
+          <text x="170" y="28" fill="#9a9ab0" font-size="11" text-anchor="middle" id="pumpTxt">Not pumped — most atoms relaxed</text>
+          <text x="24" y="115" fill="#7fd3ff" font-size="10">mirror 100%</text>
+          <text x="320" y="115" fill="#7fd3ff" font-size="10" text-anchor="end">mirror ~98%</text>
+          <g id="beamDots"></g>
+          <path id="beamPath" d="M30,75 L310,75" fill="none" stroke="none"/>
+          <text x="170" y="140" fill="#ff5e62" font-size="12" text-anchor="middle" font-weight="bold" id="beamOut">beam: OFF</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Pumping power <span class="val" id="pumpVal">0 %</span></label>
+          <input type="range" id="pumpSlider" min="0" max="100" step="5" value="0">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="invOut">0</div><div class="lbl">Excited atoms (%)</div></div>
+          <div class="readout"><div class="num warn" id="photOut">0</div><div class="lbl">Photons in cavity</div></div>
+          <div class="readout"><div class="num good" id="laseOut">OFF</div><div class="lbl">Lasing?</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Push past ~50% to invert the population — then stimulation wins and the beam explodes in intensity!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> Order of events: <strong>pump → population inversion (needs the metastable state) → stimulated emission → mirrors recycle photons → beam escapes through the partially transparent mirror</strong>. If an exam question asks "why is the metastable state essential?", the answer is: it gives excited atoms a long lifetime, allowing the population inversion without which absorption beats amplification.
+  </div>
+
+  <div class="pager">
+    <a href="emission.html">← Spontaneous vs Stimulated Emission</a>
+    <a href="hene.html">Next: The Helium-Neon Laser →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const pumpS = document.getElementById("pumpSlider");
+  const invOut = document.getElementById("invOut");
+  const photOut = document.getElementById("photOut");
+  const laseOut = document.getElementById("laseOut");
+  const beamOut = document.getElementById("beamOut");
+  const pumpTxt = document.getElementById("pumpTxt");
+  const beamDots = document.getElementById("beamDots");
+  const beamPath = document.getElementById("beamPath");
+
+  const anim = animateCurrent("beamPath", "beamDots", { on: true, speed: 0, count: 12, color: "#ff5e62", radius: 3 });
+
+  let photons = 0;
+  let growTimer = null;
+
+  function tick() {
+    const pump = +pumpS.value;
+    const inverted = pump > 50;
+    if (inverted) photons = Math.min(12, photons + 1);
+    else photons = Math.max(0, photons - 1);
+    photOut.textContent = photons;
+    invOut.textContent = pump + "%";
+    laseOut.textContent = inverted ? "ON" : "OFF";
+    beamOut.textContent = inverted ? "beam: ON — coherent red light!" : "beam: OFF";
+    pumpTxt.textContent = pump === 0 ? "Not pumped — most atoms relaxed"
+      : inverted ? "Population INVERTED — stimulated emission is amplifying!"
+      : "Pumping… need more than 50% to invert the population";
+    setAnimSpeed(anim, photons * 14);
+    laseOut.style.color = inverted ? "" : "#ef5350";
+    growTimer = setTimeout(tick, 350);
+  }
+  pumpS.addEventListener("input", () => { if (!growTimer) tick(); });
+  tick();
+})();
+</script>
+</body>
+</html>

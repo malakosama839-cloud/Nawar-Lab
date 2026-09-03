@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RL, RC and RLC Series Circuits — Chapter 4: AC Circuits — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch4-rlc">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 4 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 4</a><span class="sep">›</span> RL, RC &amp; RLC Series Circuits</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="hotwire.html">Hot-Wire Ammeter</a>
+    <a href="components.html">R, L &amp; C on AC</a>
+    <a href="rlc.html" class="active">RLC &amp; Impedance</a>
+    <a href="resonance.html">Resonance</a>
+  </nav>
+
+  <span class="chip">Part I · Chapter 4</span>
+  <h1>RL, RC and RLC Series Circuits</h1>
+  <p style="color:var(--muted)">Same current everywhere — but the voltages no longer add like numbers. They add like vectors.</p>
+
+  <h2 class="section-title">Why Voltages Add as Vectors</h2>
+  <div class="panel">
+    <p>In a <strong>series</strong> circuit the <strong>same current I flows through every component</strong>. But the voltages across them are not in step: V<sub>R</sub> is in phase with I, V<sub>L</sub> leads I by 90°, V<sub>C</sub> lags I by 90°. So the total voltage is found by <strong>vector addition</strong>:</p>
+    <div class="formula">V² = V<sub>R</sub>² + (V<sub>L</sub> − V<sub>C</sub>)²<span class="note">V_L and V_C point in opposite directions, so they partly cancel each other</span></div>
+    <p>Dividing every term by I gives the total opposition to AC — the <strong>impedance Z</strong>:</p>
+    <div class="formula">Z = √( R² + (X<sub>L</sub> − X<sub>C</sub>)² )<span class="note">impedance in ohms — and the AC version of Ohm's law is V = I × Z</span></div>
+    <div class="formula">tan φ = (X<sub>L</sub> − X<sub>C</sub>) / R<span class="note">φ = phase angle between the total voltage V and the current I</span></div>
+    <ul class="clean">
+      <li><strong>φ positive</strong> → the circuit is <strong>inductive</strong>: X<sub>L</sub> &gt; X<sub>C</sub>, the voltage leads the current (RL behaviour).</li>
+      <li><strong>φ negative</strong> → the circuit is <strong>capacitive</strong>: X<sub>C</sub> &gt; X<sub>L</sub>, the current leads the voltage (RC behaviour).</li>
+      <li><strong>φ = 0</strong> → X<sub>L</sub> = X<sub>C</sub>: the circuit behaves as pure resistance — this is <strong>resonance</strong>.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">The Three Series Circuits at a Glance</h2>
+  <div class="panel">
+    <table class="data">
+      <tr><th>Circuit</th><th>Impedance Z</th><th>tan φ</th><th>Nature</th></tr>
+      <tr><td>RL (coil + R)</td><td>√(R² + X<sub>L</sub>²)</td><td>X<sub>L</sub> / R &nbsp;(positive)</td><td>Inductive — V leads I</td></tr>
+      <tr><td>RC (capacitor + R)</td><td>√(R² + X<sub>C</sub>²)</td><td>−X<sub>C</sub> / R &nbsp;(negative)</td><td>Capacitive — I leads V</td></tr>
+      <tr><td>RLC (all three)</td><td>√(R² + (X<sub>L</sub> − X<sub>C</sub>)²)</td><td>(X<sub>L</sub> − X<sub>C</sub>) / R</td><td>Depends on which reactance wins</td></tr>
+    </table>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A coil of reactance X<sub>L</sub> = 40 Ω and a resistor R = 30 Ω are in series across a 220 V AC supply (X<sub>C</sub> = 0).<br>
+    Z = √(30² + 40²) = √(900 + 1600) = √2500 = <strong>50 Ω</strong><br>
+    I = V / Z = 220 / 50 = <strong>4.4 A</strong><br>
+    tan φ = 40 / 30 = 1.333 → φ ≈ <strong>53°</strong> — positive, so the circuit is <strong>inductive</strong>: the voltage leads the current by 53°.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: R-L-C Impedance Simulator</h2>
+  <div class="sim">
+    <h3>Sweep the frequency and watch X<sub>L</sub>, X<sub>C</sub>, Z and the phase angle</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+          <!-- phasor-style diagram -->
+          <line x1="60" y1="150" x2="300" y2="150" stroke="#2a2a40" stroke-width="1.5"/>
+          <line x1="60" y1="150" x2="60" y2="30" stroke="#2a2a40" stroke-width="1.5"/>
+          <line id="vecR" x1="60" y1="150" x2="200" y2="150" stroke="#4caf50" stroke-width="3"/>
+          <text x="200" y="168" fill="#4caf50" font-size="11" text-anchor="middle">R</text>
+          <line id="vecX" x1="60" y1="150" x2="60" y2="60" stroke="#ff9800" stroke-width="3"/>
+          <text x="48" y="52" fill="#ff9800" font-size="11" text-anchor="start" id="vecXLabel">X_L − X_C</text>
+          <line id="vecZ" x1="60" y1="150" x2="200" y2="60" stroke="#7fd3ff" stroke-width="3"/>
+          <text x="200" y="50" fill="#7fd3ff" font-size="12" text-anchor="middle" id="vecZLabel">Z</text>
+          <text x="170" y="192" fill="#e8e8f0" font-size="12" text-anchor="middle" id="phaseTxt">φ = 0°</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Source V (RMS) <span class="val" id="vacVal">220 V</span></label>
+          <input type="range" id="vacSlider" min="10" max="400" step="10" value="220">
+        </div>
+        <div class="control">
+          <label>Resistance R <span class="val" id="rVal4">30 Ω</span></label>
+          <input type="range" id="rSlider4" min="0" max="200" step="5" value="30">
+        </div>
+        <div class="control">
+          <label>Inductance L <span class="val" id="lVal4">0.10 H</span></label>
+          <input type="range" id="lSlider4" min="0" max="100" step="1" value="10">
+        </div>
+        <div class="control">
+          <label>Capacitance C <span class="val" id="cVal4">50 μF</span></label>
+          <input type="range" id="cSlider4" min="1" max="200" step="1" value="50">
+        </div>
+        <div class="control">
+          <label>Frequency f <span class="val" id="fqVal">50 Hz</span></label>
+          <input type="range" id="fqSlider" min="1" max="200" step="1" value="50">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="xlOut">31.4</div><div class="lbl">X_L (Ω)</div></div>
+          <div class="readout"><div class="num" id="xcOut">63.7</div><div class="lbl">X_C (Ω)</div></div>
+          <div class="readout"><div class="num warn" id="zOut">43.9</div><div class="lbl">Z (Ω)</div></div>
+          <div class="readout"><div class="num good" id="iOut5">5.0</div><div class="lbl">I (A)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)" id="resNote">Try f where X_L = X_C — that's resonance, Z is minimum (= R) and current is maximum!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> Never add Z = R + X<sub>L</sub> + X<sub>C</sub> as plain numbers! Reactances always combine <strong>vectorially</strong> with R, and X<sub>L</sub> and X<sub>C</sub> <strong>subtract</strong> from each other first, because their voltages are 180° apart.
+  </div>
+
+  <div class="pager">
+    <a href="components.html">← R, L &amp; C on AC</a>
+    <a href="resonance.html">Next: Oscillatory Circuit &amp; Resonance →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const vacS = document.getElementById("vacSlider");
+  const rS = document.getElementById("rSlider4");
+  const lS = document.getElementById("lSlider4");
+  const cS = document.getElementById("cSlider4");
+  const fqS = document.getElementById("fqSlider");
+
+  const vecR = document.getElementById("vecR");
+  const vecX = document.getElementById("vecX");
+  const vecZ = document.getElementById("vecZ");
+  const vecZLabel = document.getElementById("vecZLabel");
+  const vecXLabel = document.getElementById("vecXLabel");
+  const phaseTxt = document.getElementById("phaseTxt");
+  const resNote = document.getElementById("resNote");
+
+  function update() {
+    const V = +vacS.value, R = +rS.value, Lcm = +lS.value, Ccm = +cS.value, f = +fqS.value;
+    const L = Lcm / 100;           // slider → henry (0..1 H)
+    const C = Ccm * 1e-6;          // slider → farad
+    const XL = 2 * Math.PI * f * L;
+    const XC = 1 / (2 * Math.PI * f * C);
+    const X = XL - XC;
+    const Z = Math.sqrt(R * R + X * X);
+    const I = V / Z;
+    const phi = R === 0 ? (X > 0 ? 90 : X < 0 ? -90 : 0) : Math.atan(X / R) * 180 / Math.PI;
+
+    document.getElementById("vacVal").textContent = V + " V";
+    document.getElementById("rVal4").textContent = R + " Ω";
+    document.getElementById("lVal4").textContent = L.toFixed(2) + " H";
+    document.getElementById("cVal4").textContent = Ccm + " μF";
+    document.getElementById("fqVal").textContent = f + " Hz";
+    document.getElementById("xlOut").textContent = XL.toFixed(1);
+    document.getElementById("xcOut").textContent = XC.toFixed(1);
+    document.getElementById("zOut").textContent = Z.toFixed(1);
+    document.getElementById("iOut5").textContent = I.toFixed(2);
+
+    // phasor drawing: scale so max(R,|X|,Z) maps to 140 px
+    const scale = 140 / Math.max(R, Math.abs(X), Z, 1);
+    vecR.setAttribute("x2", 60 + R * scale);
+    const x2 = 150 - X * scale * 0.85;
+    vecX.setAttribute("y2", Math.max(30, Math.min(150, x2)));
+    vecX.setAttribute("x2", 60);
+    if (X < 0) { vecX.setAttribute("y2", Math.min(150, 150 - X * scale * 0.85)); vecXLabel.textContent = "X_C − X_L"; vecXLabel.setAttribute("y", 170); }
+    else { vecXLabel.textContent = "X_L − X_C"; vecXLabel.setAttribute("y", 52); }
+    const zLen = Math.hypot(R * scale, X * scale * 0.85);
+    const ang = Math.atan2(X * scale * 0.85, R * scale);
+    vecZ.setAttribute("x2", 60 + Math.min(240, zLen) * Math.cos(ang));
+    vecZ.setAttribute("y2", 150 - Math.min(120, zLen) * Math.sin(ang));
+    vecZLabel.setAttribute("x", 60 + Math.min(240, zLen) * Math.cos(ang));
+    vecZLabel.setAttribute("y", 150 - Math.min(120, zLen) * Math.sin(ang) - 8);
+
+    phaseTxt.textContent = "φ = " + phi.toFixed(1) + "°  (" + (Math.abs(phi) < 1 ? "resonance: in phase" : phi > 0 ? "inductive — V leads I" : "capacitive — I leads V") + ")";
+    const fr = 1 / (2 * Math.PI * Math.sqrt(L * C));
+    resNote.textContent = "Resonance frequency for this L and C: f_r = " + fr.toFixed(1) + " Hz" +
+      (Math.abs(f - fr) < 2 ? "  →  YOU ARE AT RESONANCE! Z = R = " + R + " Ω" : ". Set f = f_r to reach it.");
+  }
+  for (const s of [vacS, rS, lS, cS, fqS]) s.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

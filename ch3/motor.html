@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The DC Motor — Chapter 3: Electromagnetic Induction — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch3-motor">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 3 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 3</a><span class="sep">›</span> The DC Motor</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="faraday.html">Faraday &amp; Lenz</a>
+    <a href="wire.html">Moving Wire</a>
+    <a href="mutual-self.html">Mutual &amp; Self Induction</a>
+    <a href="generator.html">AC Generator</a>
+    <a href="motor.html" class="active">DC Motor</a>
+    <a href="transformer.html">Transformer</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 3</span>
+  <h1>The DC Motor</h1>
+
+  <h2 class="section-title">The Generator in Reverse</h2>
+  <div class="panel">
+    <p>A generator turns motion into electricity. A <strong>motor</strong> does the opposite: it feeds a current into a coil inside a magnetic field, and the <strong>motor effect</strong> (Chapter 2) produces forces on the sides of the coil that make it rotate. Energy conversion: <strong>electrical → mechanical</strong>.</p>
+    <p>Each side of the coil of length L carrying current I feels a force F = B I L. The two sides feel forces in opposite directions, forming a <strong>couple</strong> that turns the coil. The turning effect (torque) is:</p>
+    <div class="formula">τ = B × I × A × N × sin θ<span class="note">B in tesla, I in amperes, A = coil area in m², N = turns; θ is the angle between the coil's normal (its axis) and B. Torque in N·m</span></div>
+    <p>The torque is <strong>maximum</strong> when the coil's plane is parallel to B (its normal perpendicular to B, θ = 90°) and <strong>zero</strong> when the coil's normal aligns with B (θ = 0°).</p>
+  </div>
+
+  <h2 class="section-title">The Split-Ring Commutator</h2>
+  <div class="panel">
+    <p>Without help, the coil would oscillate: after half a turn the forces would pull it back. The <strong>split-ring commutator</strong> solves this: a ring cut into two halves, each connected to one end of the coil, rubbing against fixed brushes.</p>
+    <div class="tip"><strong>How it works:</strong> every half turn, each brush slides from one half of the ring to the other, so the <strong>current in the coil reverses direction</strong> exactly when the coil passes the position where the torque would flip. The result: the torque always pushes the same way, and the coil keeps spinning in <strong>one direction</strong>.</div>
+    <h3>Factors affecting the speed of the motor</h3>
+    <ul class="clean">
+      <li>Stronger magnetic field B → larger torque → faster.</li>
+      <li>Larger current I (more cells / lower resistance) → faster.</li>
+      <li>More turns N or larger coil area A → faster.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A coil of 50 turns, area 0.01 m², carries a current of 3 A in a field of 0.2 T. At the instant when the coil's normal makes 90° with B, find the torque.<br>
+    τ = B I A N sin θ = 0.2 × 3 × 0.01 × 50 × sin 90° = 0.3 × 1 = <strong>0.3 N·m</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Watch the Motor Spin</h2>
+  <div class="sim">
+    <h3>Turn up the current — the coil (top view) spins faster, one way only</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="mB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#4caf50"/>
+            </marker>
+          </defs>
+          <!-- poles (top view): N left, S right -->
+          <rect x="8" y="30" width="26" height="160" rx="6" fill="#ef5350" opacity="0.25" stroke="#ef5350"/>
+          <rect x="306" y="30" width="26" height="160" rx="6" fill="#42a5f5" opacity="0.25" stroke="#42a5f5"/>
+          <text x="21" y="205" fill="#ef5350" font-size="13" text-anchor="middle" font-weight="bold">N</text>
+          <text x="319" y="205" fill="#42a5f5" font-size="13" text-anchor="middle" font-weight="bold">S</text>
+          <g stroke="#4caf50" stroke-width="1.5" opacity="0.7">
+            <line x1="44" y1="55" x2="270" y2="55" marker-end="url(#mB)"/>
+            <line x1="44" y1="110" x2="96" y2="110" marker-end="url(#mB)"/>
+            <line x1="244" y1="110" x2="270" y2="110" marker-end="url(#mB)"/>
+            <line x1="44" y1="165" x2="270" y2="165" marker-end="url(#mB)"/>
+          </g>
+          <text x="157" y="47" fill="#4caf50" font-size="11">field B (into coil plane sides)</text>
+          <!-- rotating coil + commutator -->
+          <g id="coilG">
+            <rect x="100" y="80" width="140" height="60" fill="none" stroke="#7fd3ff" stroke-width="5" rx="4"/>
+            <circle cx="140" cy="80" r="5" fill="#ff5e62"/>
+            <path d="M170,100 L170,82 A18,18 0 0,1 188,100 Z" fill="#ef5350" opacity="0.85"/>
+            <path d="M170,100 L170,118 A18,18 0 0,1 152,100 Z" fill="#42a5f5" opacity="0.85"/>
+            <circle cx="170" cy="100" r="18" fill="none" stroke="#556" stroke-width="2"/>
+          </g>
+          <!-- fixed brushes -->
+          <rect x="161" y="72" width="18" height="8" fill="#ffd54f"/>
+          <rect x="161" y="140" width="18" height="8" fill="#ffd54f"/>
+          <line x1="170" y1="72" x2="170" y2="46" stroke="#ffd54f" stroke-width="2"/>
+          <line x1="170" y1="148" x2="170" y2="174" stroke="#ffd54f" stroke-width="2"/>
+          <text x="170" y="38" fill="#ffd54f" font-size="11" text-anchor="middle">brush + split ring (commutator)</text>
+          <text x="170" y="196" fill="#9a9ab0" font-size="11" text-anchor="middle" id="dirTxt">rotation: counter-clockwise</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Current (I) <span class="val" id="iVal">3.0 A</span></label>
+          <input type="range" id="iSlider" min="0" max="5" step="0.1" value="3">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="rpmOut">180</div><div class="lbl">Rotation speed (rpm)</div></div>
+          <div class="readout"><div class="num warn" id="tqOut">0.30</div><div class="lbl">Torque at θ = 90° (N·m)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Set the current to zero and the motor stops. The red/blue split ring rotates with the coil; the fixed yellow brushes swap halves every half turn, reversing the current in the coil.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="generator.html">← AC Generator</a>
+    <a href="transformer.html">Next: Transformer →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const iS = document.getElementById("iSlider");
+  const rpmOut = document.getElementById("rpmOut");
+  const tqOut = document.getElementById("tqOut");
+  const coilG = document.getElementById("coilG");
+  const dirTxt = document.getElementById("dirTxt");
+
+  // demo motor constants for the torque readout: B = 0.2 T, A = 0.01 m², N = 50
+  const K = 0.2 * 0.01 * 50;
+  let angle = 0;
+  let last = performance.now();
+
+  function loop(now) {
+    const dt = (now - last) / 1000;
+    last = now;
+    const I = +iS.value;
+    const degPerSec = I * 90;              // simple speed model
+    angle = (angle + degPerSec * dt) % 360;
+    coilG.setAttribute("transform", "rotate(" + angle.toFixed(2) + ",170,100)");
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  function update() {
+    const I = +iS.value;
+    document.getElementById("iVal").textContent = I.toFixed(1) + " A";
+    rpmOut.textContent = (I * 60).toFixed(0);
+    rpmOut.className = I > 0 ? "num" : "num warn";
+    tqOut.textContent = (K * I).toFixed(2);
+    dirTxt.textContent = I > 0 ? "rotation: counter-clockwise (one way only)" : "rotation: stopped";
+  }
+  iS.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

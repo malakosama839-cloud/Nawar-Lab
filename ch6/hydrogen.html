@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hydrogen Spectrum — Chapter 6: Atomic Spectra — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch6-hydrogen">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 6 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 6</a><span class="sep">›</span> The Hydrogen Spectrum</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="bohr.html">Bohr's Model</a>
+    <a href="hydrogen.html" class="active">Hydrogen Spectrum</a>
+    <a href="spectra.html">Types of Spectra</a>
+    <a href="xray.html">X-Rays</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 6</span>
+  <h1>The Hydrogen Spectrum</h1>
+  <p style="color:var(--muted)">Five families of lines — each one a set of electron jumps ending on the same level.</p>
+
+  <h2 class="section-title">From Jumps to Spectral Lines</h2>
+  <div class="panel">
+    <p>Every photon hydrogen emits comes from an electron falling from a higher level to a lower one, with h·f = E₂ − E₁ and λ = 1240/ΔE (nm). Group the jumps by their <strong>final (lower) level</strong> and the lines fall into five families — the <strong>spectral series</strong>. Each series is named after its discoverer, and lives in one region of the electromagnetic spectrum:</p>
+    <table class="data">
+      <tr><th>Series</th><th>Jumps end at</th><th>Region</th><th>λ range (approx.)</th></tr>
+      <tr><td><strong>Lyman</strong></td><td>n = 1</td><td>Ultraviolet</td><td>122 nm → 91 nm</td></tr>
+      <tr><td><strong>Balmer</strong></td><td>n = 2</td><td>Visible light</td><td>656 nm → 365 nm</td></tr>
+      <tr><td><strong>Paschen</strong></td><td>n = 3</td><td>Infrared</td><td>1.88 μm → 0.82 μm</td></tr>
+      <tr><td><strong>Brackett</strong></td><td>n = 4</td><td>Infrared</td><td>4.05 μm → 1.46 μm</td></tr>
+      <tr><td><strong>Pfund</strong></td><td>n = 5</td><td>Infrared</td><td>7.46 μm → 2.28 μm</td></tr>
+    </table>
+    <p>Only the <strong>Balmer series</strong> (four bright lines: red, cyan, blue-violet, violet) can be seen with the naked eye — the rest need UV or IR detectors.</p>
+  </div>
+
+  <h2 class="section-title">Levels Converge at Ionization</h2>
+  <div class="panel">
+    <p>Since E<sub>n</sub> = −13.6/n², higher levels have less-negative energies and lie closer and closer together: n = 1 is at −13.6 eV, but n = 8 is already at −0.21 eV. The levels <strong>crowd together and converge at E = 0</strong>, which is the ionization limit — a free electron. A jump from n = ∞ to n = 1 emits the maximum possible energy, 13.6 eV (the Lyman limit at 91.2 nm).</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Find the wavelength of the first Balmer line (n = 3 → n = 2).<br>
+    ΔE = 13.6 × (1/2² − 1/3²) = 13.6 × (1/4 − 1/9) = 13.6 × 5/36 = <strong>1.89 eV</strong><br>
+    λ = 1240 / 1.89 ≈ <strong>656 nm</strong> — red light (H-alpha), the strongest line in the visible hydrogen spectrum.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Explore the Five Series</h2>
+  <div class="sim">
+    <h3>Press a series — see its jumps highlighted on the energy-level diagram</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 420 265" xmlns="http://www.w3.org/2000/svg">
+          <g id="hLevels"></g>
+          <g id="seriesArrows"></g>
+          <text x="210" y="18" fill="#7fd3ff" font-size="13" text-anchor="middle" font-weight="bold" id="seriesTxt">—</text>
+          <text x="210" y="256" fill="#9a9ab0" font-size="11" text-anchor="middle" id="rangeTxt">—</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Spectral series</label>
+          <div style="display:flex;flex-wrap:wrap;gap:8px" id="seriesBtns">
+            <button class="btn" data-nl="1">Lyman</button>
+            <button class="btn warm" data-nl="2">Balmer</button>
+            <button class="btn" data-nl="3">Paschen</button>
+            <button class="btn" data-nl="4">Brackett</button>
+            <button class="btn" data-nl="5">Pfund</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="nlOut">2</div><div class="lbl">Jumps end at n =</div></div>
+          <div class="readout"><div class="num warn" id="regionOut">Visible</div><div class="lbl">Region</div></div>
+          <div class="readout"><div class="num good" id="firstLine">656 nm</div><div class="lbl">Longest line (first jump)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Each arrow is one jump (drawn for n = nL+1, nL+2, nL+3 and ∞). The whole family ends on the highlighted level — that is what defines the series. Spacing here is schematic so the jumps stay visible; on a true scale diagram (see Bohr's Model page) the levels crowd together toward E = 0.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> the series is named by where the jumps <em>end</em>, not where they start. "Balmer" means any jump ending at n = 2 — from n = 3, 4, 5, … ∞. Higher starting levels give shorter wavelengths within the same series, approaching the series limit.
+  </div>
+
+  <div class="pager">
+    <a href="bohr.html">← Bohr's Model of the Hydrogen Atom</a>
+    <a href="spectra.html">Next: Types of Spectra &amp; the Spectrometer →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  const gLevels = document.getElementById("hLevels");
+  const gArrows = document.getElementById("seriesArrows");
+
+  // schematic spacing (top = E = 0, n = 1 at the bottom) so every series' jumps stay visible
+  function yOf(n) {
+    return 45 + (8 - n) * 24;
+  }
+
+  function drawLevels() {
+    gLevels.innerHTML = "";
+    for (let n = 1; n <= 8; n++) {
+      const y = yOf(n);
+      gLevels.appendChild(el("line", { x1: 95, y1: y, x2: 295, y2: y, stroke: "#3a3a55", "stroke-width": 2, "data-n": n }));
+      gLevels.appendChild(el("text", { x: 302, y: y + 4, fill: "#9a9ab0", "font-size": 10 }, "n=" + n));
+      if (n <= 3) {
+        gLevels.appendChild(el("text", { x: 88, y: y + 4, fill: "#7fd3ff", "font-size": 10, "text-anchor": "end" }, (-13.6 / (n * n)).toFixed(2)));
+      }
+    }
+    gLevels.appendChild(el("line", { x1: 95, y1: 38, x2: 295, y2: 38, stroke: "#556", "stroke-width": 1, "stroke-dasharray": "4 4" }));
+    gLevels.appendChild(el("text", { x: 302, y: 42, fill: "#556", "font-size": 10 }, "E=0"));
+  }
+
+  function fmt(nm) {
+    return nm < 1000 ? nm.toFixed(0) + " nm" : (nm / 1000).toFixed(2) + " μm";
+  }
+
+  function regionOf(l1, l2) { // l1 longest, l2 shortest
+    if (l2 >= 750) return "Infrared";
+    if (l1 <= 380) return "Ultraviolet";
+    return "Visible";
+  }
+
+  const COLORS = { 1: "#b388ff", 2: "#4dd0e1", 3: "#ff8a65", 4: "#ff8a65", 5: "#ff8a65" };
+  const NAMES = { 1: "Lyman", 2: "Balmer", 3: "Paschen", 4: "Brackett", 5: "Pfund" };
+
+  function drawSeries(nl) {
+    // reset level highlight
+    gLevels.querySelectorAll("line").forEach(l => {
+      if (l.getAttribute("data-n")) l.setAttribute("stroke", "#3a3a55");
+    });
+    gArrows.innerHTML = "";
+
+    const yLow = +yOf(nl).toFixed(1);
+    const lowLine = gLevels.querySelector('line[data-n="' + nl + '"]');
+    if (lowLine) lowLine.setAttribute("stroke", "#ffd54f");
+
+    const color = COLORS[nl];
+    const xs = [115, 150, 185, 220];
+    const starts = [nl + 1, nl + 2, nl + 3, 8];
+    starts.forEach((nUp, i) => {
+      const y1 = +yOf(nUp).toFixed(1);
+      if (y1 <= yLow + 2) return;
+      const x = xs[i];
+      gArrows.appendChild(el("path", { d: "M" + x + "," + y1 + " L" + x + "," + (yLow + 8), stroke: color, "stroke-width": 2.5, fill: "none" }));
+      gArrows.appendChild(el("path", {
+        d: "M" + (x - 6) + "," + (yLow + 10) + " L" + x + "," + (yLow + 2) + " L" + (x + 6) + "," + (yLow + 10),
+        stroke: color, "stroke-width": 2.5, fill: "none"
+      }));
+      gArrows.appendChild(el("circle", { cx: x, cy: y1, r: 3.5, fill: "#4caf50" }));
+    });
+
+    const lamFirst = 1240 / Math.abs(-13.6 / ((nl + 1) * (nl + 1)) + 13.6 / (nl * nl)); // longest line
+    const lamLimit = 1240 / (13.6 / (nl * nl));                                          // series limit
+    const region = regionOf(lamFirst, lamLimit);
+
+    document.getElementById("nlOut").textContent = nl;
+    document.getElementById("regionOut").textContent = region;
+    document.getElementById("firstLine").textContent = fmt(lamFirst);
+    document.getElementById("seriesTxt").textContent =
+      NAMES[nl] + " series — jumps end at n=" + nl + " · " + region;
+    document.getElementById("rangeTxt").textContent =
+      "λ from " + fmt(lamFirst) + " (first line) down to " + fmt(lamLimit) + " (series limit, n=∞)";
+  }
+
+  const btns = document.querySelectorAll("#seriesBtns .btn");
+  btns.forEach(b => b.addEventListener("click", () => {
+    btns.forEach(o => o.classList.remove("warm"));
+    b.classList.add("warm");
+    drawSeries(+b.getAttribute("data-nl"));
+  }));
+
+  drawLevels();
+  drawSeries(2);
+})();
+</script>
+</body>
+</html>

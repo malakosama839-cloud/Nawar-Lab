@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Measuring Instruments — Chapter 2: Magnetic Effect — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch2-instruments">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 2 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 2</a><span class="sep">›</span> Measuring Instruments</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="flux.html">Magnetic Flux</a>
+    <a href="fields.html">Fields from Currents</a>
+    <a href="force.html">Magnetic Force</a>
+    <a href="torque.html">Torque &amp; Dipole Moment</a>
+    <a href="instruments.html" class="active">Measuring Instruments</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 2</span>
+  <h1>Measuring Instruments</h1>
+
+  <h2 class="section-title">The Moving-Coil Galvanometer</h2>
+  <div class="panel">
+    <p>The galvanometer detects and measures <strong>small currents</strong> (μA – mA). Its main parts:</p>
+    <ul class="clean">
+      <li>A <strong>rectangular coil</strong> of many fine turns suspended between the poles of a strong permanent magnet.</li>
+      <li>A <strong>radial magnetic field</strong> — the pole pieces are curved so the field always lies <em>along the plane</em> of the coil (the plane stays parallel to B as it turns). Then θ = 90° in τ = B·I·A·N·sinθ at every position, so the <strong>deflecting torque τ = B·I·A·N is constant</strong> and does not depend on the angle.</li>
+      <li>Two <strong>hairsprings</strong> that supply the current and provide a restoring torque proportional to the deflection angle (τ<sub>restoring</sub> = c·φ).</li>
+    </ul>
+    <p>At equilibrium, c·φ = B·I·A·N, so the deflection angle φ is <strong>directly proportional to the current</strong> — the scale is <strong>linear</strong> (equal divisions).</p>
+    <div class="formula">φ = (B × A × N / c) × I<span class="note">c = torsion constant of the spring. The bracket is the current sensitivity</span></div>
+    <p><strong>Sensitivity</strong> (larger deflection for the same current) increases with <strong>B</strong>, <strong>N</strong> and coil <strong>area A</strong>, and with a <strong>weaker spring</strong> (smaller c). A galvanometer has a relatively <strong>high resistance</strong> compared to an ammeter.</p>
+  </div>
+
+  <h2 class="section-title">DC Ammeter — the Shunt Resistor</h2>
+  <div class="panel">
+    <p>A galvanometer alone cannot measure large currents (its coil would burn). We connect a <strong>very small resistance S (the shunt) in parallel</strong> with it, so most of the current bypasses the coil:</p>
+    <div class="formula">S = I<sub>g</sub> × G / (I − I<sub>g</sub>)<span class="note">G = galvanometer resistance, I_g = full-scale (maximum) galvanometer current, I = max current to be measured</span></div>
+    <p>The ideal ammeter has <strong>zero resistance</strong> so it does not disturb the circuit — that is why S must be very small.</p>
+  </div>
+
+  <h2 class="section-title">DC Voltmeter — the Multiplier Resistor</h2>
+  <div class="panel">
+    <p>A galvanometer can read small voltages only (V = I<sub>g</sub>·G). To measure larger voltages, connect a <strong>large resistance R<sub>m</sub> (the multiplier) in series</strong>, which takes most of the voltage drop:</p>
+    <div class="formula">R<sub>m</sub> = V / I<sub>g</sub> − G<span class="note">V = maximum voltage to be measured. At full scale the current through G is still exactly I_g</span></div>
+    <p>The ideal voltmeter has <strong>infinite resistance</strong> (draws no current) — that is why R<sub>m</sub> must be very large.</p>
+    <div class="tip"><strong>Exam trap:</strong> ammeter → shunt in <strong>parallel</strong> (small S); voltmeter → multiplier in <strong>series</strong> (large R<sub>m</sub>). Mixing them up is the most common exam mistake in this chapter!</div>
+  </div>
+
+  <h2 class="section-title">The Ohmmeter</h2>
+  <div class="panel">
+    <ul class="clean">
+      <li>An ohmmeter is a galvanometer with its own <strong>battery</strong> and a <strong>fixed series resistor</strong> inside the box.</li>
+      <li><strong>Zero adjustment:</strong> before measuring, the two terminals are shorted (R = 0) and the zero-adjuster changes the resistance so the current is full-scale — i.e. <strong>full deflection means 0 Ω</strong>.</li>
+      <li>An unknown resistance R reduces the current, so the scale reads <strong>backwards</strong>: large deflection = small R, and zero deflection (open circuit) = infinite R.</li>
+      <li>The meter is calibrated so that <strong>mid-scale (half deflection) equals the meter's own internal resistance</strong> — that is how the internal resistance is found.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A galvanometer has G = 50 Ω and full-scale current I<sub>g</sub> = 1 mA. Convert it to (a) an ammeter reading up to 1 A, (b) a voltmeter reading up to 10 V.<br>
+    (a) Shunt: S = I<sub>g</sub>·G / (I − I<sub>g</sub>) = (0.001 × 50) / (1 − 0.001) = 0.05 / 0.999 ≈ <strong>0.05 Ω</strong><br>
+    (b) Multiplier: R<sub>m</sub> = V/I<sub>g</sub> − G = 10 / 0.001 − 50 = 10000 − 50 = <strong>9950 Ω</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Galvanometer Converter</h2>
+  <div class="sim">
+    <h3>Design your ammeter or voltmeter</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg">
+          <g id="convDrawing"></g>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Mode</label>
+          <select id="convSel" style="width:100%;padding:8px;border-radius:8px;background:#0d1420;color:#e8e8f0;border:1px solid #1b2f45">
+            <option value="ammeter">→ Ammeter (shunt in parallel)</option>
+            <option value="voltmeter">→ Voltmeter (multiplier in series)</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Galvanometer resistance G <span class="val" id="gVal">50 Ω</span></label>
+          <input type="range" id="gSlider" min="10" max="200" step="5" value="50">
+        </div>
+        <div class="control">
+          <label>Full-scale current I_g <span class="val" id="igVal">1.0 mA</span></label>
+          <input type="range" id="igSlider" min="0.1" max="10" step="0.1" value="1">
+        </div>
+        <div class="control">
+          <label id="maxLabel">Max current I <span class="val" id="imaxVal">1.0 A</span></label>
+          <input type="range" id="imaxSlider" min="0.1" max="10" step="0.1" value="1">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="convOut">0.05</div><div class="lbl" id="convLbl">Shunt S (Ω)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Ammeter: S must be tiny (∥). Voltmeter: R<sub>m</sub> must be huge (series). Try G = 50, I_g = 1 mA, I = 1 A → S ≈ 0.05 Ω; V = 10 V → R_m = 9950 Ω.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="torque.html">← Torque &amp; Dipole Moment</a>
+    <a href="index.html">Chapter 2 Overview →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const convSel = document.getElementById("convSel");
+  const gS = document.getElementById("gSlider");
+  const igS = document.getElementById("igSlider");
+  const imaxS = document.getElementById("imaxSlider");
+  const convOut = document.getElementById("convOut");
+  const convLbl = document.getElementById("convLbl");
+  const convDrawing = document.getElementById("convDrawing");
+  const maxLabel = document.getElementById("maxLabel");
+  const NS = "http://www.w3.org/2000/svg";
+
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function updateConv() {
+    const G = +gS.value, igmA = +igS.value, imaxA = +imaxS.value;
+    const ig = igmA / 1000;
+    document.getElementById("gVal").textContent = G + " Ω";
+    document.getElementById("igVal").textContent = igmA.toFixed(1) + " mA";
+    convDrawing.innerHTML = "";
+    if (convSel.value === "ammeter") {
+      maxLabel.firstChild.textContent = "Max current I ";
+      const S = ig * G / (imaxA - ig);
+      document.getElementById("imaxVal").textContent = imaxA.toFixed(1) + " A";
+      convOut.textContent = S.toFixed(4);
+      convLbl.textContent = "Shunt S (Ω)";
+      convDrawing.appendChild(el("rect", { x: 100, y: 60, width: 50, height: 30, rx: 6, fill: "none", stroke: "#7fd3ff", "stroke-width": 2 }));
+      convDrawing.appendChild(el("text", { x: 125, y: 80, fill: "#7fd3ff", "font-size": 11, "text-anchor": "middle" }, "G"));
+      convDrawing.appendChild(el("path", { d: "M150,75 L230,75", stroke: "#3a3a55", "stroke-width": 3, fill: "none" }));
+      convDrawing.appendChild(el("path", { d: "M230,30 L230,120 M214,30 L246,30 M214,120 L246,120", stroke: "#ff9800", "stroke-width": 3, fill: "none" }));
+      convDrawing.appendChild(el("text", { x: 262, y: 80, fill: "#ff9800", "font-size": 11 }, "S"));
+      convDrawing.appendChild(el("path", { d: "M125,60 L125,30 L230,30 M125,90 L125,120 L230,120", stroke: "#3a3a55", "stroke-width": 3, fill: "none" }));
+    } else {
+      maxLabel.firstChild.textContent = "Max voltage V ";
+      const Rm = imaxA / ig - G;
+      document.getElementById("imaxVal").textContent = imaxA.toFixed(1) + " V";
+      convOut.textContent = Rm.toFixed(0);
+      convLbl.textContent = "Multiplier R_m (Ω)";
+      convDrawing.appendChild(el("rect", { x: 70, y: 60, width: 50, height: 30, rx: 6, fill: "none", stroke: "#7fd3ff", "stroke-width": 2 }));
+      convDrawing.appendChild(el("text", { x: 95, y: 80, fill: "#7fd3ff", "font-size": 11, "text-anchor": "middle" }, "G"));
+      convDrawing.appendChild(el("path", { d: "M120,75 L160,75", stroke: "#3a3a55", "stroke-width": 3, fill: "none" }));
+      convDrawing.appendChild(el("rect", { x: 160, y: 60, width: 90, height: 30, rx: 6, fill: "none", stroke: "#ff9800", "stroke-width": 2 }));
+      convDrawing.appendChild(el("text", { x: 205, y: 80, fill: "#ff9800", "font-size": 11, "text-anchor": "middle" }, "R_m"));
+      convDrawing.appendChild(el("path", { d: "M250,75 L290,75", stroke: "#3a3a55", "stroke-width": 3, fill: "none" }));
+    }
+  }
+  convSel.addEventListener("change", updateConv);
+  for (const s of [gS, igS, imaxS]) s.addEventListener("input", updateConv);
+  updateConv();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Series &amp; Parallel Connection — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="connections">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 1 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 1</a><span class="sep">›</span> Series, Parallel & Equivalent Resistance</div><div class="chapter-nav"><a href="index.html">Overview</a><a href="basics.html">Basic Concepts</a><a href="resistivity.html">Resistivity & Power</a><a href="connections.html" class="active">Series & Parallel</a><a href="ohm-circuit.html">Ohm's Law</a><a href="brightness.html">Brightness & Keys</a><a href="kcl.html">KCL</a><a href="kvl.html">KVL</a></div>
+  <span class="chip">Topic 3</span>
+  <h1>Series &amp; Parallel Connection — Equivalent Resistance</h1>
+
+  <h2 class="section-title">Series Connection</h2>
+  <div class="panel">
+    <p>Resistors are <strong>in series</strong> when they are connected end-to-end so the <strong>same current</strong> must pass through every one of them, one after the other.</p>
+    <div class="formula">R<sub>eq</sub> = R₁ + R₂ + R₃ + …<span class="note">Equivalent resistance is always BIGGER than the largest resistor</span></div>
+    <ul class="clean">
+      <li>Same current I through all resistors.</li>
+      <li>Total voltage is shared: V = V₁ + V₂ + V₃ …</li>
+      <li>The biggest resistor takes the biggest share of the voltage.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">Parallel Connection</h2>
+  <div class="panel">
+    <p>Resistors are <strong>in parallel</strong> when they are connected across the same two points, so the <strong>voltage across each is the same</strong> while the current splits between them.</p>
+    <div class="formula">1 / R<sub>eq</sub> = 1/R₁ + 1/R₂ + 1/R₃ + …<span class="note">For two resistors, shortcut: R<sub>eq</sub> = R₁R₂ / (R₁ + R₂)</span></div>
+    <ul class="clean">
+      <li>Same voltage V across all resistors.</li>
+      <li>Total current splits: I = I₁ + I₂ + I₃ …</li>
+      <li>Equivalent resistance is always SMALLER than the smallest resistor.</li>
+    </ul>
+    <div class="tip"><strong>Exam trap:</strong> students often mix the two rules. Remember: series → just add. Parallel → add the reciprocals, then flip.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> R₁ = 6 Ω and R₂ = 3 Ω.<br>
+    In series: R<sub>eq</sub> = 6 + 3 = <strong>9 Ω</strong>.<br>
+    In parallel: R<sub>eq</sub> = (6 × 3)/(6 + 3) = 18/9 = <strong>2 Ω</strong> — smaller than both!
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Equivalent Resistance Builder</h2>
+  <div class="sim">
+    <h3>Build the circuit, set the resistors, read the result</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg">
+          <g id="wires" stroke="#3a3a55" stroke-width="3" fill="none"></g>
+          <g id="resGroup"></g>
+          <g id="labels"></g>
+          <!-- battery at bottom -->
+          <g id="battery">
+            <rect x="160" y="216" width="60" height="26" fill="#12121a" stroke="none"/>
+            <line x1="166" y1="224" x2="214" y2="224" stroke="#7fd3ff" stroke-width="3"/>
+            <line x1="176" y1="234" x2="204" y2="234" stroke="#7fd3ff" stroke-width="3"/>
+            <line x1="166" y1="242" x2="214" y2="242" stroke="#7fd3ff" stroke-width="1.5" opacity="0"/>
+            <text x="228" y="236" fill="#7fd3ff" font-size="12">12 V</text>
+          </g>
+          <g id="dots"></g>
+          <path id="flowPath" d="" fill="none" stroke="none"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Connection type</label>
+          <div style="display:flex;gap:8px">
+            <button class="btn" id="btnSeries" style="flex:1">Series</button>
+            <button class="btn warm" id="btnParallel" style="flex:1">Parallel</button>
+          </div>
+        </div>
+        <div class="control">
+          <label>Number of resistors <span class="val" id="nVal">3</span></label>
+          <input type="range" id="nSlider" min="2" max="4" step="1" value="3">
+        </div>
+        <div id="resControls"></div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="reqOut">11</div><div class="lbl">R equivalent (Ω)</div></div>
+          <div class="readout"><div class="num warn" id="iOut">1.09</div><div class="lbl">Total current (A)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)" id="modeHint">Series: R<sub>eq</sub> is bigger than any single resistor.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="resistivity.html">← Previous: Resistivity &amp; Power</a>
+    <a href="ohm-circuit.html">Next: Ohm's Law for Closed Circuit →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const SVGNS = "http://www.w3.org/2000/svg";
+  const mode = { type: "series", n: 3, values: [2, 3, 6, 12] };
+
+  const wires = document.getElementById("wires");
+  const resGroup = document.getElementById("resGroup");
+  const labels = document.getElementById("labels");
+  const flowPath = document.getElementById("flowPath");
+  const resControls = document.getElementById("resControls");
+  const reqOut = document.getElementById("reqOut");
+  const iOut = document.getElementById("iOut");
+  const modeHint = document.getElementById("modeHint");
+  const nVal = document.getElementById("nVal");
+  const btnSeries = document.getElementById("btnSeries");
+  const btnParallel = document.getElementById("btnParallel");
+  const nSlider = document.getElementById("nSlider");
+
+  const anim = animateCurrent("flowPath", "dots", { on: true, speed: 40, count: 10, color: "#ffd54f" });
+
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(SVGNS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  /* zigzag resistor centred at (cx, cy), horizontal, length len */
+  function resistor(cx, cy, len) {
+    const g = el("g", {});
+    const half = len / 2, seg = len / 6;
+    let d = "M" + (cx - half) + "," + cy;
+    const signs = [-1, 1, -1, 1, -1, 1];
+    for (let i = 0; i < 6; i++) {
+      d += " L" + (cx - half + seg * (i + 0.5)) + "," + (cy + signs[i] * 8);
+    }
+    d += " L" + (cx + half) + "," + cy;
+    g.appendChild(el("path", { d, fill: "none", stroke: "#ff9800", "stroke-width": 3 }));
+    return g;
+  }
+
+  function render() {
+    wires.innerHTML = "";
+    resGroup.innerHTML = "";
+    labels.innerHTML = "";
+    const n = mode.n;
+
+    if (mode.type === "series") {
+      /* loop: battery bottom → left rail → top wire with n resistors → right rail */
+      const topY = 60, leftX = 60, rightX = 320;
+      wires.appendChild(el("path", { d: "M190,216 L190,200 L60,200 L60,60 L320,60 L320,200 L190,200", fill: "none" }));
+      const span = (rightX - leftX) / n;
+      for (let i = 0; i < n; i++) {
+        const cx = leftX + span * (i + 0.5);
+        resGroup.appendChild(resistor(cx, topY, Math.min(70, span - 24)));
+        labels.appendChild(el("text", { x: cx, y: 42, fill: "#e8e8f0", "font-size": 12, "text-anchor": "middle" },
+          "R" + (i + 1) + " = " + mode.values[i] + " Ω"));
+      }
+      flowPath.setAttribute("d", "M190,200 L60,200 L60,60 L320,60 L320,200 L190,200");
+      modeHint.innerHTML = "Series: R<sub>eq</sub> is bigger than any single resistor.";
+    } else {
+      /* parallel: rails + n horizontal branches */
+      const leftX = 90, rightX = 290, topY = 50, botY = 200;
+      wires.appendChild(el("path", { d: "M190,216 L190,200 L90,200", fill: "none" }));
+      wires.appendChild(el("path", { d: "M190,200 L290,200 L290,216", fill: "none" }));
+      wires.appendChild(el("path", { d: "M190,216 L190,200", fill: "none" }));
+      const gap = (botY - topY) / (n - 1 || 1);
+      for (let i = 0; i < n; i++) {
+        const y = topY + gap * i;
+        wires.appendChild(el("path", { d: "M90," + y + " L290," + y, fill: "none" }));
+        resGroup.appendChild(resistor(190, y, 90));
+        labels.appendChild(el("text", { x: 330, y: y + 4, fill: "#e8e8f0", "font-size": 12, "text-anchor": "middle" },
+          "R" + (i + 1) + " = " + mode.values[i]));
+      }
+      wires.appendChild(el("path", { d: "M90," + topY + " L90," + botY, fill: "none" }));
+      flowPath.setAttribute("d", "M190,200 L90,200 L90," + topY + " L290," + topY + " L290,200 L190,200");
+      modeHint.innerHTML = "Parallel: R<sub>eq</sub> is smaller than the smallest resistor.";
+    }
+    update();
+  }
+
+  function update() {
+    let req = 0;
+    if (mode.type === "series") {
+      req = 0;
+      for (let i = 0; i < mode.n; i++) req += mode.values[i];
+    } else {
+      let inv = 0;
+      for (let i = 0; i < mode.n; i++) inv += 1 / mode.values[i];
+      req = 1 / inv;
+    }
+    reqOut.textContent = req.toFixed(2);
+    iOut.textContent = (12 / req).toFixed(2);
+  }
+
+  function buildControls() {
+    resControls.innerHTML = "";
+    for (let i = 0; i < mode.n; i++) {
+      const div = document.createElement("div");
+      div.className = "control";
+      const lab = document.createElement("label");
+      const span = document.createElement("span");
+      span.className = "val";
+      span.textContent = mode.values[i] + " Ω";
+      lab.appendChild(document.createTextNode("R" + (i + 1) + " "));
+      lab.appendChild(span);
+      const inp = document.createElement("input");
+      inp.type = "range"; inp.min = 1; inp.max = 20; inp.step = 1; inp.value = mode.values[i];
+      inp.addEventListener("input", () => { mode.values[i] = +inp.value; span.textContent = inp.value + " Ω"; render(); });
+      div.appendChild(lab); div.appendChild(inp);
+      resControls.appendChild(div);
+    }
+  }
+
+  btnSeries.addEventListener("click", () => { mode.type = "series"; render(); });
+  btnParallel.addEventListener("click", () => { mode.type = "parallel"; render(); });
+  nSlider.addEventListener("input", () => { mode.n = +nSlider.value; nVal.textContent = nSlider.value; buildControls(); render(); });
+
+  buildControls();
+  render();
+})();
+</script>
+</body>
+</html>

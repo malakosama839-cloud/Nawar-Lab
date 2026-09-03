@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properties &amp; Applications of Laser Light — Chapter 7: Lasers — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch7-properties">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 7 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 7</a><span class="sep">›</span> Properties &amp; Applications of Laser Light</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="emission.html">Emission Types</a>
+    <a href="elements.html">Laser Elements</a>
+    <a href="hene.html">He-Ne Laser</a>
+    <a href="properties.html" class="active">Properties &amp; Uses</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 7</span>
+  <h1>Properties &amp; Applications of Laser Light</h1>
+  <p style="color:var(--muted)">Four properties that ordinary light simply cannot match — and the jobs that follow from them.</p>
+
+  <h2 class="section-title">The Four Properties (vs Ordinary Light)</h2>
+  <div class="panel">
+    <table class="data">
+      <tr><th>Property</th><th>Laser light</th><th>Ordinary light</th></tr>
+      <tr>
+        <td><strong>Monochromaticity</strong></td>
+        <td>One single wavelength — one perfectly sharp colour (stimulated emission copies the same transition exactly).</td>
+        <td>A mixture of many wavelengths (white light is a rainbow of colours).</td>
+      </tr>
+      <tr>
+        <td><strong>Coherence</strong></td>
+        <td>All photons have the <em>same phase</em> and stay in step — wave crests line up over long distances. <em>This is the key difference.</em></td>
+        <td>Random phases, constantly changing — atoms emit independently (spontaneous emission).</td>
+      </tr>
+      <tr>
+        <td><strong>Collimation (parallelism)</strong></td>
+        <td>The beam stays almost perfectly parallel — it travels kilometres while spreading by only centimetres.</td>
+        <td>Light from a lamp spreads out in all directions; a torch cone widens within metres.</td>
+      </tr>
+      <tr>
+        <td><strong>High intensity</strong></td>
+        <td>Energy concentrated in a very narrow beam of one colour — enormous power per cm², enough to cut metal.</td>
+        <td>Energy spread over all directions and all wavelengths — low intensity everywhere.</td>
+      </tr>
+    </table>
+    <p>All four come from the same root: <strong>stimulated emission produces identical photons, and the cavity keeps selecting them.</strong></p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Compare the intensities. A small He-Ne laser emits P = 2 mW focused in a spot of area A = 1 mm² = 1×10⁻⁶ m².<br>
+    I<sub>laser</sub> = P/A = 2×10⁻³ / 1×10⁻⁶ = <strong>2000 W/m²</strong>.<br>
+    A 100 W lamp spreads its light over a sphere of radius 2 m: A = 4πr² = 4 × 3.1416 × 4 ≈ 50.3 m².<br>
+    I<sub>lamp</sub> = 100 / 50.3 ≈ <strong>2 W/m²</strong> — a thousand times weaker, even though the lamp uses 50 000 times more power!
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Torch vs Laser — Who Stays Narrow?</h2>
+  <div class="sim">
+    <h3>Move the wall away and compare the spot sizes</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg">
+          <!-- sources -->
+          <rect x="30" y="52" width="24" height="16" rx="3" fill="#ff9800" transform="rotate(0 42 60)"/>
+          <text x="42" y="40" fill="#ff9800" font-size="11" text-anchor="middle">torch</text>
+          <rect x="30" y="174" width="24" height="12" rx="3" fill="#ff5e62"/>
+          <text x="42" y="166" fill="#ff5e62" font-size="11" text-anchor="middle">laser</text>
+          <!-- torch cone (drawn by script) -->
+          <polygon id="torchCone" points="54,60 130,12 130,108" fill="rgba(255,152,0,0.12)" stroke="rgba(255,152,0,0.5)" stroke-width="1"/>
+          <!-- laser beam (drawn by script) -->
+          <line id="laserBeam" x1="54" y1="180" x2="130" y2="180" stroke="#ff5e62" stroke-width="3"/>
+          <!-- wall -->
+          <line id="wall" x1="130" y1="15" x2="130" y2="235" stroke="#9a9ab0" stroke-width="4"/>
+          <text id="wallLabel" x="130" y="248" fill="#9a9ab0" font-size="10" text-anchor="middle">wall at 1 m</text>
+          <!-- spots -->
+          <ellipse id="torchSpot" cx="130" cy="60" rx="0" ry="48" fill="#ff9800" opacity="0.85"/>
+          <ellipse id="laserSpot" cx="130" cy="180" rx="4" ry="4" fill="#ff5e62"/>
+          <text id="torchSpotLabel" x="140" y="30" fill="#ff9800" font-size="11">torch spot: —</text>
+          <text id="laserSpotLabel" x="140" y="222" fill="#ff5e62" font-size="11">laser spot: —</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Distance to the wall <span class="val" id="dVal">1.0 m</span></label>
+          <input type="range" id="dSlider" min="0" max="3" step="0.01" value="0">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num warn" id="torchOut">17.5 cm</div><div class="lbl">Torch spot diameter</div></div>
+          <div class="readout"><div class="num" id="laserOut">2.2 mm</div><div class="lbl">Laser spot diameter</div></div>
+          <div class="readout"><div class="num good" id="ratioOut">×80</div><div class="lbl">Torch spread ÷ laser spread</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">The torch spreads with a half-angle of about 5°, so its spot grows in a straight line with distance. The laser stays almost parallel — its spot barely grows. Push the wall out to a kilometre and see who wins (the laser spot size is drawn exaggerated so you can still see it).</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Applications</h2>
+  <div class="panel">
+    <ul class="clean">
+      <li><strong>Holography:</strong> 3D imaging that records the <em>phase</em> of the light as well as its intensity, using laser interference — impossible with ordinary (incoherent) light. Holograms are stored on the same principle as credit-card security stickers.</li>
+      <li><strong>Medicine:</strong> eye surgery (re-attaching the retina, shaping the cornea to correct vision), <em>bloodless</em> cutting and sealing of tissue, destroying tumours.</li>
+      <li><strong>Industry:</strong> cutting, drilling and welding metals, precise length measurement and alignment, reading barcodes in shops, reading CDs/DVDs.</li>
+      <li><strong>Communications:</strong> laser light carries data through thin <strong>optical fibres</strong> — its enormous frequency means an enormous data capacity, and the fibres guide it around corners with almost no loss.</li>
+    </ul>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> If asked "what distinguishes laser light from ordinary light?", lead with <strong>coherence</strong> — it is the direct consequence of stimulated emission — then add monochromaticity, collimation and high intensity. For holography specifically, the answer is that the laser's coherence lets the hologram record the <strong>phase</strong> of light, not just intensity.
+  </div>
+
+  <div class="pager">
+    <a href="hene.html">← The Helium-Neon Laser</a>
+    <a href="../ch8/index.html">Chapter 8: Modern Electronics →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const dS = document.getElementById("dSlider");
+  const wall = document.getElementById("wall");
+  const wallLabel = document.getElementById("wallLabel");
+  const cone = document.getElementById("torchCone");
+  const beam = document.getElementById("laserBeam");
+  const torchSpot = document.getElementById("torchSpot");
+  const laserSpot = document.getElementById("laserSpot");
+  const torchSpotLabel = document.getElementById("torchSpotLabel");
+  const laserSpotLabel = document.getElementById("laserSpotLabel");
+  const torchOut = document.getElementById("torchOut");
+  const laserOut = document.getElementById("laserOut");
+  const ratioOut = document.getElementById("ratioOut");
+
+  const TAN5 = Math.tan(5 * Math.PI / 180);   // ≈ 0.0875
+
+  function fmt(m) {
+    if (m < 1) return (m * 100).toFixed(1) + " cm";
+    if (m < 1000) return m.toFixed(1) + " m";
+    return (m / 1000).toFixed(2) + " km";
+  }
+  function fmtSmall(m) {
+    if (m < 0.01) return (m * 1000).toFixed(1) + " mm";
+    if (m < 1) return (m * 100).toFixed(1) + " cm";
+    return m.toFixed(2) + " m";
+  }
+
+  function update() {
+    const D = Math.pow(10, +dS.value);                 // 1 → 1000 m (log slider)
+    const wallX = 130 + (Math.log10(D) / 3) * 470;     // 130 → 600 px
+    const dx = wallX - 54;
+    const spread = Math.min(60, dx * TAN5);            // torch half-width on the wall (px)
+
+    wall.setAttribute("x1", wallX); wall.setAttribute("x2", wallX);
+    wallLabel.setAttribute("x", wallX);
+    wallLabel.textContent = "wall at " + (D < 10 ? D.toFixed(1) : Math.round(D)) + " m";
+    cone.setAttribute("points", "54,60 " + wallX + "," + (60 - spread) + " " + wallX + "," + (60 + spread));
+    beam.setAttribute("x2", wallX);
+    torchSpot.setAttribute("cx", wallX); torchSpot.setAttribute("rx", spread); torchSpot.setAttribute("ry", spread);
+    laserSpot.setAttribute("cx", wallX);
+    torchSpotLabel.setAttribute("x", Math.min(560, wallX + 6));
+    torchSpotLabel.setAttribute("y", 60 - spread - 6);
+    laserSpotLabel.setAttribute("x", Math.min(560, wallX + 6));
+
+    const torchD = 2 * D * TAN5;            // metres
+    const laserD = 0.002 + 0.0002 * D;      // metres (2 mm aperture, tiny divergence)
+    torchSpotLabel.textContent = "torch spot: " + fmt(torchD);
+    laserSpotLabel.textContent = "laser spot: " + fmtSmall(laserD);
+    torchOut.textContent = fmt(torchD);
+    laserOut.textContent = fmtSmall(laserD);
+    ratioOut.textContent = "×" + Math.round(torchD / laserD);
+
+    document.getElementById("dVal").textContent = (D < 10 ? D.toFixed(1) : Math.round(D)) + " m";
+  }
+  dS.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

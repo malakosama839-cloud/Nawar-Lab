@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bohr's Model of the Hydrogen Atom — Chapter 6: Atomic Spectra — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch6-bohr">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 6 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 6</a><span class="sep">›</span> Bohr's Model of the Hydrogen Atom</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="bohr.html" class="active">Bohr's Model</a>
+    <a href="hydrogen.html">Hydrogen Spectrum</a>
+    <a href="spectra.html">Types of Spectra</a>
+    <a href="xray.html">X-Rays</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 6</span>
+  <h1>Bohr's Model of the Hydrogen Atom</h1>
+  <p style="color:var(--muted)">The model that explained why atoms don't collapse — and why each one glows with its own colours.</p>
+
+  <h2 class="section-title">Rutherford's Model and Its Fatal Problem</h2>
+  <div class="panel">
+    <p><strong>Rutherford's model:</strong> a tiny, dense, positively charged nucleus with electrons orbiting around it — like a miniature solar system.</p>
+    <p><strong>The problem:</strong> according to classical physics, an orbiting (accelerating) electron must continuously radiate electromagnetic waves. It would steadily lose energy, spiral inward, and crash into the nucleus in a fraction of a second. Every atom should collapse instantly — yet atoms are stable, and they emit light only at <em>certain special frequencies</em>, not continuously. Classical physics could not explain either fact.</p>
+  </div>
+
+  <h2 class="section-title">Bohr's Two Postulates</h2>
+  <div class="panel">
+    <p>In 1913 <strong>Niels Bohr</strong> rescued the hydrogen atom with two revolutionary postulates:</p>
+    <h3>1. Allowed orbits (stationary states)</h3>
+    <p>The electron moves only in certain <strong>allowed circular orbits</strong> — called stationary states — and while it stays in one of them it <strong>does not radiate</strong> any energy. Only orbits whose angular momentum is a whole-number multiple of h/2π are allowed:</p>
+    <div class="formula">m·v·r = n × h / 2π<span class="note">n = 1, 2, 3, … (quantum number) — the angular momentum is quantized</span></div>
+    <h3>2. Radiation only on jumps</h3>
+    <p>Radiation is emitted (or absorbed) <strong>only when the electron jumps</strong> from one allowed orbit to another. The photon carries exactly the energy difference between the two levels:</p>
+    <div class="formula">h·f = E₂ − E₁<span class="note">jump down: photon emitted; jump up: photon absorbed</span></div>
+  </div>
+
+  <h2 class="section-title">Energy Levels of Hydrogen</h2>
+  <div class="panel">
+    <p>Working out his postulates for hydrogen, Bohr found that the electron's energy depends only on the quantum number n:</p>
+    <div class="formula">E<sub>n</sub> = − 13.6 / n² &nbsp; eV<span class="note">negative because the electron is bound to the nucleus</span></div>
+    <table class="data">
+      <tr><th>Level</th><th>Energy (eV)</th></tr>
+      <tr><td>n = 1 (ground state)</td><td>−13.6</td></tr>
+      <tr><td>n = 2</td><td>−3.40</td></tr>
+      <tr><td>n = 3</td><td>−1.51</td></tr>
+      <tr><td>n = 4</td><td>−0.85</td></tr>
+      <tr><td>n → ∞</td><td>0 (electron free — ionization)</td></tr>
+    </table>
+    <p>The <strong>ground state</strong> (n = 1) is the lowest level, with E = −13.6 eV. To pull the electron completely out of the atom (to E = 0 at n = ∞) requires the <strong>ionization energy of hydrogen:</strong></p>
+    <div class="formula">E<sub>ionization</sub> = 0 − (−13.6) = 13.6 eV<span class="note">about 2.2 × 10⁻¹⁸ J per atom</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> An electron in hydrogen jumps from n = 3 to n = 2. Find the energy of the levels, the photon energy, and its wavelength.<br>
+    E₃ = −13.6/9 = <strong>−1.51 eV</strong> ; E₂ = −13.6/4 = <strong>−3.40 eV</strong><br>
+    ΔE = E₃ − E₂ = −1.51 − (−3.40) = <strong>1.89 eV</strong> → a photon of 1.89 eV is emitted.<br>
+    λ = hc/ΔE = 1240 / 1.89 ≈ <strong>656 nm</strong> — red visible light (the famous H-alpha line).
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: The Hydrogen Energy-Level Diagram</h2>
+  <div class="sim">
+    <h3>Pick the jump — find the photon's energy and wavelength</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+          <g id="levels"></g>
+          <g id="jumpArrow"></g>
+          <text x="170" y="16" fill="#7fd3ff" font-size="13" text-anchor="middle" font-weight="bold" id="photonTxt">—</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Start level n = <span class="val" id="niVal">3</span></label>
+          <input type="range" id="niSlider" min="2" max="8" step="1" value="3">
+        </div>
+        <div class="control">
+          <label>End level n = <span class="val" id="nfVal">2</span></label>
+          <input type="range" id="nfSlider" min="1" max="7" step="1" value="2">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="dEOwner">1.89</div><div class="lbl">ΔE (eV)</div></div>
+          <div class="readout"><div class="num warn" id="lambdaOut">656</div><div class="lbl">λ (nm)</div></div>
+          <div class="readout"><div class="num good" id="seriesOut">Balmer</div><div class="lbl">Series</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">The levels are drawn to scale: notice how they crowd together as n grows, converging at E = 0. Jumps ending at n=2 give visible light; to n=1 give UV; to n=3, 4, 5 give infrared.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> energy is <em>emitted</em> when the electron falls to a lower level (ΔE &gt; 0 released) and <em>absorbed</em> when it jumps up. The larger the energy gap, the higher the photon frequency and the shorter the wavelength (λ = 1240/ΔE).
+  </div>
+
+  <div class="pager">
+    <a href="index.html">← Chapter 6 Overview</a>
+    <a href="hydrogen.html">Next: The Hydrogen Spectrum →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  const niS = document.getElementById("niSlider");
+  const nfS = document.getElementById("nfSlider");
+  const levels = document.getElementById("levels");
+  const jumpArrow = document.getElementById("jumpArrow");
+
+  const SERIES = { 1: "Lyman (UV)", 2: "Balmer (visible)", 3: "Paschen (IR)", 4: "Brackett (IR)", 5: "Pfund (IR)" };
+
+  function yOf(n) {
+    // map E = -13.6/n^2 (eV) to y: E=0 → y=190 ; E=-13.6 → y=40
+    const E = -13.6 / (n * n);
+    return 190 - (E + 13.6) * (150 / 13.6);
+  }
+
+  function draw() {
+    let ni = +niS.value, nf = +nfS.value;
+    if (ni <= nf) { ni = nf + 1; niS.value = ni; }
+    levels.innerHTML = ""; jumpArrow.innerHTML = "";
+    for (let n = 1; n <= 8; n++) {
+      const y = yOf(n);
+      levels.appendChild(el("line", { x1: 70, y1: y, x2: 250, y2: y, stroke: "#3a3a55", "stroke-width": 2 }));
+      if (n <= 3) {
+        levels.appendChild(el("text", { x: 258, y: y + 4, fill: "#9a9ab0", "font-size": 11 }, "n=" + n));
+        levels.appendChild(el("text", { x: 64, y: y + 4, fill: "#7fd3ff", "font-size": 10, "text-anchor": "end" }, (-13.6 / (n * n)).toFixed(1)));
+      }
+    }
+    levels.appendChild(el("line", { x1: 70, y1: 30, x2: 250, y2: 30, stroke: "#556", "stroke-width": 1, "stroke-dasharray": "4 4" }));
+    levels.appendChild(el("text", { x: 258, y: 34, fill: "#556", "font-size": 10 }, "E=0"));
+
+    const y1 = yOf(ni), y2 = yOf(nf);
+    jumpArrow.appendChild(el("path", { d: "M160," + y1 + " L160," + (y2 + (y1 > y2 ? 8 : -8)), stroke: "#ffd54f", "stroke-width": 2.5, fill: "none" }));
+    jumpArrow.appendChild(el("path", {
+      d: "M154," + (y2 + (y1 > y2 ? 10 : -10)) + " L160," + (y2 + (y1 > y2 ? 2 : -2)) + " L166," + (y2 + (y1 > y2 ? 10 : -10)),
+      stroke: "#ffd54f", "stroke-width": 2.5, fill: "none"
+    }));
+    jumpArrow.appendChild(el("circle", { cx: 160, cy: y1, r: 4, fill: "#4caf50" }));
+    jumpArrow.appendChild(el("circle", { cx: 160, cy: y2, r: 4, fill: "#ef5350" }));
+
+    const E1 = -13.6 / (ni * ni), E2 = -13.6 / (nf * nf);
+    const dE = Math.abs(E2 - E1);
+    const lambdaNm = 1240 / dE;
+    document.getElementById("niVal").textContent = ni;
+    document.getElementById("nfVal").textContent = nf;
+    document.getElementById("dEOwner").textContent = dE.toFixed(2);
+    document.getElementById("lambdaOut").textContent = lambdaNm < 1000 ? lambdaNm.toFixed(0) : (lambdaNm / 1000).toFixed(2) + "μ";
+    const series = SERIES[nf] || "Series";
+    document.getElementById("seriesOut").textContent = series;
+    document.getElementById("photonTxt").textContent = "Photon: ΔE = " + dE.toFixed(2) + " eV  →  λ = " +
+      (lambdaNm < 1000 ? lambdaNm.toFixed(0) + " nm" : (lambdaNm / 1000).toFixed(2) + " μm");
+  }
+  niS.addEventListener("input", draw);
+  nfS.addEventListener("input", draw);
+  draw();
+})();
+</script>
+</body>
+</html>

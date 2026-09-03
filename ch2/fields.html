@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magnetic Fields from Currents — Chapter 2: Magnetic Effect — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch2-fields">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 2 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 2</a><span class="sep">›</span> Fields from Currents</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="flux.html">Magnetic Flux</a>
+    <a href="fields.html" class="active">Fields from Currents</a>
+    <a href="force.html">Magnetic Force</a>
+    <a href="torque.html">Torque &amp; Dipole Moment</a>
+    <a href="instruments.html">Measuring Instruments</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 2</span>
+  <h1>Magnetic Fields from Currents</h1>
+  <p style="color:var(--muted)">Oersted's discovery: every electric current is surrounded by a magnetic field.</p>
+
+  <h2 class="section-title">The Right-Hand Grip Rule</h2>
+  <div class="panel">
+    <p>When a current flows, a magnetic field appears around it. To find the field's direction, imagine gripping the wire with your <strong>right hand</strong> so your <strong>thumb points along the current</strong>: your <strong>curled fingers</strong> then point in the direction of the <strong>magnetic field lines</strong> circling the wire.</p>
+    <div class="tip"><strong>Exam trap:</strong> it is the <em>right</em> hand for finding the field <em>around a current</em>, but Fleming's rule for the <em>force on a wire</em> uses the <em>left</em> hand. Don't mix them up!</div>
+  </div>
+
+  <h2 class="section-title">Field of a Straight Wire</h2>
+  <div class="panel">
+    <p>A straight wire carrying current I produces circular field lines centred on the wire. At a distance r from the wire (Ampère's circuital law):</p>
+    <div class="formula">B = μ₀ × I / (2π r)<span class="note">μ₀ = 4π × 10⁻⁷ T·m/A (permeability of air/vacuum), I in amperes, r in metres</span></div>
+    <p>Notice that B is proportional to I and inversely proportional to r — double the distance and the field halves.</p>
+    <h3>Neutral points</h3>
+    <p>The Earth itself has a magnetic field (B<sub>Earth</sub> ≈ 40 μT horizontally). When a wire's field at some point is <strong>equal in magnitude and opposite in direction</strong> to the Earth's field, the two cancel and the net field is zero. Such a point is called a <strong>neutral point</strong>, and there:</p>
+    <div class="formula">B<sub>wire</sub> = B<sub>Earth</sub>  →  μ₀ I / (2π r) = B<sub>Earth</sub><span class="note">used to find the distance r of the neutral point from the wire</span></div>
+  </div>
+
+  <h2 class="section-title">Field at the Centre of a Circular Coil</h2>
+  <div class="panel">
+    <p>Bending the wire into a coil of N turns of radius r, every turn adds its field at the centre (all pointing the same way):</p>
+    <div class="formula">B = μ₀ × N × I / (2 r)<span class="note">N = number of turns, r = coil radius in metres — more turns or a smaller coil gives a stronger field</span></div>
+  </div>
+
+  <h2 class="section-title">Field Inside a Solenoid</h2>
+  <div class="panel">
+    <p>A <strong>solenoid</strong> is a long wire wound into many close circular turns — an electromagnet. <strong>Inside</strong> a long solenoid the field is <strong>uniform</strong> (parallel, equally spaced lines), like the field inside a bar magnet; outside it resembles a bar magnet's field with N and S poles at the ends.</p>
+    <div class="formula">B = μ₀ × n × I<span class="note">n = number of turns per metre = N / L (L = solenoid length in m). The field inside is uniform and does not depend on position</span></div>
+    <div class="tip"><strong>Exam trap:</strong> for a solenoid use <strong>n = N/L</strong> (turns per metre), not N itself. Always convert the length to metres first!</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A solenoid has 500 turns over a length of 0.25 m and carries a current of 2 A. Find B inside.<br>
+    n = N / L = 500 / 0.25 = 2000 turns/m<br>
+    B = μ₀ n I = 4π×10⁻⁷ × 2000 × 2 = 8π×10⁻⁴ ≈ <strong>5.03 × 10⁻³ T = 5.03 mT</strong>
+  </div>
+
+  <div class="example">
+    <strong>Worked example (neutral point):</strong> A long straight wire carries 50 A. Where is the neutral point if the Earth's horizontal field is 4 × 10⁻⁵ T?<br>
+    Set μ₀I / (2πr) = B<sub>Earth</sub>:  r = μ₀I / (2π B<sub>Earth</sub>) = (2×10⁻⁷ × 50) / (4×10⁻⁵) = 10⁻⁵ / (4×10⁻⁵) = <strong>0.25 m</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Field Source Calculator</h2>
+  <div class="sim">
+    <h3>Pick a source and see its magnetic field</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg">
+          <g id="srcDrawing"></g>
+          <text x="170" y="168" fill="#ff9800" font-size="14" text-anchor="middle" font-weight="bold" id="srcResult">B = ?</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Source</label>
+          <select id="srcSel" style="width:100%;padding:8px;border-radius:8px;background:#0d1420;color:#e8e8f0;border:1px solid #1b2f45">
+            <option value="wire">Straight wire</option>
+            <option value="coil">Circular coil (center)</option>
+            <option value="solenoid" selected>Solenoid (inside)</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Current (I) <span class="val" id="fiVal">2.0 A</span></label>
+          <input type="range" id="fiSlider" min="0.5" max="10" step="0.5" value="2">
+        </div>
+        <div class="control">
+          <label id="geoLabel">Turns per metre (n) <span class="val" id="fgVal">2000 /m</span></label>
+          <input type="range" id="fgSlider" min="1" max="40" step="1" value="20">
+        </div>
+        <div class="control">
+          <label id="nLabel">Turns N (coil only) <span class="val" id="fnVal">20</span></label>
+          <input type="range" id="fnSlider" min="1" max="100" step="1" value="20">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="bOut">5.027</div><div class="lbl">B (×10⁻³ T)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)" id="srcFormula">B = μ₀ n I</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="flux.html">← Magnetic Flux</a>
+    <a href="force.html">Next: Magnetic Force →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const srcSel = document.getElementById("srcSel");
+  const fiS = document.getElementById("fiSlider");
+  const fgS = document.getElementById("fgSlider");
+  const fnS = document.getElementById("fnSlider");
+  const fiVal = document.getElementById("fiVal");
+  const fgVal = document.getElementById("fgVal");
+  const fnVal = document.getElementById("fnVal");
+  const geoLabel = document.getElementById("geoLabel");
+  const nLabel = document.getElementById("nLabel");
+  const bOut = document.getElementById("bOut");
+  const srcResult = document.getElementById("srcResult");
+  const srcFormula = document.getElementById("srcFormula");
+  const srcDrawing = document.getElementById("srcDrawing");
+  const NS = "http://www.w3.org/2000/svg";
+  const MU0 = 4 * Math.PI * 1e-7;
+
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function drawSrc() {
+    srcDrawing.innerHTML = "";
+    const t = srcSel.value;
+    if (t === "wire") {
+      srcDrawing.appendChild(el("circle", { cx: 170, cy: 80, r: 8, fill: "#ff9800" }));
+      srcDrawing.appendChild(el("text", { x: 170, y: 85, fill: "#0a0a0f", "font-size": 12, "text-anchor": "middle" }, "•"));
+      for (const r of [28, 48, 68]) {
+        srcDrawing.appendChild(el("ellipse", { cx: 170, cy: 80, rx: r, ry: r * 0.45, fill: "none", stroke: "#7fd3ff", "stroke-width": 1.5, "stroke-dasharray": "5 4" }));
+      }
+      srcDrawing.appendChild(el("text", { x: 170, y: 30, fill: "#7fd3ff", "font-size": 11, "text-anchor": "middle" }, "circular field lines"));
+    } else if (t === "coil") {
+      srcDrawing.appendChild(el("ellipse", { cx: 170, cy: 80, rx: 45, ry: 16, fill: "none", stroke: "#ff9800", "stroke-width": 3 }));
+      srcDrawing.appendChild(el("circle", { cx: 170, cy: 80, r: 5, fill: "#7fd3ff" }));
+      srcDrawing.appendChild(el("text", { x: 170, y: 55, fill: "#7fd3ff", "font-size": 11, "text-anchor": "middle" }, "B at center"));
+    } else {
+      for (let i = 0; i < 6; i++) {
+        const x = 100 + i * 28;
+        srcDrawing.appendChild(el("ellipse", { cx: x, cy: 80, rx: 10, ry: 34, fill: "none", stroke: "#ff9800", "stroke-width": 2.5 }));
+      }
+      srcDrawing.appendChild(el("line", { x1: 60, y1: 46, x2: 280, y2: 46, stroke: "#7fd3ff", "stroke-width": 1.5, "stroke-dasharray": "4 4" }));
+      srcDrawing.appendChild(el("line", { x1: 60, y1: 114, x2: 280, y2: 114, stroke: "#7fd3ff", "stroke-width": 1.5, "stroke-dasharray": "4 4" }));
+      srcDrawing.appendChild(el("text", { x: 170, y: 30, fill: "#7fd3ff", "font-size": 11, "text-anchor": "middle" }, "uniform B inside"));
+    }
+  }
+
+  function updateField() {
+    const I = +fiS.value, g = +fgS.value, N = +fnS.value;
+    let B;
+    const t = srcSel.value;
+    if (t === "wire") {
+      const rCm = g * 2;                 // slider → r in cm (2..80)
+      const r = rCm / 100;
+      B = MU0 * I / (2 * Math.PI * r);
+      geoLabel.textContent = "Distance r";
+      fgVal.textContent = rCm + " cm";
+      nLabel.style.display = "none";
+      fnS.style.display = "none";
+      srcFormula.textContent = "B = μ₀ I / (2πr)";
+      srcResult.textContent = "B = " + (B * 1e6).toFixed(2) + " μT  at r = " + rCm + " cm";
+    } else if (t === "coil") {
+      const rCm = g * 0.5 + 2;           // slider → radius cm (2.5..22)
+      const r = rCm / 100;
+      B = MU0 * N * I / (2 * r);
+      geoLabel.textContent = "Coil radius r";
+      fgVal.textContent = rCm.toFixed(1) + " cm";
+      nLabel.style.display = "";
+      fnS.style.display = "";
+      fnVal.textContent = N + " turns";
+      srcFormula.textContent = "B = μ₀ N I / (2r)";
+      srcResult.textContent = "B = " + (B * 1e6).toFixed(2) + " μT  at center";
+    } else {
+      const n = g * 100;                 // slider → turns/m (100..4000)
+      B = MU0 * n * I;
+      geoLabel.textContent = "Turns per metre (n)";
+      fgVal.textContent = n + " /m";
+      nLabel.style.display = "none";
+      fnS.style.display = "none";
+      srcFormula.textContent = "B = μ₀ n I";
+      srcResult.textContent = "B = " + (B * 1e3).toFixed(2) + " mT  inside";
+    }
+    fiVal.textContent = I.toFixed(1) + " A";
+    bOut.textContent = (B * 1e3).toFixed(3);
+  }
+  srcSel.addEventListener("change", () => { drawSrc(); updateField(); });
+  fiS.addEventListener("input", updateField);
+  fgS.addEventListener("input", updateField);
+  fnS.addEventListener("input", updateField);
+  drawSrc(); updateField();
+})();
+</script>
+</body>
+</html>

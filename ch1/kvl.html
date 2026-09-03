@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirchhoff's Voltage Law (KVL) — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="kvl">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 1 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 1</a><span class="sep">›</span> Kirchhoff's Voltage Law (KVL)</div><div class="chapter-nav"><a href="index.html">Overview</a><a href="basics.html">Basic Concepts</a><a href="resistivity.html">Resistivity & Power</a><a href="connections.html">Series & Parallel</a><a href="ohm-circuit.html">Ohm's Law</a><a href="brightness.html">Brightness & Keys</a><a href="kcl.html">KCL</a><a href="kvl.html" class="active">KVL</a></div>
+  <span class="chip">Topic 7</span>
+  <h1>Kirchhoff's Voltage Law (KVL)</h1>
+
+  <h2 class="section-title">The Loop Rule</h2>
+  <div class="panel">
+    <p>Kirchhoff's Voltage Law deals with any <strong>closed loop</strong> in a circuit. The law says:</p>
+    <div class="formula">Σ V = 0 &nbsp;around any closed loop<span class="note">Voltage rises (batteries) = voltage drops (resistors), always</span></div>
+    <p>This is the <strong>conservation of energy</strong>: a coulomb of charge gains energy passing through the battery, and it must give up <em>exactly</em> that much energy passing through the resistors — otherwise it would return to the battery with extra energy, which is impossible.</p>
+    <p>For a single loop with one battery:</p>
+    <div class="formula">EMF = I·R₁ + I·R₂ + I·r + …<span class="note">Every volt gained in the battery is spent across the resistances</span></div>
+    <div class="tip"><strong>Sign convention:</strong> going around the loop, take a battery from − to + as <strong>+EMF</strong>, and cross a resistor in the direction of the current as <strong>−I·R</strong> (a drop). The sum must cancel to zero.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A 12 V battery drives a loop with R₁ = 4 Ω and R₂ = 8 Ω. Verify KVL.<br>
+    I = 12 / (4 + 8) = 1 A.<br>
+    Drop on R₁ = 1 × 4 = 4 V; drop on R₂ = 1 × 8 = 8 V.<br>
+    KVL: +12 − 4 − 8 = <strong>0 ✓</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Loop Simulator</h2>
+  <div class="sim">
+    <h3>Walk the loop and watch the voltages cancel to zero</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 430 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- loop -->
+          <path d="M80,200 L80,55 L300,55 L300,200 L80,200" fill="none" stroke="#3a3a55" stroke-width="3"/>
+          <!-- battery left -->
+          <rect x="54" y="110" width="52" height="38" fill="#0a0a0f" stroke="none"/>
+          <line x1="60" y1="119" x2="100" y2="119" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="68" y1="129" x2="92" y2="129" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="60" y1="139" x2="100" y2="139" stroke="#7fd3ff" stroke-width="1.5"/>
+          <text x="118" y="135" fill="#7fd3ff" font-size="12" id="emf2">12 V (+rise)</text>
+          <!-- R1 top -->
+          <path d="M130,55 L140,43 L155,67 L170,43 L185,67 L200,43 L215,67 L225,55" fill="none" stroke="#ff9800" stroke-width="3"/>
+          <text x="177" y="30" fill="#ff9800" font-size="12" text-anchor="middle" id="r1v">V₁ = 4 V (−drop)</text>
+          <text x="177" y="90" fill="#9a9ab0" font-size="11" text-anchor="middle" id="r1n">R₁ = 4 Ω</text>
+          <!-- R2 right -->
+          <path d="M300,85 L288,95 L312,110 L288,125 L312,140 L288,155 L300,165" fill="none" stroke="#ff9800" stroke-width="3"/>
+          <text x="345" y="128" fill="#ff9800" font-size="12" text-anchor="middle" id="r2v">V₂ = 8 V</text>
+          <text x="345" y="145" fill="#9a9ab0" font-size="11" text-anchor="middle" id="r2n">R₂ = 8 Ω</text>
+          <!-- travelling charge dot -->
+          <circle id="walker" cx="80" cy="200" r="7" fill="#fff7c0"/>
+          <g id="dots2"></g>
+          <path id="loopPath2" d="M80,200 L80,55 L300,55 L300,200 L80,200" fill="none" stroke="none"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Battery EMF <span class="val" id="eVal2">12 V</span></label>
+          <input type="range" id="eSlider2" min="2" max="24" step="1" value="12">
+        </div>
+        <div class="control">
+          <label>R₁ <span class="val" id="r1Val">4 Ω</span></label>
+          <input type="range" id="r1Slider" min="1" max="20" step="1" value="4">
+        </div>
+        <div class="control">
+          <label>R₂ <span class="val" id="r2Val">8 Ω</span></label>
+          <input type="range" id="r2Slider" min="1" max="20" step="1" value="8">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="iOut4">1.00</div><div class="lbl">Loop current I (A)</div></div>
+          <div class="readout"><div class="num good" id="kvlOut">+12 − 4 − 8 = 0 ✓</div><div class="lbl">KVL check</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Whatever you set, the drops on R₁ and R₂ always add up to the EMF. Energy is perfectly conserved around the loop.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="kcl.html">← Previous: KCL</a>
+    <a href="index.html">Back to Home →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const eS = document.getElementById("eSlider2");
+  const r1S = document.getElementById("r1Slider");
+  const r2S = document.getElementById("r2Slider");
+  const eVal = document.getElementById("eVal2");
+  const r1Val = document.getElementById("r1Val");
+  const r2Val = document.getElementById("r2Val");
+  const iOut = document.getElementById("iOut4");
+  const kvlOut = document.getElementById("kvlOut");
+  const emf2 = document.getElementById("emf2");
+  const r1v = document.getElementById("r1v");
+  const r2v = document.getElementById("r2v");
+  const r1n = document.getElementById("r1n");
+  const r2n = document.getElementById("r2n");
+  const walker = document.getElementById("walker");
+
+  const anim = animateCurrent("loopPath2", "dots2", { on: true, speed: 40, count: 9, color: "#ffd54f" });
+
+  /* Move the "walker" charge along the loop continuously */
+  const path = document.getElementById("loopPath2");
+  const len = path.getTotalLength();
+  let t = 0, last = performance.now();
+  function walk(now) {
+    const dt = (now - last) / 1000; last = now;
+    t = (t + dt * 0.12) % 1;
+    const p = path.getPointAtLength(t * len);
+    walker.setAttribute("cx", p.x);
+    walker.setAttribute("cy", p.y);
+    requestAnimationFrame(walk);
+  }
+  requestAnimationFrame(walk);
+
+  function update() {
+    const E = +eS.value, R1 = +r1S.value, R2 = +r2S.value;
+    const I = E / (R1 + R2);
+    const V1 = I * R1, V2 = I * R2;
+    eVal.textContent = E + " V";
+    r1Val.textContent = R1 + " Ω";
+    r2Val.textContent = R2 + " Ω";
+    iOut.textContent = I.toFixed(2);
+    kvlOut.textContent = "+" + E + " − " + V1.toFixed(0) + " − " + V2.toFixed(0) + " = 0 ✓";
+    emf2.textContent = E + " V (+rise)";
+    r1v.textContent = "V₁ = " + V1.toFixed(1) + " V (−drop)";
+    r2v.textContent = "V₂ = " + V2.toFixed(1) + " V (−drop)";
+    r1n.textContent = "R₁ = " + R1 + " Ω";
+    r2n.textContent = "R₂ = " + R2 + " Ω";
+    setAnimSpeed(anim, Math.max(4, I * 26));
+  }
+  eS.addEventListener("input", update);
+  r1S.addEventListener("input", update);
+  r2S.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

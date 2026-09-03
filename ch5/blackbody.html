@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Body Radiation &amp; Quanta — Chapter 5: Wave-Particle Duality — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch5-blackbody">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 5 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 5</a><span class="sep">›</span> Black Body Radiation &amp; Quanta</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="blackbody.html" class="active">Black Body &amp; Quanta</a>
+    <a href="photoelectric.html">Photoelectric Effect</a>
+    <a href="compton.html">Compton &amp; E=mc²</a>
+    <a href="debroglie.html">De Broglie &amp; Microscope</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 5</span>
+  <h1>Black Body Radiation &amp; Quanta</h1>
+  <p style="color:var(--muted)">Where quantum physics began: a hot glow that classical physics could not explain — until Planck took a daring idea seriously.</p>
+
+  <h2 class="section-title">What Is a Black Body?</h2>
+  <div class="panel">
+    <p>A <strong>black body</strong> is an ideal object that <strong>absorbs all radiation falling on it</strong> — it reflects nothing. Because it is in thermal equilibrium, it is also a perfect <em>emitter</em>: it re-emits radiation with a spectrum that depends <strong>only on its temperature</strong>, not on what it is made of. A good real-life approximation is a small hole into a hot cavity, or the glowing filament of a lamp — and stars behave very much like black bodies.</p>
+    <p>As you heat a body: it first glows <span style="color:#ff4b2e"><strong>dull red</strong></span>, then <span style="color:#ffe14a"><strong>bright orange-yellow</strong></span>, and if hot enough it turns <span style="color:#9db4ff"><strong>white-blue</strong></span>. The colour change is a clue about the radiation's spectrum.</p>
+  </div>
+
+  <h2 class="section-title">The Ultraviolet Catastrophe</h2>
+  <div class="panel">
+    <p>Classical physics predicted that a hot body should radiate an unlimited amount of energy at high frequencies — the curve keeps rising into the ultraviolet forever. Experiment disagrees: the curve rises, peaks, then falls. This total failure of the classical prediction is remembered as the <strong>"ultraviolet catastrophe"</strong>: classical theory wrongly predicted infinite radiation at short wavelengths.</p>
+  </div>
+
+  <h2 class="section-title">Planck's Hypothesis — Energy Comes in Quanta</h2>
+  <div class="panel">
+    <p>In 1900 <strong>Max Planck</strong> fixed the problem with a revolutionary assumption: matter does not exchange energy continuously — it exchanges it in <strong>discrete packets called quanta</strong>. A body can emit or absorb <em>one quantum, two quanta, three quanta…</em> but never a fraction of a quantum. The energy of one quantum is proportional to the frequency of the radiation:</p>
+    <div class="formula">E = h × f<span class="note">h = 6.625 × 10⁻³⁴ J·s (Planck's constant), f = frequency of the radiation (Hz)</span></div>
+    <p>Higher frequency ⇒ bigger quanta. That is why hot bodies do not pour out unlimited ultraviolet energy: a single ultraviolet quantum costs a lot of energy, and the atoms simply cannot afford many of them.</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Find the energy (in joules and in eV) of one quantum of radiation with frequency f = 6 × 10¹⁴ Hz.<br>
+    E = h·f = 6.625×10⁻³⁴ × 6×10¹⁴ = <strong>3.975 × 10⁻¹⁹ J</strong><br>
+    In electron-volts: E = 3.975×10⁻¹⁹ / 1.6×10⁻¹⁹ ≈ <strong>2.5 eV</strong>
+  </div>
+
+  <h2 class="section-title">The Electromagnetic Spectrum</h2>
+  <div class="panel">
+    <p>All electromagnetic waves travel at the same speed c = 3×10⁸ m/s, but they differ in frequency (and therefore wavelength, since c = λ·f). Ordered by <strong>increasing frequency</strong>:</p>
+    <div class="sim-svg">
+      <svg viewBox="0 0 640 90" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="visBand" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8f5cf6"/><stop offset="0.25" stop-color="#4f7dff"/>
+            <stop offset="0.5" stop-color="#7ee34a"/><stop offset="0.75" stop-color="#ffe14a"/>
+            <stop offset="1" stop-color="#ff4b2e"/>
+          </linearGradient>
+          <marker id="specArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#ff9800"/>
+          </marker>
+        </defs>
+        <rect x="20" y="26" width="120" height="26" fill="#26314a" rx="4"/>
+        <rect x="140" y="26" width="100" height="26" fill="#1f3a52" rx="4"/>
+        <rect x="240" y="26" width="80" height="26" fill="#5a2a33" rx="4"/>
+        <rect x="320" y="26" width="90" height="26" fill="url(#visBand)" rx="4"/>
+        <rect x="410" y="26" width="80" height="26" fill="#4a2a66" rx="4"/>
+        <rect x="490" y="26" width="70" height="26" fill="#2a4a66" rx="4"/>
+        <rect x="560" y="26" width="60" height="26" fill="#264a3a" rx="4"/>
+        <text x="80" y="44" fill="#9a9ab0" font-size="12" text-anchor="middle">Radio</text>
+        <text x="190" y="44" fill="#9a9ab0" font-size="12" text-anchor="middle">Micro</text>
+        <text x="280" y="44" fill="#ff8a80" font-size="12" text-anchor="middle">IR</text>
+        <text x="365" y="18" fill="#7fd3ff" font-size="11" text-anchor="middle">Visible</text>
+        <text x="450" y="44" fill="#c8a2ff" font-size="12" text-anchor="middle">UV</text>
+        <text x="525" y="44" fill="#7fd3ff" font-size="12" text-anchor="middle">X-ray</text>
+        <text x="590" y="44" fill="#7de3a0" font-size="12" text-anchor="middle">Gamma</text>
+        <line x1="20" y1="70" x2="612" y2="70" stroke="#ff9800" stroke-width="2" marker-end="url(#specArrow)"/>
+        <text x="316" y="86" fill="#9a9ab0" font-size="11" text-anchor="middle">increasing frequency f (shorter wavelength λ)</text>
+      </svg>
+    </div>
+    <div class="legend">Radio → Microwaves → Infrared → Visible light → Ultraviolet → X-rays → Gamma rays. Since E = h·f, gamma photons carry far more energy than radio photons.</div>
+  </div>
+
+  <h2 class="section-title">Wien's Displacement Law</h2>
+  <div class="panel">
+    <p>Look at the black-body curve: it has a <strong>peak</strong> at one particular wavelength λ<sub>max</sub>. As the temperature rises, the whole curve grows and its <strong>peak shifts toward shorter wavelengths</strong> (bluer light). Wien's law links them:</p>
+    <div class="formula">λ<sub>max</sub> × T = 2.9 × 10⁻³ m·K<span class="note">λ_max in metres, T in kelvin — hotter ⇒ peak shifts bluer</span></div>
+    <ul class="clean">
+      <li>A cool star (3000 K) peaks in the infrared/red → looks <strong>reddish</strong>.</li>
+      <li>The Sun (≈ 5800 K) peaks in the visible → looks <strong>yellow-white</strong>.</li>
+      <li>A very hot star (10 000 K+) peaks in the ultraviolet → looks <strong>blue-white</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> The Sun's surface temperature is about 5800 K. Find the wavelength of its peak radiation.<br>
+    λ<sub>max</sub> = 2.9×10⁻³ / T = 2.9×10⁻³ / 5800 = <strong>5 × 10⁻⁷ m = 500 nm</strong> — right in the visible (green-blue) region, which is why the Sun looks yellow-white and our eyes evolved to see this range.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Star Temperature Explorer</h2>
+  <div class="sim">
+    <h3>Drag the temperature — watch the star's colour and its peak wavelength</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="starGlow">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+              <stop offset="0.4" stop-color="#ffd54f" stop-opacity="0.55"/>
+              <stop offset="1" stop-color="#ffd54f" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- background stars -->
+          <circle cx="300" cy="40" r="1.2" fill="#556"/><circle cx="330" cy="90" r="1" fill="#445"/>
+          <circle cx="280" cy="160" r="1.3" fill="#556"/><circle cx="320" cy="200" r="1" fill="#445"/>
+          <circle cx="40" cy="50" r="1.1" fill="#556"/><circle cx="30" cy="190" r="1" fill="#445"/>
+          <circle cx="180" cy="110" r="34" fill="url(#starGlow)" id="glowOuter"/>
+          <circle cx="180" cy="110" r="24" fill="url(#starGlow)" id="glowInner"/>
+          <circle cx="180" cy="110" r="15" id="starBody" fill="#ffd54f"/>
+          <text x="180" y="172" fill="#e8e8f0" font-size="13" text-anchor="middle" font-weight="bold" id="tempTxt">T = 5800 K</text>
+          <text x="180" y="190" fill="#9a9ab0" font-size="11" text-anchor="middle" id="colorTxt">appears yellow-white</text>
+          <!-- wavelength position bar: log scale 100 nm → 2000 nm -->
+          <text x="180" y="212" fill="#9a9ab0" font-size="10" text-anchor="middle">position of λ_max :</text>
+          <g id="wlBar">
+            <rect x="40" y="220" width="74" height="12" fill="#4a2a66" rx="2"/>
+            <rect x="114" y="220" width="98" height="12" fill="url(#visBand)" rx="0"/>
+            <rect x="212" y="220" width="108" height="12" fill="#5a2a33" rx="2"/>
+            <text x="40" y="245" fill="#556" font-size="9">100 nm</text>
+            <text x="163" y="245" fill="#556" font-size="9" text-anchor="middle">visible</text>
+            <text x="320" y="245" fill="#556" font-size="9" text-anchor="end">2000 nm</text>
+            <polygon id="wlMarker" points="0,216 5,226 0,236" fill="#ffd54f"/>
+          </g>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Star surface temperature <span class="val" id="tVal">5800 K</span></label>
+          <input type="range" id="tSlider" min="2000" max="12000" step="100" value="5800">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="wlOut">500</div><div class="lbl">λ_max (nm)</div></div>
+          <div class="readout"><div class="num warn" id="regionOut">Visible</div><div class="lbl">Spectral region</div></div>
+          <div class="readout"><div class="num good" id="evOut">2.48</div><div class="lbl">E of peak photon (eV)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Cool stars peak in the infrared and look red; hot stars peak in the ultraviolet and look blue-white. The photon energy shown is E = 1240/λ_max (eV).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> From Wien's law, λ<sub>max</sub>·T = constant — so <em>λ<sub>max</sub> is inversely proportional to T</em>. Double the absolute temperature ⇒ half the peak wavelength. And from Planck, E = h·f = h·c/λ: shorter wavelength ⇒ higher photon energy.
+  </div>
+
+  <div class="pager">
+    <a href="index.html">← Chapter 5 Overview</a>
+    <a href="photoelectric.html">Next: The Photoelectric Effect →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const tS = document.getElementById("tSlider");
+  const star = document.getElementById("starBody");
+  const glowIn = document.getElementById("glowInner");
+  const glowOut = document.getElementById("glowOuter");
+  const marker = document.getElementById("wlMarker");
+
+  // visible-spectrum colour stops [nm, r,g,b]
+  const STOPS = [[380,[143,92,246]],[450,[79,125,255]],[500,[47,214,195]],[550,[126,227,74]],
+                 [580,[255,225,74]],[620,[255,155,61]],[700,[255,75,46]],[780,[196,42,18]]];
+
+  function wlToColor(nm) {
+    if (nm < 380) return "rgb(157,180,255)";   // UV-peaked star → blue-white
+    if (nm > 780) return "rgb(190,42,20)";     // IR-peaked star → deep red
+    for (let i = 0; i < STOPS.length - 1; i++) {
+      const [w1, c1] = STOPS[i], [w2, c2] = STOPS[i + 1];
+      if (nm >= w1 && nm <= w2) {
+        const t = (nm - w1) / (w2 - w1);
+        const c = c1.map((v, k) => Math.round(v + t * (c2[k] - v)));
+        return "rgb(" + c.join(",") + ")";
+      }
+    }
+    return "rgb(196,42,18)";
+  }
+
+  function region(nm) {
+    if (nm < 380) return "Ultraviolet";
+    if (nm < 450) return "Violet / blue";
+    if (nm < 500) return "Blue / cyan";
+    if (nm < 565) return "Green";
+    if (nm < 590) return "Yellow";
+    if (nm < 625) return "Orange";
+    if (nm < 750) return "Red";
+    if (nm < 1000) return "Near infrared";
+    return "Infrared";
+  }
+
+  function describe(nm) {
+    if (nm < 380) return "appears blue-white";
+    if (nm < 500) return "appears blue-white";
+    if (nm < 590) return "appears yellow-white";
+    if (nm < 625) return "appears yellow-orange";
+    return "appears reddish";
+  }
+
+  // marker on log scale 100 → 2000 nm, bar spans x = 40 → 320
+  function markerX(nm) {
+    const lg = Math.log10(nm / 100) / Math.log10(20);
+    return 40 + lg * 280;
+  }
+
+  function update() {
+    const T = +tS.value;
+    const lam = 2.9e-3 / T;          // metres
+    const nm = lam * 1e9;            // nanometres
+    const col = wlToColor(nm);
+
+    document.getElementById("tVal").textContent = T.toLocaleString("en") + " K";
+    document.getElementById("wlOut").textContent = nm.toFixed(nm < 100 ? 1 : 0);
+    document.getElementById("regionOut").textContent = region(nm);
+    document.getElementById("evOut").textContent = (1240 / nm).toFixed(2);
+    document.getElementById("tempTxt").textContent = "T = " + T.toLocaleString("en") + " K";
+    document.getElementById("colorTxt").textContent = describe(nm);
+
+    star.setAttribute("fill", col);
+    glowIn.setAttribute("fill", col);
+    glowOut.setAttribute("fill", col);
+    marker.setAttribute("transform", "translate(" + markerX(nm).toFixed(1) + ",0)");
+  }
+  tS.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

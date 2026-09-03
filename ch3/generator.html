@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AC Generator (Dynamo) — Chapter 3: Electromagnetic Induction — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch3-generator">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 3 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 3</a><span class="sep">›</span> The AC Generator (Dynamo)</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="faraday.html">Faraday &amp; Lenz</a>
+    <a href="wire.html">Moving Wire</a>
+    <a href="mutual-self.html">Mutual &amp; Self Induction</a>
+    <a href="generator.html" class="active">AC Generator</a>
+    <a href="motor.html">DC Motor</a>
+    <a href="transformer.html">Transformer</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 3</span>
+  <h1>The AC Generator (Dynamo)</h1>
+
+  <h2 class="section-title">Structure</h2>
+  <div class="panel">
+    <p>An AC generator converts <strong>mechanical energy → electrical energy</strong> using Faraday's law. Its main parts:</p>
+    <ul class="clean">
+      <li>A rectangular <strong>coil</strong> that rotates at constant angular speed ω.</li>
+      <li>A <strong>uniform magnetic field</strong> between two pole pieces (N and S).</li>
+      <li>Two <strong>slip rings</strong> fixed to the coil's ends, rotating with it.</li>
+      <li>Two stationary <strong>brushes</strong> pressing on the slip rings, connecting the coil to the external circuit.</li>
+    </ul>
+    <p>Because the coil rotates, the flux through it changes continuously — a <strong>sinusoidal (AC) EMF</strong> is induced. Slip rings (unlike the motor's split-ring commutator) keep each end always connected to the same brush, so the output alternates smoothly.</p>
+  </div>
+
+  <h2 class="section-title">The Equations</h2>
+  <div class="panel">
+    <p>As the coil turns, the angle between the coil's normal and B is θ = ωt, so the EMF varies as a sine:</p>
+    <div class="formula">e = V<sub>m</sub> × sin θ = V<sub>m</sub> × sin (ωt)<span class="note">e = instantaneous EMF (V); θ = ωt is the angle the coil has turned through; ω in rad/s</span></div>
+    <div class="formula">V<sub>m</sub> = N × B × A × ω<span class="note">the maximum (peak) EMF: N = turns, B in tesla, A = coil area in m², ω = angular speed in rad/s</span></div>
+    <div class="formula">ω = 2πf<span class="note">f = frequency = number of complete rotations per second (Hz)</span></div>
+    <h3>The effective (RMS) value</h3>
+    <p>An AC voltage with peak V<sub>m</sub> delivers the <em>same heating power</em> as a DC voltage of V<sub>eff</sub>:</p>
+    <div class="formula">V<sub>eff</sub> (RMS) = V<sub>m</sub> / √2 ≈ 0.707 × V<sub>m</sub><span class="note">this is the value an AC voltmeter reads — e.g. mains "220 V" is the RMS value, with a peak of about 311 V</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example 1:</strong> A generator gives a peak EMF of 311 V. Find the effective value.<br>
+    V_eff = V_m / √2 = 311 / 1.414 ≈ <strong>220 V</strong> (the familiar mains value!)
+  </div>
+
+  <div class="example">
+    <strong>Worked example 2:</strong> A coil of 100 turns, area 0.02 m², rotates at ω = 100 rad/s in a field of 0.5 T. Find V_m and the frequency.<br>
+    V_m = N B A ω = 100 × 0.5 × 0.02 × 100 = <strong>100 V</strong><br>
+    f = ω / 2π = 100 / (2 × 3.1416) ≈ <strong>15.9 Hz</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Sine Wave &amp; RMS Simulator</h2>
+  <div class="sim">
+    <h3>Watch the sine wave — set the peak, read the effective value</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg">
+          <line x1="30" y1="90" x2="320" y2="90" stroke="#2a2a40" stroke-width="1.5"/>
+          <path id="sine" d="" fill="none" stroke="#7fd3ff" stroke-width="3"/>
+          <line id="rmsLine" x1="30" y1="50" x2="320" y2="50" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line id="rmsLine2" x1="30" y1="130" x2="320" y2="130" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <text x="322" y="47" fill="#4caf50" font-size="10" text-anchor="end">+V_eff</text>
+          <text x="322" y="143" fill="#4caf50" font-size="10" text-anchor="end">−V_eff</text>
+          <circle id="sineDot" cx="30" cy="90" r="5" fill="#ffd54f"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Peak EMF (V_m) <span class="val" id="vmVal">311 V</span></label>
+          <input type="range" id="vmSlider" min="10" max="400" step="1" value="311">
+        </div>
+        <div class="control">
+          <label>Frequency (f) <span class="val" id="frVal">50 Hz</span></label>
+          <input type="range" id="frSlider" min="1" max="120" step="1" value="50">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num good" id="rmsOut">220</div><div class="lbl">V effective (RMS)</div></div>
+          <div class="readout"><div class="num warn" id="wOut">314</div><div class="lbl">ω = 2πf (rad/s)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">The green dashed lines sit at 0.707 × peak — an AC meter would read this value even though the EMF keeps changing.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="mutual-self.html">← Mutual &amp; Self Induction</a>
+    <a href="motor.html">Next: DC Motor →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const vmS = document.getElementById("vmSlider");
+  const frS = document.getElementById("frSlider");
+  const sine = document.getElementById("sine");
+  const rmsLine = document.getElementById("rmsLine");
+  const rmsLine2 = document.getElementById("rmsLine2");
+  const sineDot = document.getElementById("sineDot");
+  const H = 40; // px amplitude for Vm = 400
+
+  function sineWave() {
+    const Vm = +vmS.value, f = +frS.value;
+    document.getElementById("vmVal").textContent = Vm + " V";
+    document.getElementById("frVal").textContent = f + " Hz";
+    const rms = Vm / Math.SQRT2;
+    document.getElementById("rmsOut").textContent = rms.toFixed(0);
+    document.getElementById("wOut").textContent = (2 * Math.PI * f).toFixed(0);
+    let d = "M30,90";
+    for (let x = 30; x <= 320; x += 2) {
+      const t = (x - 30) / (320 - 30);          // 0..1 over one period
+      d += " L" + x + "," + (90 - H * (Vm / 400) * Math.sin(2 * Math.PI * t));
+    }
+    sine.setAttribute("d", d);
+    const yR = 90 - H * (rms / 400);
+    rmsLine.setAttribute("y1", yR); rmsLine.setAttribute("y2", yR);
+    rmsLine2.setAttribute("y1", 180 - yR); rmsLine2.setAttribute("y2", 180 - yR);
+  }
+  vmS.addEventListener("input", sineWave);
+  frS.addEventListener("input", sineWave);
+  sineWave();
+
+  // single persistent animation loop for the moving dot
+  const t0 = performance.now();
+  function dot(now) {
+    const T = 4;  // seconds per visual period
+    const t = ((now - t0) / (T * 1000)) % 1;
+    const x = 30 + t * 290;
+    const y = 90 - H * (+vmS.value / 400) * Math.sin(2 * Math.PI * t);
+    sineDot.setAttribute("cx", x); sineDot.setAttribute("cy", y);
+    requestAnimationFrame(dot);
+  }
+  requestAnimationFrame(dot);
+})();
+</script>
+</body>
+</html>

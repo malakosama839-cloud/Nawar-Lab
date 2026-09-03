@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Helium-Neon Laser — Chapter 7: Lasers — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch7-hene">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 7 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 7</a><span class="sep">›</span> The Helium-Neon Laser</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="emission.html">Emission Types</a>
+    <a href="elements.html">Laser Elements</a>
+    <a href="hene.html" class="active">He-Ne Laser</a>
+    <a href="properties.html">Properties &amp; Uses</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 7</span>
+  <h1>The Helium-Neon Laser</h1>
+  <p style="color:var(--muted)">Helium does the pumping, neon does the lasing — and out comes the famous red beam.</p>
+
+  <h2 class="section-title">The Setup</h2>
+  <div class="panel">
+    <p>A glass tube contains a gas mixture of <strong>helium and neon in about a 10 : 1 ratio</strong> at low pressure, with an electrode at each end. An <strong>electric discharge</strong> (a high voltage current) runs through the gas — this is the <strong>electrical pumping</strong> of the laser. The tube is closed between two parallel mirrors: one fully reflecting, one partially transparent — the resonant cavity.</p>
+  </div>
+
+  <h2 class="section-title">Step by Step: How the Red Photon Is Born</h2>
+  <div class="panel">
+    <h3>Step 1 — Helium is excited</h3>
+    <p>Electrons in the discharge collide with helium atoms and lift them to a <strong>long-lived level at 20.61 eV</strong>. Helium is ideal because this level is metastable — the atoms stay there.</p>
+    <h3>Step 2 — Collisions transfer the energy</h3>
+    <p>Neon happens to have an excited level at almost exactly the same energy: <strong>20.66 eV</strong> (only 0.05 eV higher). When an excited helium atom collides with a relaxed neon atom, it <strong>hands over its 20.61 eV</strong> (the tiny difference comes from the collision's kinetic energy) and falls back to its ground state. Neon takes its place at 20.66 eV.</p>
+    <h3>Step 3 — Population inversion in neon</h3>
+    <p>Because helium keeps feeding it, neon accumulates <strong>more atoms at 20.66 eV than at the lower levels</strong> — the population inversion needed for amplification is built <em>in the neon</em>. This is why we say <strong>helium acts as the pumping agent for neon</strong>.</p>
+    <h3>Step 4 — The red transition</h3>
+    <p>A neon atom drops from 20.66 eV down to a level <strong>1.96 eV below</strong> (at 18.70 eV), emitting a photon. Stimulated emission in the cavity amplifies exactly this transition, and the beam escapes: the red He-Ne laser light.</p>
+    <div class="formula">λ = hc / ΔE = 1240 / ΔE<span class="note">ΔE in eV gives λ in nm — here ΔE = 1.96 eV</span></div>
+    <div class="formula">λ = 1240 / 1.96 ≈ <b>632.8 nm</b><span class="note">the standard red He-Ne laser line</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> The neon transition drops ΔE = 1.96 eV. Find the wavelength and frequency of the emitted light.<br>
+    In electron-volts: λ = hc/ΔE = 1240 / 1.96 ≈ 633 nm — the standard <strong>632.8 nm red line</strong>.<br>
+    In joules: ΔE = 1.96 × 1.6×10⁻¹⁹ = 3.14×10⁻¹⁹ J, so<br>
+    λ = hc/ΔE = (6.625×10⁻³⁴ × 3×10⁸) / (3.14×10⁻¹⁹) ≈ <strong>6.33×10⁻⁷ m ≈ 633 nm</strong> ✓<br>
+    Frequency: f = c/λ = 3×10⁸ / 6.33×10⁻⁷ ≈ <strong>4.7×10¹⁴ Hz</strong>.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: The He-Ne Energy Transfer</h2>
+  <div class="sim">
+    <h3>Watch the four steps — helium pumps, neon emits</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="trArrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#ff9800"/>
+            </marker>
+          </defs>
+          <!-- energy axis -->
+          <line x1="24" y1="200" x2="24" y2="50" stroke="#2a2a40" stroke-width="2" marker-end="url(#trArrow)"/>
+          <text x="18" y="40" fill="#9a9ab0" font-size="10" transform="rotate(-90 18 40)" text-anchor="end">Energy</text>
+          <!-- helium levels -->
+          <line x1="50" y1="190" x2="170" y2="190" stroke="#2a2a40" stroke-width="1.5"/>
+          <line x1="50" y1="72" x2="170" y2="72" stroke="#3a5a75" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="168" y="66" fill="#7fd3ff" font-size="10" text-anchor="end">20.61 eV (long-lived)</text>
+          <text x="110" y="212" fill="#7fd3ff" font-size="12" text-anchor="middle" font-weight="bold">Helium (pumper)</text>
+          <!-- neon levels -->
+          <line x1="270" y1="190" x2="410" y2="190" stroke="#2a2a40" stroke-width="1.5"/>
+          <line x1="270" y1="80" x2="410" y2="80" stroke="#3a5a75" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="408" y="74" fill="#7fd3ff" font-size="10" text-anchor="end">20.66 eV</text>
+          <line x1="270" y1="122" x2="410" y2="122" stroke="#3a5a75" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="408" y="116" fill="#7fd3ff" font-size="10" text-anchor="end">18.70 eV</text>
+          <text x="340" y="212" fill="#ff9800" font-size="12" text-anchor="middle" font-weight="bold">Neon (laser atom)</text>
+          <!-- electrons on levels -->
+          <circle id="heE" cx="110" cy="182" r="8" fill="#29b6f6"/>
+          <circle id="neE" cx="340" cy="182" r="8" fill="#29b6f6"/>
+          <!-- excitation glow -->
+          <circle id="heGlow" cx="110" cy="72" r="20" fill="#ffd54f" opacity="0"/>
+          <circle id="neGlow" cx="340" cy="80" r="20" fill="#ffd54f" opacity="0"/>
+          <!-- collision flash + transfer arrow -->
+          <circle id="collFlash" cx="228" cy="128" r="16" fill="#ff9800" opacity="0"/>
+          <line id="trLine" x1="165" y1="128" x2="275" y2="128" stroke="#ff9800" stroke-width="2.5" opacity="0" marker-end="url(#trArrow)"/>
+          <text id="trLabel" x="220" y="118" fill="#ff9800" font-size="10" text-anchor="middle" opacity="0">20.61 eV handed over</text>
+          <!-- emitted red photon -->
+          <g id="redPhoton" opacity="0">
+            <circle r="10" fill="#ff5e62" opacity="0.3"/>
+            <circle r="5" fill="#ff5e62"/>
+            <text y="-12" fill="#ff5e62" font-size="9" text-anchor="middle">λ = 632.8 nm</text>
+          </g>
+          <text x="230" y="235" fill="#e8e8f0" font-size="12" text-anchor="middle" font-weight="bold" id="heneStatus">—</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>The four steps</label>
+          <ol id="stepList" style="margin:0;padding-left:20px;font-size:0.85rem;color:var(--muted)">
+            <li id="step1" style="padding:3px 0">Discharge electron excites He → 20.61 eV</li>
+            <li id="step2" style="padding:3px 0">Excited He collides with a relaxed Ne atom</li>
+            <li id="step3" style="padding:3px 0">He falls back, Ne is excited to 20.66 eV → inversion</li>
+            <li id="step4" style="padding:3px 0">Ne drops 1.96 eV → red photon of 632.8 nm</li>
+          </ol>
+        </div>
+        <div class="control">
+          <label>Photon calculator: energy gap ΔE <span class="val" id="deVal">1.96 eV</span></label>
+          <input type="range" id="deSlider" min="0.5" max="4" step="0.01" value="1.96">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="lamOut">632.7</div><div class="lbl">λ = 1240/ΔE (nm)</div></div>
+          <div class="readout"><div class="num good" id="visOut">red (visible)</div><div class="lbl">Colour</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Try ΔE = 1.96 eV — that is the real neon transition: λ ≈ 632.8 nm, the red He-Ne line. Smaller gaps give redder (or invisible infrared) light; bigger gaps give bluer light.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> Don't mix up the numbers: <strong>helium is excited to 20.61 eV, neon's matching level is at 20.66 eV, and the laser transition in neon is 1.96 eV</strong> (20.66 → 18.70). And remember the mixture ratio ≈ <strong>10 : 1</strong> (He : Ne).
+  </div>
+
+  <div class="pager">
+    <a href="elements.html">← Elements of the Laser</a>
+    <a href="properties.html">Next: Properties &amp; Applications →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const heE = document.getElementById("heE");
+  const neE = document.getElementById("neE");
+  const heGlow = document.getElementById("heGlow");
+  const neGlow = document.getElementById("neGlow");
+  const collFlash = document.getElementById("collFlash");
+  const trLine = document.getElementById("trLine");
+  const trLabel = document.getElementById("trLabel");
+  const redPhoton = document.getElementById("redPhoton");
+  const heneStatus = document.getElementById("heneStatus");
+  const stepEls = [document.getElementById("step1"), document.getElementById("step2"), document.getElementById("step3"), document.getElementById("step4")];
+  const deS = document.getElementById("deSlider");
+
+  const HE_LOW = 182, HE_HIGH = 72, NE_LOW = 182, NE_MID = 122, NE_HIGH = 80;
+
+  const stageTexts = [
+    "Step 1 — the discharge excites helium to its long-lived 20.61 eV level",
+    "Step 2 — the excited He atom collides with a relaxed Ne atom",
+    "Step 3 — He falls back and hands 20.61 eV to Ne (20.66 eV level) → population inversion",
+    "Step 4 — Ne drops 1.96 eV and emits the red photon: λ = 1240/1.96 ≈ 632.8 nm"
+  ];
+
+  function lerp(a, b, t) { return a + (b - a) * Math.max(0, Math.min(1, t)); }
+  function hl(step) {
+    stepEls.forEach((el, i) => {
+      el.style.color = i === step ? "var(--cyan)" : "";
+      el.style.fontWeight = i === step ? "700" : "";
+    });
+  }
+
+  // cycle: stage1 [0,2), stage2 [2,3.4), stage3 [3.4,5.4), stage4 [5.4,7.6)
+  const CYCLE = 7.6;
+  let tc = 0, last = performance.now();
+
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000);
+    last = now;
+    tc += dt;
+    const T = tc % CYCLE;
+    let stage = 0;
+    if (T >= 5.4) stage = 3;
+    else if (T >= 3.4) stage = 2;
+    else if (T >= 2) stage = 1;
+    hl(stage);
+    heneStatus.textContent = stageTexts[stage];
+
+    let heY = HE_LOW, neY = NE_LOW;
+    heGlow.setAttribute("opacity", 0);
+    neGlow.setAttribute("opacity", 0);
+    collFlash.setAttribute("opacity", 0);
+    trLine.setAttribute("opacity", 0);
+    trLabel.setAttribute("opacity", 0);
+
+    if (T < 2) {                        // stage 1: He excited
+      heY = lerp(HE_LOW, HE_HIGH, (T - 0.2) / 0.6);
+      heGlow.setAttribute("opacity", T > 0.8 ? (0.35 + 0.2 * Math.sin(T * 20)).toFixed(2) : 0);
+    } else if (T < 3.4) {               // stage 2: collision
+      heY = HE_HIGH;
+      const p = (T - 2) / 1.4;
+      collFlash.setAttribute("opacity", (0.4 + 0.3 * Math.sin(p * 25)).toFixed(2));
+      heGlow.setAttribute("opacity", 0.4);
+    } else if (T < 5.4) {               // stage 3: transfer
+      const p = (T - 3.4) / 2;
+      heY = lerp(HE_HIGH, HE_LOW, (T - 3.4) / 0.5);
+      neY = lerp(NE_LOW, NE_HIGH, (T - 3.9) / 0.5);
+      trLine.setAttribute("opacity", p < 0.5 ? 1 : 0.3);
+      trLabel.setAttribute("opacity", 1);
+      neGlow.setAttribute("opacity", T > 3.9 ? 0.5 : 0);
+    } else {                            // stage 4: emission
+      const p = T - 5.4;
+      neY = lerp(NE_HIGH, NE_MID, Math.min(1, p / 0.5));
+      neGlow.setAttribute("opacity", p < 0.5 ? 0.5 : 0);
+      const px = 355 + 220 * p;
+      redPhoton.setAttribute("transform", "translate(" + px.toFixed(1) + "," + (NE_MID - 4) + ")");
+      redPhoton.setAttribute("opacity", px < 460 ? 1 : 0);
+    }
+    if (T < 5.4) redPhoton.setAttribute("opacity", 0);
+
+    heE.setAttribute("cy", heY.toFixed(1));
+    neE.setAttribute("cy", neY.toFixed(1));
+    requestAnimationFrame(frame);
+  }
+
+  function calc() {
+    const dE = +deS.value;
+    const lam = 1240 / dE;
+    document.getElementById("deVal").textContent = dE.toFixed(2) + " eV";
+    document.getElementById("lamOut").textContent = lam.toFixed(1);
+    const vis = document.getElementById("visOut");
+    if (lam >= 620) vis.textContent = "red (visible)";
+    else if (lam >= 570) vis.textContent = "yellow/orange (visible)";
+    else if (lam >= 495) vis.textContent = "green (visible)";
+    else if (lam >= 450) vis.textContent = "blue (visible)";
+    else if (lam >= 380) vis.textContent = "violet (visible)";
+    else vis.textContent = "ultraviolet (invisible)";
+  }
+  deS.addEventListener("input", calc);
+
+  calc();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

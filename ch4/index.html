@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 4: Alternating Current (AC) Circuits — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch4-index">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 4 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span> Chapter 4 — AC Circuits</div>
+
+  <span class="chip">Part I · Chapter 4</span>
+  <h1>Chapter 4: Alternating Current (AC) Circuits</h1>
+  <p style="color:var(--muted)">How resistors, coils and capacitors behave differently when the current keeps changing direction — and how a coil and a capacitor can sing together in resonance.</p>
+
+  <div class="stat-strip">
+    <div class="stat">Effective value <b>V<sub>rms</sub> = V<sub>m</sub>/√2</b></div>
+    <div class="stat">Inductive reactance <b>X<sub>L</sub> = 2πfL</b></div>
+    <div class="stat">Capacitive reactance <b>X<sub>C</sub> = 1/(2πfC)</b></div>
+    <div class="stat">Resonance <b>f<sub>r</sub> = 1/(2π√(LC))</b></div>
+  </div>
+
+  <p style="margin-top:14px">In DC, a resistor is the only thing that opposes current. In AC the story changes completely: a coil fights any <em>change</em> of current, a capacitor blocks steady current but happily passes rapidly changing current, and the voltages across the components no longer rise and fall together. To handle this we use <strong>phasors</strong> (rotating arrows), <strong>reactance</strong> and <strong>impedance</strong> — and when X<sub>L</sub> exactly cancels X<sub>C</sub> we get <strong>resonance</strong>, the principle behind every radio tuner.</p>
+
+  <div class="card-grid">
+    <a class="card" href="hotwire.html">
+      <div class="num">Topic 1</div>
+      <div class="icon">🌡️</div>
+      <h3>The Hot-Wire Ammeter</h3>
+      <p>Measuring AC with heat: a thin wire that expands, a thread over a pulley, and a pointer that reads the effective (RMS) value — for AC and DC alike.</p>
+    </a>
+    <a class="card" href="components.html">
+      <div class="num">Topic 2</div>
+      <div class="icon">🔌</div>
+      <h3>R, L &amp; C on AC</h3>
+      <p>Phasor diagrams: V and I in phase for R, V leads I by 90° for a coil, I leads V by 90° for a capacitor — plus X<sub>L</sub> and X<sub>C</sub> calculators.</p>
+    </a>
+    <a class="card" href="rlc.html">
+      <div class="num">Topic 3</div>
+      <div class="icon">🧮</div>
+      <h3>RLC &amp; Impedance</h3>
+      <p>Series RL, RC and RLC circuits: voltages add as vectors, Z = √(R² + (X<sub>L</sub> − X<sub>C</sub>)²) and the phase angle tan φ. Full impedance simulator.</p>
+    </a>
+    <a class="card" href="resonance.html">
+      <div class="num">Topic 4</div>
+      <div class="icon">📻</div>
+      <h3>Oscillatory Circuit &amp; Resonance</h3>
+      <p>Energy sloshing between a capacitor and a coil; resonance when X<sub>L</sub> = X<sub>C</sub>; tuning a radio by changing C.</p>
+    </a>
+  </div>
+
+  <div class="objectives">
+    <h3>By the end of this chapter you can…</h3>
+    <ul>
+      <li>Explain the construction and action of the hot-wire ammeter and why it reads the effective (RMS) value of AC — and works for DC too.</li>
+      <li>State the phase relations between V and I for a pure resistance, a pure inductive coil and a pure capacitor, and sketch their phasor diagrams.</li>
+      <li>Calculate inductive and capacitive reactance: X<sub>L</sub> = 2πfL and X<sub>C</sub> = 1/(2πfC), and describe how each depends on frequency.</li>
+      <li>Find the impedance Z and phase angle φ of series RL, RC and RLC circuits, and use V = I·Z.</li>
+      <li>Describe the oscillatory (tank) circuit and resonance (X<sub>L</sub> = X<sub>C</sub>), calculate f<sub>r</sub> = 1/(2π√(LC)), and explain how radio stations are tuned.</li>
+    </ul>
+  </div>
+
+  <div class="pager">
+    <a href="../ch3/index.html">← Chapter 3: Electromagnetic Induction</a>
+    <a href="../ch5/index.html">Part II — Chapter 5: Wave-Particle Duality →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

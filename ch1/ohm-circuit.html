@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ohm's Law for a Closed Circuit — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ohm">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 1 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 1</a><span class="sep">›</span> Ohm's Law for a Closed Circuit</div><div class="chapter-nav"><a href="index.html">Overview</a><a href="basics.html">Basic Concepts</a><a href="resistivity.html">Resistivity & Power</a><a href="connections.html">Series & Parallel</a><a href="ohm-circuit.html" class="active">Ohm's Law</a><a href="brightness.html">Brightness & Keys</a><a href="kcl.html">KCL</a><a href="kvl.html">KVL</a></div>
+  <span class="chip">Topic 4</span>
+  <h1>Ohm's Law for a Closed Circuit</h1>
+
+  <h2 class="section-title">The Real Battery</h2>
+  <div class="panel">
+    <p>A real battery is not just a voltage source — inside it, the moving charge collides with the battery's own internal parts. So a real battery has an <strong>EMF</strong> and a small <strong>internal resistance (r)</strong>.</p>
+    <ul class="clean">
+      <li><strong>EMF (E or V<sub>B</sub>):</strong> the total energy the battery gives to each coulomb. This is what a voltmeter reads when <em>no current flows</em> (key open).</li>
+      <li><strong>Terminal voltage (V):</strong> what the voltmeter reads when current actually flows. It is <em>less</em> than the EMF because some energy is "lost" inside the battery.</li>
+      <li><strong>Lost volts (V<sub>lost</sub>):</strong> the voltage dropped across the internal resistance.</li>
+    </ul>
+    <div class="formula">I = EMF / (R + r)<span class="note">the whole loop: external load R plus internal r</span></div>
+    <div class="formula">V = EMF − I × r &nbsp;&nbsp;=&nbsp;&nbsp; I × R<span class="note">terminal voltage = EMF minus the lost volts</span></div>
+    <div class="tip"><strong>Key idea:</strong> as you draw more current (smaller R), the lost volts I·r grow, so the terminal voltage falls. With the circuit open (I = 0), V = EMF exactly.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A battery has EMF 12 V and internal resistance 0.5 Ω. It is connected to a load of 5.5 Ω.<br>
+    I = 12 / (5.5 + 0.5) = <strong>2 A</strong><br>
+    V = 12 − 2 × 0.5 = <strong>11 V</strong> (lost volts = 1 V)
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Closed-Circuit Simulator</h2>
+  <div class="sim">
+    <h3>Load the battery and watch the terminal voltage drop</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 360 230" xmlns="http://www.w3.org/2000/svg">
+          <!-- loop -->
+          <path d="M70,190 L70,50 L300,50 L300,190 L70,190" fill="none" stroke="#3a3a55" stroke-width="3"/>
+          <!-- internal resistance box (inside battery area on left) -->
+          <rect x="46" y="88" width="48" height="20" rx="5" fill="#12121a" stroke="#555" stroke-width="1"/>
+          <text x="70" y="102" fill="#9a9ab0" font-size="10" text-anchor="middle" id="rIntLabel">r</text>
+          <!-- battery symbol on left -->
+          <rect x="44" y="118" width="52" height="36" fill="#0a0a0f" stroke="none"/>
+          <line x1="50" y1="126" x2="90" y2="126" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="58" y1="136" x2="82" y2="136" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="50" y1="146" x2="90" y2="146" stroke="#7fd3ff" stroke-width="1.5"/>
+          <text x="14" y="140" fill="#7fd3ff" font-size="12" id="emfLabel">EMF</text>
+          <!-- voltmeter across battery terminals -->
+          <circle cx="130" cy="136" r="18" fill="#0d1420" stroke="#9a6cff" stroke-width="2"/>
+          <text x="130" y="141" fill="#9a6cff" font-size="11" text-anchor="middle">V</text>
+          <path d="M96,136 L112,136" fill="none" stroke="#9a6cff" stroke-width="2"/>
+          <path d="M148,136 L164,136 M164,136 L164,190 L70,190" fill="none" stroke="#9a6cff" stroke-width="2" stroke-dasharray="3 3"/>
+          <!-- load resistor on top -->
+          <path d="M140,50 L150,38 L165,62 L180,38 L195,62 L210,38 L225,62 L235,50" fill="none" stroke="#ff9800" stroke-width="3"/>
+          <text x="188" y="24" fill="#ff9800" font-size="13" text-anchor="middle" id="loadLabel">R = 5.5 Ω</text>
+          <!-- ammeter bottom -->
+          <circle cx="220" cy="190" r="16" fill="#0d1420" stroke="#4caf50" stroke-width="2"/>
+          <text x="220" y="195" fill="#4caf50" font-size="10" text-anchor="middle" id="ammA">A</text>
+          <g id="dots"></g>
+          <path id="loopPath" d="M70,190 L70,50 L300,50 L300,190 L70,190" fill="none" stroke="none"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>EMF <span class="val" id="eVal">12 V</span></label>
+          <input type="range" id="eSlider" min="2" max="24" step="1" value="12">
+        </div>
+        <div class="control">
+          <label>Internal resistance (r) <span class="val" id="riVal">0.5 Ω</span></label>
+          <input type="range" id="riSlider" min="0" max="5" step="0.1" value="0.5">
+        </div>
+        <div class="control">
+          <label>Load resistance (R) <span class="val" id="rlVal">5.5 Ω</span></label>
+          <input type="range" id="rlSlider" min="0.5" max="30" step="0.5" value="5.5">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="iOut2">2.00</div><div class="lbl">Current I (A)</div></div>
+          <div class="readout"><div class="num warn" id="vOut">11.0</div><div class="lbl">Terminal V (volt)</div></div>
+          <div class="readout"><div class="num" id="lostOut">1.0</div><div class="lbl">Lost volts I×r (V)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Decrease R → more current → more lost volts → lower terminal voltage. Try r = 0 for an "ideal" battery!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="connections.html">← Previous: Series &amp; Parallel</a>
+    <a href="brightness.html">Next: Brightness &amp; Keys →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const eS = document.getElementById("eSlider");
+  const riS = document.getElementById("riSlider");
+  const rlS = document.getElementById("rlSlider");
+  const eVal = document.getElementById("eVal");
+  const riVal = document.getElementById("riVal");
+  const rlVal = document.getElementById("rlVal");
+  const iOut = document.getElementById("iOut2");
+  const vOut = document.getElementById("vOut");
+  const lostOut = document.getElementById("lostOut");
+  const emfLabel = document.getElementById("emfLabel");
+  const loadLabel = document.getElementById("loadLabel");
+  const ammA = document.getElementById("ammA");
+
+  const anim = animateCurrent("loopPath", "dots", { on: true, speed: 50, count: 10, color: "#ffd54f" });
+
+  function update() {
+    const E = +eS.value, r = +riS.value, R = +rlS.value;
+    const I = E / (R + r);
+    const V = E - I * r;
+    eVal.textContent = E + " V";
+    riVal.textContent = r.toFixed(1) + " Ω";
+    rlVal.textContent = R.toFixed(1) + " Ω";
+    iOut.textContent = I.toFixed(2);
+    vOut.textContent = V.toFixed(1);
+    lostOut.textContent = (I * r).toFixed(1);
+    emfLabel.textContent = E + " V";
+    loadLabel.textContent = "R = " + R.toFixed(1) + " Ω";
+    ammA.textContent = I.toFixed(2) + "A";
+    setAnimSpeed(anim, Math.max(3, I * 18));
+  }
+  eS.addEventListener("input", update);
+  riS.addEventListener("input", update);
+  rlS.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

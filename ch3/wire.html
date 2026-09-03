@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Induction in a Moving Wire — Chapter 3: Electromagnetic Induction — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch3-wire">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 3 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 3</a><span class="sep">›</span> Induction in a Moving Wire</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="faraday.html">Faraday &amp; Lenz</a>
+    <a href="wire.html" class="active">Moving Wire</a>
+    <a href="mutual-self.html">Mutual &amp; Self Induction</a>
+    <a href="generator.html">AC Generator</a>
+    <a href="motor.html">DC Motor</a>
+    <a href="transformer.html">Transformer</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 3</span>
+  <h1>Induction in a Moving Wire</h1>
+
+  <h2 class="section-title">A Wire Cutting Field Lines</h2>
+  <div class="panel">
+    <p>Imagine a straight wire of length L moving with velocity v through a magnetic field B. As it moves, it <strong>sweeps across (cuts) the field lines</strong>, so the flux linked with the wire changes — and by Faraday's law an <strong>EMF is induced between its ends</strong>.</p>
+    <div class="formula">EMF = − B × L × v × sin θ<span class="note">B in tesla, L in metres, v in m/s → EMF in volts. θ is the angle between the velocity v and the field B. The minus sign indicates the direction of the EMF (Lenz's rule)</span></div>
+    <p>The EMF is <strong>maximum</strong> when the wire moves perpendicular to the field (θ = 90°, sin θ = 1) and <strong>zero</strong> when it moves parallel to the field (θ = 0°, sin θ = 0) — because then it cuts no field lines at all. It is also zero if B = 0, L = 0 or v = 0.</p>
+    <div class="tip"><strong>Quick link to Faraday:</strong> in time Δt the wire sweeps an area L × v × Δt, so ΔΦ = B L v Δt, and EMF = ΔΦ/Δt = B L v. Same physics, different point of view.</div>
+  </div>
+
+  <h2 class="section-title">Fleming's Right-Hand Rule</h2>
+  <div class="panel">
+    <p>This rule gives the <strong>direction of the induced current</strong> in a moving wire. Stretch the thumb, first finger and second finger of your <strong>RIGHT hand</strong> so all three are mutually perpendicular:</p>
+    <ul class="clean">
+      <li><strong>First finger</strong> → points along the magnetic field <strong>B</strong> (First = Field).</li>
+      <li><strong>Thumb</strong> → points along the direction of <strong>motion</strong> v (Thumb = Motion).</li>
+      <li><strong>Second finger</strong> → points along the <strong>induced current</strong> (Second = Current).</li>
+    </ul>
+    <div class="tip"><strong>Don't mix them up!</strong> The <em>right</em> hand is for generators (induced current, "the result"). The <em>left</em> hand (Fleming's left-hand rule, Chapter 2) is for motors (force on a current, "the cause").</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A wire of length 0.25 m moves at 10 m/s in a field of 0.4 T, with its velocity making 30° with the field. Find the induced EMF.<br>
+    EMF = B L v sin θ = 0.4 × 0.25 × 10 × sin 30° = 1 × 0.5 = <strong>0.5 V</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: EMF Calculator for a Moving Wire</h2>
+  <div class="sim">
+    <h3>Set the field, the wire, the speed and the angle — read the EMF</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="bArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#4caf50"/>
+            </marker>
+            <marker id="vArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#ff9800"/>
+            </marker>
+          </defs>
+          <rect x="10" y="10" width="320" height="180" rx="10" fill="rgba(76,175,80,0.05)" stroke="#1b3a2c"/>
+          <!-- uniform field lines (horizontal) -->
+          <g stroke="#4caf50" stroke-width="1.5" opacity="0.8">
+            <line x1="30" y1="40" x2="200" y2="40" marker-end="url(#bArrow)"/>
+            <line x1="30" y1="100" x2="200" y2="100" marker-end="url(#bArrow)"/>
+            <line x1="30" y1="160" x2="200" y2="160" marker-end="url(#bArrow)"/>
+          </g>
+          <text x="30" y="26" fill="#4caf50" font-size="12">B (uniform field)</text>
+          <text x="210" y="44" fill="#4caf50" font-size="12">B</text>
+          <!-- rotating group: velocity arrow + wire (wire ⟂ velocity) -->
+          <g id="motionG" transform="rotate(30,230,100)">
+            <line x1="180" y1="100" x2="290" y2="100" stroke="#ff9800" stroke-width="2.5" marker-end="url(#vArrow)"/>
+            <text x="230" y="90" fill="#ff9800" font-size="13" text-anchor="middle" font-weight="bold">v</text>
+            <line id="wirePath" x1="180" y1="30" x2="180" y2="170" stroke="#7fd3ff" stroke-width="4" stroke-linecap="round"/>
+            <g id="wireDots"></g>
+            <circle cx="180" cy="30" r="4" fill="#ff5e62"/>
+            <circle cx="180" cy="170" r="4" fill="#ff5e62"/>
+          </g>
+          <text x="170" y="196" fill="#7fd3ff" font-size="12" text-anchor="middle" id="angleTxt">θ = 30°</text>
+          <text x="150" y="36" fill="#ff5e62" font-size="10" text-anchor="end">wire ends</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Field B <span class="val" id="bVal">0.5 T</span></label>
+          <input type="range" id="bSlider" min="0" max="2" step="0.05" value="0.5">
+        </div>
+        <div class="control">
+          <label>Wire length L <span class="val" id="lVal">1.0 m</span></label>
+          <input type="range" id="lSlider" min="0.1" max="2" step="0.05" value="1">
+        </div>
+        <div class="control">
+          <label>Speed v <span class="val" id="vVal">10 m/s</span></label>
+          <input type="range" id="vSlider" min="0" max="20" step="0.5" value="10">
+        </div>
+        <div class="control">
+          <label>Angle θ between v and B <span class="val" id="aVal">90°</span></label>
+          <input type="range" id="aSlider" min="0" max="90" step="5" value="90">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="emfOut">5.00</div><div class="lbl">Induced EMF (V)</div></div>
+          <div class="readout"><div class="num warn" id="zeroOut">—</div><div class="lbl">Status</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Try θ = 0°: the wire slides <em>along</em> the field lines and cuts none — the EMF drops to zero. Yellow dots show the induced current along the wire.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="faraday.html">← Faraday &amp; Lenz</a>
+    <a href="mutual-self.html">Next: Mutual &amp; Self Induction →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const bS = document.getElementById("bSlider");
+  const lS = document.getElementById("lSlider");
+  const vS = document.getElementById("vSlider");
+  const aS = document.getElementById("aSlider");
+  const emfOut = document.getElementById("emfOut");
+  const zeroOut = document.getElementById("zeroOut");
+  const motionG = document.getElementById("motionG");
+
+  const wireAnim = animateCurrent("wirePath", "wireDots", { on: false, speed: 50, count: 6, color: "#ffd54f", radius: 3.5 });
+
+  function update() {
+    const B = +bS.value, L = +lS.value, v = +vS.value, th = +aS.value;
+    const emf = B * L * v * Math.sin(th * Math.PI / 180);
+    document.getElementById("bVal").textContent = B.toFixed(2) + " T";
+    document.getElementById("lVal").textContent = L.toFixed(2) + " m";
+    document.getElementById("vVal").textContent = v.toFixed(1) + " m/s";
+    document.getElementById("aVal").textContent = th + "°";
+    document.getElementById("angleTxt").textContent = "θ = " + th + "°";
+    motionG.setAttribute("transform", "rotate(" + (-th) + ",230,100)");
+    emfOut.textContent = emf.toFixed(2);
+    if (emf < 0.001) {
+      zeroOut.textContent = "EMF = 0";
+      zeroOut.className = "num warn";
+      setAnimOn(wireAnim, false);
+    } else {
+      zeroOut.textContent = "induced";
+      zeroOut.className = "num good";
+      setAnimOn(wireAnim, true);
+      setAnimSpeed(wireAnim, Math.min(150, 15 + emf * 20));
+    }
+  }
+  for (const s of [bS, lS, vS, aS]) s.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

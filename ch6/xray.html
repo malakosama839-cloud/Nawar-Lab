@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X-Rays — Chapter 6: Atomic Spectra — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch6-xray">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 6 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 6</a><span class="sep">›</span> X-Rays</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="bohr.html">Bohr's Model</a>
+    <a href="hydrogen.html">Hydrogen Spectrum</a>
+    <a href="spectra.html">Types of Spectra</a>
+    <a href="xray.html" class="active">X-Rays</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 6</span>
+  <h1>X-Rays</h1>
+  <p style="color:var(--muted)">Röntgen's penetrating rays — produced by smashing fast electrons into a metal target.</p>
+
+  <h2 class="section-title">What Are X-Rays?</h2>
+  <div class="panel">
+    <p>X-rays are <strong>electromagnetic waves of very short wavelength</strong> (≈ 0.01–1 nm — smaller than an atom), produced when fast electrons suddenly lose energy inside matter. Because of their tiny wavelength and high photon energy they:</p>
+    <ul class="clean">
+      <li>Have <strong>very high penetrating power</strong> — they pass through flesh, paper, and thin metal.</li>
+      <li><strong>Ionize gases</strong> — they knock electrons off gas molecules.</li>
+      <li><strong>Affect photographic plates</strong> — the basis of X-ray imaging.</li>
+      <li>Are <strong>not deflected</strong> by electric or magnetic fields — because they are waves, not charged particles.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">Production: The Coolidge Tube</h2>
+  <div class="panel">
+    <p>The <strong>Coolidge tube</strong> (hot-cathode X-ray tube) works like this:</p>
+    <ul class="clean">
+      <li>A <strong>heated filament (cathode)</strong> releases electrons by thermionic emission.</li>
+      <li>A very high voltage (<strong>10–100 kV</strong>) between cathode and anode <strong>accelerates the electrons</strong> to enormous speeds.</li>
+      <li>They smash into a heavy-melting-point <strong>target (tungsten)</strong> at the anode.</li>
+      <li>Only about <strong>1%</strong> of the electrons' energy leaves as X-rays — the other ~99% becomes <strong>heat</strong>, so the target is made of tungsten (very high melting point) and is <strong>cooled</strong> with oil or water.</li>
+    </ul>
+    <div class="sim-svg">
+      <svg viewBox="0 0 640 190" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="xArrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+            <path d="M0,0 L7,3.5 L0,7 Z" fill="#7fd3ff"/>
+          </marker>
+          <marker id="eBeam" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#ffd54f"/>
+          </marker>
+        </defs>
+        <!-- tube -->
+        <ellipse cx="270" cy="95" rx="215" ry="80" fill="none" stroke="#3a3a55" stroke-width="2.5"/>
+        <!-- filament cathode -->
+        <path d="M85,80 Q70,95 85,110" fill="none" stroke="#ff9800" stroke-width="2.5"/>
+        <text x="78" y="132" fill="#ff9800" font-size="10" text-anchor="middle">heated filament (−)</text>
+        <!-- HV -->
+        <text x="160" y="150" fill="#9a9ab0" font-size="10" text-anchor="middle">10–100 kV</text>
+        <!-- electron beam -->
+        <line x1="90" y1="95" x2="425" y2="95" stroke="#ffd54f" stroke-width="2.5" marker-end="url(#eBeam)"/>
+        <text x="250" y="86" fill="#ffd54f" font-size="10" text-anchor="middle">fast electrons</text>
+        <!-- tungsten target, tilted -->
+        <polygon points="435,60 455,52 455,138 435,130" fill="#7a6a55" stroke="#c9b8a0" stroke-width="1.5"/>
+        <text x="470" y="48" fill="#c9b8a0" font-size="10" text-anchor="middle">tungsten target (anode)</text>
+        <!-- cooling -->
+        <rect x="462" y="66" width="5" height="16" fill="#29b6f6"/><rect x="462" y="86" width="5" height="16" fill="#29b6f6"/><rect x="462" y="106" width="5" height="16" fill="#29b6f6"/>
+        <text x="472" y="160" fill="#29b6f6" font-size="10">cooling (≈99% becomes heat)</text>
+        <!-- X-rays out -->
+        <line x1="448" y1="70" x2="590" y2="35" stroke="#7fd3ff" stroke-width="2.5" marker-end="url(#xArrow)"/>
+        <line x1="450" y1="120" x2="590" y2="155" stroke="#7fd3ff" stroke-width="2.5" marker-end="url(#xArrow)"/>
+        <text x="585" y="26" fill="#7fd3ff" font-size="11" text-anchor="end">X-rays (≈1% of energy)</text>
+      </svg>
+    </div>
+  </div>
+
+  <h2 class="section-title">The Two Kinds of X-Ray Spectra</h2>
+  <div class="panel">
+    <h3>1. Continuous spectrum (Bremsstrahlung — "braking radiation")</h3>
+    <p>Electrons decelerate <strong>abruptly</strong> when they plunge into the target, giving up <em>different</em> amounts of energy in different collisions. The result is a continuous range of wavelengths with a smooth hump. An electron that loses <strong>all</strong> its kinetic energy (e·V) in a <em>single</em> collision emits the <strong>highest-frequency (shortest-wavelength) photon</strong> — the cutoff:</p>
+    <div class="formula">λ<sub>min</sub> = h·c / (e·V)<span class="note">the cutoff depends on the tube voltage V only — NOT on the target material</span></div>
+    <h3>2. Characteristic (line) spectrum</h3>
+    <p>If an incoming electron has enough energy to <strong>knock an inner-shell electron</strong> out of a target atom, an outer electron falls into the hole and emits a photon of a very exact energy — sharp <strong>lines</strong> at fixed wavelengths (K<sub>α</sub>, K<sub>β</sub>, …). These lines <strong>depend on the target material only</strong>, not on the voltage — each element has its own set.</p>
+    <div class="tip">
+      <strong>Exam tip:</strong> λ<sub>min</sub> → depends on <strong>voltage</strong>. Characteristic lines → depend on <strong>target material</strong>. Two different questions examiners ask about the same graph!
+    </div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A Coolidge tube works at V = 40 kV. Find the shortest X-ray wavelength it can emit.<br>
+    λ<sub>min</sub> = hc / eV = (6.625×10⁻³⁴ × 3×10⁸) / (1.6×10⁻¹⁹ × 4×10⁴)<br>
+    = 1.9875×10⁻²⁵ / 6.4×10⁻¹⁵ ≈ 3.1×10⁻¹¹ m = <strong>0.031 nm</strong><br>
+    (Check with the shortcut: λ<sub>min</sub>(nm) = 1240 / (V in eV) = 1240 / 40 000 = 0.031 nm ✓)
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: X-Ray Tube Simulator</h2>
+  <div class="sim">
+    <h3>Raise the voltage — the cutoff slides toward shorter wavelengths</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg">
+          <!-- axes -->
+          <line x1="40" y1="200" x2="425" y2="200" stroke="#3a3a55" stroke-width="1.5"/>
+          <line x1="40" y1="200" x2="40" y2="30" stroke="#3a3a55" stroke-width="1.5"/>
+          <text x="232" y="232" fill="#9a9ab0" font-size="11" text-anchor="middle">wavelength λ (nm) →</text>
+          <text x="20" y="120" fill="#9a9ab0" font-size="11" text-anchor="middle" transform="rotate(-90 20 120)">intensity</text>
+          <text x="40" y="216" fill="#556" font-size="9" text-anchor="middle">0</text>
+          <text x="167" y="216" fill="#556" font-size="9" text-anchor="middle">0.05</text>
+          <text x="293" y="216" fill="#556" font-size="9" text-anchor="middle">0.10</text>
+          <text x="420" y="216" fill="#556" font-size="9" text-anchor="middle">0.15</text>
+          <!-- continuous curve -->
+          <path id="contCurve" d="" fill="none" stroke="#7fd3ff" stroke-width="2.5"/>
+          <!-- characteristic spikes -->
+          <g id="spikes"></g>
+          <!-- cutoff marker -->
+          <line id="cutoffLine" x1="40" y1="40" x2="40" y2="200" stroke="#ff9800" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <text id="cutoffTxt" x="40" y="30" fill="#ff9800" font-size="11" text-anchor="middle">λ_min</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Tube voltage <span class="val" id="vVal">40 kV</span></label>
+          <input type="range" id="vSlider" min="10" max="100" step="5" value="40">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="lamMinOut">0.031</div><div class="lbl">λ_min (nm)</div></div>
+          <div class="readout"><div class="num warn" id="emaxOut">40</div><div class="lbl">Max photon energy (keV)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">λ_min(nm) = 1240 / (V in eV). Watch: higher voltage pulls the whole hump left (shorter λ), while the characteristic spikes stay at the same wavelengths — they belong to the target, not the voltage. At low voltage the spikes vanish: the electrons are too slow to knock out inner-shell electrons.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> λ<sub>min</sub> = 1240/V(eV) nm is just the photon relation E = hc/λ with E = eV. At 100 kV: λ<sub>min</sub> = 1240/100 000 = 0.0124 nm — X-rays indeed (0.01–1 nm).
+  </div>
+
+  <div class="pager">
+    <a href="spectra.html">← Types of Spectra &amp; the Spectrometer</a>
+    <a href="../ch7/index.html">Next: Chapter 7 — Lasers →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  const vS = document.getElementById("vSlider");
+  const contCurve = document.getElementById("contCurve");
+  const spikes = document.getElementById("spikes");
+  const cutoffLine = document.getElementById("cutoffLine");
+  const cutoffTxt = document.getElementById("cutoffTxt");
+
+  const X0 = 40, X1 = 425, Y_BASE = 200, H_MAX = 145;   // plot geometry
+  const L_VIEW = 0.15;                                    // max wavelength shown (nm)
+  const SPIKES = [{ nm: 0.070, h: 0.85, lbl: "Kα" }, { nm: 0.062, h: 0.6, lbl: "Kβ" }];
+
+  function xOf(nm) { return X0 + (nm / L_VIEW) * (X1 - X0); }
+
+  function update() {
+    const kV = +vS.value;
+    const lamMin = 1240 / (kV * 1000);          // nm
+    document.getElementById("vVal").textContent = kV + " kV";
+    document.getElementById("lamMinOut").textContent = lamMin.toFixed(4);
+    document.getElementById("emaxOut").textContent = kV;
+
+    // continuous curve: I(λ) = (λ − λmin)/λ³  (Kramers), normalised to its own peak
+    const pts = [];
+    let imax = 0;
+    const N = 90;
+    for (let i = 0; i <= N; i++) {
+      const lam = lamMin + (L_VIEW - lamMin) * i / N;
+      const I = (lam - lamMin) / (lam * lam * lam);
+      pts.push([lam, I]);
+      if (I > imax) imax = I;
+    }
+    let d = "M" + xOf(lamMin).toFixed(1) + "," + Y_BASE;
+    pts.forEach(([lam, I]) => {
+      const x = xOf(lam).toFixed(1);
+      const y = (Y_BASE - (I / imax) * H_MAX).toFixed(1);
+      d += " L" + x + "," + y;
+    });
+    d += " L" + X1 + "," + Y_BASE;
+    contCurve.setAttribute("d", d);
+
+    // cutoff marker
+    const xc = xOf(lamMin).toFixed(1);
+    cutoffLine.setAttribute("x1", xc);
+    cutoffLine.setAttribute("x2", xc);
+    cutoffTxt.setAttribute("x", Math.min(+xc, 380));
+    cutoffTxt.textContent = "λ_min = " + lamMin.toFixed(4) + " nm";
+
+    // characteristic spikes: fixed wavelengths, appear only if energetically possible
+    spikes.innerHTML = "";
+    SPIKES.forEach(s => {
+      if (lamMin > s.nm) return; // electrons too slow to remove inner-shell electrons
+      const x = xOf(s.nm).toFixed(1);
+      const yTop = (Y_BASE - s.h * H_MAX).toFixed(1);
+      spikes.appendChild(el("line", { x1: x, y1: Y_BASE, x2: x, y2: yTop, stroke: "#4dd0e1", "stroke-width": 3 }));
+      spikes.appendChild(el("text", { x: x, y: (+yTop - 6).toFixed(1), fill: "#4dd0e1", "font-size": 11, "text-anchor": "middle" }, s.lbl));
+    });
+  }
+  vS.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

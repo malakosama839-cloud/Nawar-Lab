@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Concepts — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="basics">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 1 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 1</a><span class="sep">›</span> Basic Concepts</div><div class="chapter-nav"><a href="index.html">Overview</a><a href="basics.html" class="active">Basic Concepts</a><a href="resistivity.html">Resistivity & Power</a><a href="connections.html">Series & Parallel</a><a href="ohm-circuit.html">Ohm's Law</a><a href="brightness.html">Brightness & Keys</a><a href="kcl.html">KCL</a><a href="kvl.html">KVL</a></div>
+  <span class="chip">Topic 1</span>
+  <h1>Electricity — Basic Concepts</h1>
+
+  <h2 class="section-title">The Four Key Quantities</h2>
+  <div class="panel">
+    <h3>1. Electric Charge (Q)</h3>
+    <p>Charge is the fundamental property of matter that makes electricity happen. There are two kinds: <strong>positive</strong> (protons) and <strong>negative</strong> (electrons). Like charges repel, opposite charges attract. Charge is measured in <strong>coulombs (C)</strong>.</p>
+
+    <h3>2. Electric Current (I)</h3>
+    <p>Current is the <strong>rate of flow of electric charge</strong> — how many coulombs pass a point in the wire each second. It is measured in <strong>amperes (A)</strong>. Although electrons actually drift from − to +, we traditionally draw conventional current flowing from + to −.</p>
+
+    <h3>3. Potential Difference / Voltage (V)</h3>
+    <p>Voltage is the <strong>energy given to each coulomb of charge</strong> — the "push" that drives the current. A battery of 6&nbsp;V gives 6 joules of energy to every coulomb that passes through it. Measured in <strong>volts (V)</strong>.</p>
+
+    <h3>4. Resistance (R)</h3>
+    <p>Resistance is the <strong>opposition to the flow of current</strong>. A thin wire resists more than a thick one; iron resists more than copper. Measured in <strong>ohms (Ω)</strong>.</p>
+  </div>
+
+  <h2 class="section-title">Ohm's Law</h2>
+  <div class="panel">
+    <p>For a metallic conductor at constant temperature, the current is <strong>directly proportional</strong> to the voltage across it:</p>
+    <div class="formula">V = I × R<span class="note">V in volts, I in amperes, R in ohms</span></div>
+    <ul class="clean">
+      <li>Bigger voltage → bigger current (if R is fixed).</li>
+      <li>Bigger resistance → smaller current (if V is fixed).</li>
+    </ul>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A resistor of 10 Ω is connected to a 6 V battery. Find the current.<br>
+    I = V / R = 6 / 10 = <strong>0.6 A</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Ohm's Law Simulator</h2>
+  <div class="sim">
+    <h3>Change the voltage and resistance — watch the current respond</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#7fd3ff"/>
+            </marker>
+          </defs>
+          <!-- circuit loop -->
+          <rect x="60" y="50" width="220" height="130" fill="none" stroke="#3a3a55" stroke-width="3" rx="6"/>
+          <!-- battery on left side -->
+          <rect x="42" y="98" width="36" height="34" fill="#0d1420" stroke="none"/>
+          <line x1="48" y1="106" x2="72" y2="106" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="54" y1="116" x2="66" y2="116" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="48" y1="126" x2="72" y2="126" stroke="#7fd3ff" stroke-width="1.5"/>
+          <text x="90" y="122" fill="#7fd3ff" font-size="13" id="battLabel">6 V</text>
+          <text x="50" y="90" fill="#9a9ab0" font-size="11">Battery</text>
+          <!-- resistor on top -->
+          <path d="M120,50 L130,38 L145,62 L160,38 L175,62 L190,38 L205,62 L215,50" fill="none" stroke="#ff9800" stroke-width="3" transform="translate(0,0)"/>
+          <rect x="118" y="34" width="100" height="32" fill="#12121a" stroke="none" opacity="0"/>
+          <text x="145" y="24" fill="#ff9800" font-size="13" id="resLabel">R = 10 Ω</text>
+          <!-- ammeter on bottom -->
+          <circle cx="170" cy="180" r="16" fill="#0d1420" stroke="#4caf50" stroke-width="2"/>
+          <text x="170" y="185" fill="#4caf50" font-size="11" text-anchor="middle" id="ammeterLabel">A</text>
+          <!-- current dots -->
+          <g id="dots"></g>
+          <!-- animated path (invisible) -->
+          <path id="loopPath" d="M60,180 L60,50 L280,50 L280,180 L60,180" fill="none" stroke="none"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Voltage (V) <span class="val" id="vVal">6 V</span></label>
+          <input type="range" id="vSlider" min="1" max="24" step="1" value="6">
+        </div>
+        <div class="control">
+          <label>Resistance (R) <span class="val" id="rVal">10 Ω</span></label>
+          <input type="range" id="rSlider" min="1" max="50" step="1" value="10">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="iOut">0.60</div><div class="lbl">Current I (A)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Notice: double the voltage → double the current. Double the resistance → half the current. That's Ohm's law!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="index.html">← Home</a>
+    <a href="resistivity.html">Next: Resistivity &amp; Power →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const vS = document.getElementById("vSlider");
+  const rS = document.getElementById("rSlider");
+  const vVal = document.getElementById("vVal");
+  const rVal = document.getElementById("rVal");
+  const iOut = document.getElementById("iOut");
+  const battLabel = document.getElementById("battLabel");
+  const resLabel = document.getElementById("resLabel");
+  const ammeter = document.getElementById("ammeterLabel");
+
+  const anim = animateCurrent("loopPath", "dots", { on: true, speed: 40, count: 10, color: "#ffd54f" });
+
+  function update() {
+    const V = +vS.value, R = +rS.value;
+    const I = V / R;
+    vVal.textContent = V + " V";
+    rVal.textContent = R + " Ω";
+    iOut.textContent = I.toFixed(2);
+    battLabel.textContent = V + " V";
+    resLabel.textContent = "R = " + R + " Ω";
+    ammeter.textContent = I.toFixed(2) + "A";
+    setAnimSpeed(anim, Math.max(4, I * 40));
+  }
+  vS.addEventListener("input", update);
+  rS.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

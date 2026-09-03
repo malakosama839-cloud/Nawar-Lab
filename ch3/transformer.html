@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Transformer — Chapter 3: Electromagnetic Induction — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch3-transformer">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 3 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 3</a><span class="sep">›</span> The Transformer</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="faraday.html">Faraday &amp; Lenz</a>
+    <a href="wire.html">Moving Wire</a>
+    <a href="mutual-self.html">Mutual &amp; Self Induction</a>
+    <a href="generator.html">AC Generator</a>
+    <a href="motor.html">DC Motor</a>
+    <a href="transformer.html" class="active">Transformer</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 3</span>
+  <h1>The Transformer</h1>
+
+  <h2 class="section-title">Structure &amp; Principle</h2>
+  <div class="panel">
+    <p>A transformer changes an AC voltage up or down. It consists of two coils — the <strong>primary</strong> (connected to the AC source) and the <strong>secondary</strong> (connected to the load) — wound on the same soft-<strong>iron core</strong>.</p>
+    <p>It works by <strong>mutual induction</strong>: the AC in the primary produces a continuously <em>changing</em> flux in the iron core; that changing flux passes through the secondary and induces an alternating EMF in it. That is why a transformer <strong>only works with AC</strong> — a steady DC gives a constant flux and induces nothing (except a brief blip when switching on/off).</p>
+  </div>
+
+  <h2 class="section-title">The Equations</h2>
+  <div class="panel">
+    <div class="formula">V<sub>s</sub> / V<sub>p</sub> = N<sub>s</sub> / N<sub>p</sub> = I<sub>p</sub> / I<sub>s</sub><span class="note">ideal (100% efficient) transformer. N_s &gt; N_p → step-UP; N_s &lt; N_p → step-DOWN. Raising the voltage lowers the current, since power is (almost) conserved</span></div>
+    <div class="formula">η = (P<sub>out</sub> / P<sub>in</sub>) × 100%<span class="note">efficiency; real transformers reach 95–99%</span></div>
+    <h3>Step-up vs step-down</h3>
+    <ul class="clean">
+      <li><strong>Step-up:</strong> N<sub>s</sub> &gt; N<sub>p</sub> → V<sub>s</sub> &gt; V<sub>p</sub>, but I<sub>s</sub> &lt; I<sub>p</sub>.</li>
+      <li><strong>Step-down:</strong> N<sub>s</sub> &lt; N<sub>p</sub> → V<sub>s</sub> &lt; V<sub>p</sub>, but I<sub>s</sub> &gt; I<sub>p</sub>.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">Energy Losses &amp; How to Reduce Them</h2>
+  <div class="panel">
+    <table class="data">
+      <tr><th>Loss</th><th>Cause</th><th>How it is reduced</th></tr>
+      <tr><td><strong>Copper loss</strong> (heating)</td><td>The windings have resistance: P = I²R</td><td>Thick copper wires (low resistance)</td></tr>
+      <tr><td><strong>Eddy currents</strong></td><td>Swirling currents induced in the iron core itself → heating</td><td><strong>Laminated core</strong>: thin sheets insulated from each other break up the eddy paths</td></tr>
+      <tr><td><strong>Hysteresis</strong></td><td>Energy lost re-magnetising the core 100 times per second</td><td>Soft iron core (easy to magnetise and demagnetise)</td></tr>
+      <tr><td><strong>Flux leakage</strong></td><td>Not all the primary flux passes through the secondary</td><td>Core designed so both coils share the same flux path (interleaved windings)</td></tr>
+    </table>
+    <h3>Why high voltage for transmission?</h3>
+    <p>Power lines lose energy as heat: P<sub>loss</sub> = I²R. For a given delivered power P = V × I, <strong>stepping the voltage up</strong> (e.g. to 500 kV) makes the current in the cables small — and since the loss depends on I<strong>²</strong>, it becomes tiny. Near the consumer, step-down transformers return the voltage to safe levels.</p>
+    <div class="tip"><strong>Exam favourite:</strong> doubling the transmission voltage halves the current and quarters the I²R loss.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A transformer has 200 primary turns and 2000 secondary turns. The primary is connected to 220 V and draws 2 A. Find V_s and I_s (assume 100% efficiency).<br>
+    V_s = V_p × N_s/N_p = 220 × 2000/200 = <strong>2200 V</strong><br>
+    I_s = I_p × N_p/N_s = 2 × 200/2000 = <strong>0.2 A</strong><br>
+    Check: P_in = 220 × 2 = 440 W, P_out = 2200 × 0.2 = 440 W ✓ (If η = 95%, P_out = 0.95 × 440 = <strong>418 W</strong>.)
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Transformer Simulator</h2>
+  <div class="sim">
+    <h3>Step it up or down — with real efficiency</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="120" y="40" width="100" height="100" rx="10" fill="none" stroke="#556" stroke-width="8"/>
+          <g id="pCoil"></g><g id="sCoil"></g>
+          <text x="55" y="95" fill="#7fd3ff" font-size="13" text-anchor="middle" id="vptxt">220 V</text>
+          <text x="287" y="95" fill="#ff9800" font-size="13" text-anchor="middle" id="vstxt">2200 V</text>
+          <text x="170" y="30" fill="#9a9ab0" font-size="11" text-anchor="middle">iron core</text>
+          <text x="170" y="165" fill="#4caf50" font-size="11" text-anchor="middle" id="effTxt">efficiency 98% — STEP-UP</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Primary voltage V_p <span class="val" id="vpVal">220 V</span></label>
+          <input type="range" id="vpSlider" min="10" max="400" step="10" value="220">
+        </div>
+        <div class="control">
+          <label>Primary turns N_p <span class="val" id="npVal">200</span></label>
+          <input type="range" id="npSlider" min="50" max="1000" step="50" value="200">
+        </div>
+        <div class="control">
+          <label>Secondary turns N_s <span class="val" id="nsVal">2000</span></label>
+          <input type="range" id="nsSlider" min="50" max="4000" step="50" value="2000">
+        </div>
+        <div class="control">
+          <label>Efficiency <span class="val" id="etaVal">98 %</span></label>
+          <input type="range" id="etaSlider" min="50" max="100" step="1" value="98">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="vsOut">2156</div><div class="lbl">Secondary V (V)</div></div>
+          <div class="readout"><div class="num warn" id="ratioOut">×9.80</div><div class="lbl">Ratio</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="motor.html">← DC Motor</a>
+    <a href="index.html">Chapter Overview →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  const vpS = document.getElementById("vpSlider");
+  const npS = document.getElementById("npSlider");
+  const nsS = document.getElementById("nsSlider");
+  const etaS = document.getElementById("etaSlider");
+  const pCoil = document.getElementById("pCoil");
+  const sCoil = document.getElementById("sCoil");
+
+  function coils() {
+    const np = +npS.value, ns = +nsS.value;
+    pCoil.innerHTML = ""; sCoil.innerHTML = "";
+    const npShow = Math.min(8, Math.max(3, Math.round(np / 100) * 2));
+    const nsShow = Math.min(8, Math.max(3, Math.round(ns / 100) * 2));
+    for (let i = 0; i < npShow; i++) {
+      const y = 50 + i * ((100 / Math.max(6, npShow)));
+      pCoil.appendChild(el("ellipse", { cx: 118, cy: y, rx: 12, ry: 100 / Math.max(10, npShow * 1.2), fill: "none", stroke: "#7fd3ff", "stroke-width": 2 }));
+    }
+    for (let i = 0; i < nsShow; i++) {
+      const y = 50 + i * (100 / Math.max(6, nsShow));
+      sCoil.appendChild(el("ellipse", { cx: 222, cy: y, rx: 12, ry: 100 / Math.max(10, nsShow * 1.2), fill: "none", stroke: "#ff9800", "stroke-width": 2 }));
+    }
+  }
+  function transformer() {
+    const Vp = +vpS.value, Np = +npS.value, Ns = +nsS.value, eta = +etaS.value;
+    document.getElementById("vpVal").textContent = Vp + " V";
+    document.getElementById("npVal").textContent = Np;
+    document.getElementById("nsVal").textContent = Ns;
+    document.getElementById("etaVal").textContent = eta + " %";
+    const ratio = Ns / Np;
+    const Vs = Vp * ratio * (eta / 100);
+    document.getElementById("vsOut").textContent = Vs.toFixed(0);
+    document.getElementById("ratioOut").textContent = "×" + (ratio * (eta / 100)).toFixed(2);
+    document.getElementById("vptxt").textContent = Vp + " V";
+    document.getElementById("vstxt").textContent = Vs.toFixed(0) + " V";
+    document.getElementById("effTxt").textContent = "efficiency " + eta + "% — " + (ratio > 1 ? "STEP-UP" : ratio < 1 ? "STEP-DOWN" : "1:1");
+    coils();
+  }
+  for (const s of [vpS, npS, nsS, etaS]) s.addEventListener("input", transformer);
+  transformer();
+})();
+</script>
+</body>
+</html>

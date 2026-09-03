@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Compton Effect &amp; E = mc² — Chapter 5: Wave-Particle Duality — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch5-compton">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 5 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 5</a><span class="sep">›</span> The Compton Effect &amp; E = mc²</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="blackbody.html">Black Body &amp; Quanta</a>
+    <a href="photoelectric.html">Photoelectric Effect</a>
+    <a href="compton.html" class="active">Compton &amp; E=mc²</a>
+    <a href="debroglie.html">De Broglie &amp; Microscope</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 5</span>
+  <h1>The Compton Effect &amp; E = mc²</h1>
+  <p style="color:var(--muted)">A photon bounces off an electron like a billiard ball — the strongest proof that light carries momentum.</p>
+
+  <h2 class="section-title">The Compton Effect — a Photon Collision</h2>
+  <div class="panel">
+    <p>In 1923 <strong>Arthur Compton</strong> directed X-rays at a block of material containing <strong>free (loosely bound) electrons</strong>. He studied the scattered light and found something strange: along with the original wavelength, the scattered beam contained light of a <strong>longer wavelength</strong> (lower frequency, lower energy).</p>
+    <p>The explanation? Treat the photon as a <strong>particle</strong> that collides with the electron exactly like two billiard balls, conserving momentum and energy:</p>
+    <ul class="clean">
+      <li>The photon hits the electron and gives part of its energy to it.</li>
+      <li>Both are scattered — the photon at one angle, the electron at another.</li>
+      <li>Since the photon <strong>lost energy</strong>, its frequency drops and its wavelength <strong>increases</strong>: λ′ &gt; λ.</li>
+    </ul>
+    <p>This is the <strong>Compton effect</strong> — direct, laboratory proof of the <strong>particle nature of light</strong>. (Waves cannot "bounce" off an electron and come out longer!)</p>
+    <div class="tip">
+      <strong>Note:</strong> the increase in wavelength depends only on the scattering angle, not on the incident wavelength. The maximum possible increase is Δλ = h/(m<sub>e</sub>·c) = 6.625×10⁻³⁴ / (9.1×10⁻³¹ × 3×10⁸) ≈ <strong>2.4 × 10⁻¹² m</strong> — tiny, which is why the effect is only measurable with short-wavelength X-rays.
+    </div>
+  </div>
+
+  <h2 class="section-title">Photon Momentum</h2>
+  <div class="panel">
+    <p>To collide, a photon must carry <strong>momentum</strong>. From Einstein's energy–momentum relation, a photon of energy E has momentum:</p>
+    <div class="formula">p = E / c = h·f / c = h / λ<span class="note">E in joules ⇒ p in kg·m/s. Shorter wavelength ⇒ bigger momentum</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> An X-ray photon has energy E = 1240 eV (that is λ = 1 nm). Find its momentum.<br>
+    E = 1240 × 1.6×10⁻¹⁹ = 1.984×10⁻¹⁶ J<br>
+    p = E / c = 1.984×10⁻¹⁶ / 3×10⁸ ≈ <strong>6.6 × 10⁻²⁵ kg·m/s</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Photon–Electron Collision</h2>
+  <div class="sim">
+    <h3>Fire a photon at an electron at rest — watch both scatter</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="pInArrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#7fd3ff"/>
+            </marker>
+            <marker id="pOutArrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#ff8a80"/>
+            </marker>
+            <marker id="eRecoilArrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <path d="M0,0 L7,3.5 L0,7 Z" fill="#ffd54f"/>
+            </marker>
+          </defs>
+          <text x="220" y="22" fill="#7fd3ff" font-size="13" text-anchor="middle" font-weight="bold" id="stageTxt">Press "Fire photon" to start the collision</text>
+
+          <!-- incoming photon -->
+          <g id="photonIn" opacity="0">
+            <path id="pInWave" d="" fill="none" stroke="#7fd3ff" stroke-width="2.5" marker-end="url(#pInArrow)"/>
+            <text x="0" y="0" fill="#7fd3ff" font-size="11" text-anchor="middle" transform="translate(30,-16)">photon λ</text>
+          </g>
+
+          <!-- scattered photon -->
+          <g id="photonOut" opacity="0">
+            <g transform="rotate(-40)">
+              <path id="pOutWave" d="" fill="none" stroke="#ff8a80" stroke-width="2.5" marker-end="url(#pOutArrow)"/>
+            </g>
+          </g>
+          <text id="outLabel" x="0" y="0" fill="#ff8a80" font-size="11" text-anchor="middle" opacity="0">scattered photon λ′ &gt; λ (lost energy)</text>
+
+          <!-- electron -->
+          <g id="electron">
+            <circle cx="0" cy="0" r="9" fill="#ffd54f"/>
+            <text x="0" y="24" fill="#ffd54f" font-size="10" text-anchor="middle">e⁻</text>
+          </g>
+          <path id="eRecoil" d="" fill="none" stroke="#ffd54f" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#eRecoilArrow)" opacity="0"/>
+          <text id="recoilLabel" x="0" y="0" fill="#ffd54f" font-size="11" text-anchor="middle" opacity="0">electron recoils</text>
+
+          <!-- collision flash -->
+          <circle id="flash" cx="150" cy="140" r="6" fill="#ffffff" opacity="0"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <button class="btn" id="fireBtn">🔥 Fire photon</button>
+        <div class="legend">
+          Before: photon (energy hf) + electron at rest.<br>
+          After: scattered photon (energy hf′ &lt; hf, so λ′ &gt; λ) + recoiling electron.<br>
+          Momentum and energy are both conserved — exactly like a particle collision.
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">The scattered photon is drawn redder: less energy means lower frequency means longer wavelength.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Mass–Energy Equivalence: E = mc²</h2>
+  <div class="panel">
+    <p>Einstein's relativity adds the final piece: <strong>mass is a form of energy</strong>. A mass m at rest holds an energy</p>
+    <div class="formula">E = m × c²<span class="note">c = 3 × 10⁸ m/s — even 1 gram of matter stores 9 × 10¹³ J of energy</span></div>
+    <p>This is why a photon (which has energy) can be said to have a <strong>"mass equivalent"</strong> m = E/c², and why pairs of particles can be created from energy (and annihilated back into it). The photon has zero <em>rest mass</em>, but its energy and momentum are perfectly real — as Compton's experiment proved.</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Find the rest energy of an electron (m = 9.1×10⁻³¹ kg) in joules and in eV.<br>
+    E = m·c² = 9.1×10⁻³¹ × (3×10⁸)² = 9.1×10⁻³¹ × 9×10¹⁶ = <strong>8.19 × 10⁻¹⁴ J</strong><br>
+    E = 8.19×10⁻¹⁴ / 1.6×10⁻¹⁹ ≈ 5.1×10⁵ eV ≈ <strong>0.51 MeV</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Calculator: Photon Energy → Momentum &amp; Mass Equivalent</h2>
+  <div class="sim">
+    <h3>Type a photon energy in eV</h3>
+    <div class="sim-layout">
+      <div class="controls" style="flex:0 1 240px">
+        <div class="control">
+          <label>Photon energy <span class="val" id="evVal">1240 eV</span></label>
+          <input type="range" id="evSlider" min="1" max="20" step="0.5" value="12.4">
+          <span style="font-size:0.78rem;color:var(--muted)">slider is in keV (0.5 – 20 keV)</span>
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="momOut">6.6×10⁻²⁵</div><div class="lbl">Momentum p (kg·m/s)</div></div>
+          <div class="readout"><div class="num warn" id="massOut">2.2×10⁻³³</div><div class="lbl">Mass equivalent m = E/c² (kg)</div></div>
+          <div class="readout"><div class="num good" id="lamOut">1.00 nm</div><div class="lbl">Wavelength λ = 1240/E (nm)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Check: p = E/c and m = E/c². A 1240 eV photon: p = 1240×1.6×10⁻¹⁹/3×10⁸ ≈ 6.6×10⁻²⁵ kg·m/s.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> For a photon: E = h·f = hc/λ, p = h/λ, and m<sub>equivalent</sub> = E/c². Notice that p = E/c combined with E = hc/λ immediately gives p = h/λ — memorise this chain, examiners love it.
+  </div>
+
+  <div class="pager">
+    <a href="photoelectric.html">← The Photoelectric Effect</a>
+    <a href="debroglie.html">Next: De Broglie's Relation &amp; the Electron Microscope →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  /* ---------- collision animation ---------- */
+  const CX = 150, CY = 140;             // collision point
+  const pIn = document.getElementById("photonIn");
+  const pInWave = document.getElementById("pInWave");
+  const pOut = document.getElementById("photonOut");
+  const pOutWave = document.getElementById("pOutWave");
+  const outLabel = document.getElementById("outLabel");
+  const electron = document.getElementById("electron");
+  const eRecoil = document.getElementById("eRecoil");
+  const recoilLabel = document.getElementById("recoilLabel");
+  const flash = document.getElementById("flash");
+  const stageTxt = document.getElementById("stageTxt");
+  const fireBtn = document.getElementById("fireBtn");
+
+  function wavePath(len, amp) {
+    let d = "M0,0";
+    const seg = 9;
+    let up = 1;
+    for (let x = seg; x <= len; x += seg) {
+      d += " Q" + (x - seg / 2) + "," + (up * amp) + " " + x + ",0";
+      up = -up;
+    }
+    return d;
+  }
+  pInWave.setAttribute("d", wavePath(56, 9) + " L72,0");
+  pOutWave.setAttribute("d", wavePath(56, 7) + " L72,0");
+
+  let raf = null;
+  function reset() {
+    if (raf) cancelAnimationFrame(raf);
+    pIn.setAttribute("opacity", "0");
+    pOut.setAttribute("opacity", "0");
+    outLabel.setAttribute("opacity", "0");
+    eRecoil.setAttribute("opacity", "0");
+    recoilLabel.setAttribute("opacity", "0");
+    flash.setAttribute("opacity", "0");
+    electron.setAttribute("transform", "translate(" + CX + "," + CY + ")");
+    stageTxt.textContent = 'Press "Fire photon" to start the collision';
+  }
+
+  function fire() {
+    reset();
+    const t0 = performance.now();
+    const APPROACH = 900, FLASH = 250, SCATTER = 1100;
+    const recoilAng = 38 * Math.PI / 180, scatAng = 40 * Math.PI / 180;
+
+    function frame(now) {
+      const t = now - t0;
+      if (t < APPROACH) {
+        const p = t / APPROACH;
+        const x = -110 + p * (CX - 72 + 110);
+        pIn.setAttribute("opacity", "1");
+        pIn.setAttribute("transform", "translate(" + x.toFixed(1) + "," + CY + ")");
+        stageTxt.textContent = "Incoming photon (wavy arrow) approaching the electron at rest…";
+      } else if (t < APPROACH + FLASH) {
+        pIn.setAttribute("opacity", "0");
+        const p = (t - APPROACH) / FLASH;
+        flash.setAttribute("opacity", (1 - p).toFixed(2));
+        flash.setAttribute("r", (6 + 14 * p).toFixed(1));
+        stageTxt.textContent = "Collision! The photon gives part of its energy to the electron.";
+      } else if (t < APPROACH + FLASH + SCATTER) {
+        const p = (t - APPROACH - FLASH) / SCATTER;
+        const dOut = p * 120, dE = p * 95;
+        pOut.setAttribute("opacity", "1");
+        pOut.setAttribute("transform", "translate(" + (CX + Math.cos(-scatAng) * dOut).toFixed(1) + "," + (CY + Math.sin(-scatAng) * dOut).toFixed(1) + ")");
+        outLabel.setAttribute("x", (CX + Math.cos(-scatAng) * (dOut + 40)).toFixed(1));
+        outLabel.setAttribute("y", (CY + Math.sin(-scatAng) * (dOut + 46)).toFixed(1));
+        outLabel.setAttribute("opacity", Math.min(1, p * 2).toFixed(2));
+        electron.setAttribute("transform", "translate(" + (CX + Math.cos(recoilAng) * dE).toFixed(1) + "," + (CY + Math.sin(recoilAng) * dE).toFixed(1) + ")");
+        eRecoil.setAttribute("opacity", "1");
+        eRecoil.setAttribute("d", "M" + (CX + 12) + "," + (CY + 12) + " L" + (CX + Math.cos(recoilAng) * (dE + 14) - 8) + "," + (CY + Math.sin(recoilAng) * (dE + 14) - 4));
+        recoilLabel.setAttribute("x", (CX + Math.cos(recoilAng) * (dE + 42)).toFixed(1));
+        recoilLabel.setAttribute("y", (CY + Math.sin(recoilAng) * (dE + 52)).toFixed(1));
+        recoilLabel.setAttribute("opacity", Math.min(1, p * 2).toFixed(2));
+        stageTxt.textContent = "λ′ > λ : the scattered photon is weaker, the electron carries the lost energy away.";
+      } else {
+        stageTxt.textContent = "Collision done — press the button to fire again.";
+        return;
+      }
+      raf = requestAnimationFrame(frame);
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  fireBtn.addEventListener("click", fire);
+  reset();
+
+  /* ---------- photon calculator ---------- */
+  const evS = document.getElementById("evSlider");
+
+  function sci(x) {
+    if (x === 0) return "0";
+    const parts = x.toExponential(2).split("e");
+    return parts[0] + " × 10<sup>" + parseInt(parts[1], 10) + "</sup>";
+  }
+
+  function calc() {
+    const keV = +evS.value;
+    const E = keV * 1000;                 // eV
+    const Ej = E * 1.6e-19;               // J
+    const p = Ej / 3e8;                   // kg·m/s
+    const m = Ej / (3e8 * 3e8);           // kg
+    const lam = 1240 / E;                 // nm
+    document.getElementById("evVal").textContent = (keV % 1 ? keV.toFixed(1) : keV) + " keV = " + E.toLocaleString("en") + " eV";
+    const mom = document.getElementById("momOut");
+    const mas = document.getElementById("massOut");
+    mom.innerHTML = sci(p);
+    mas.innerHTML = sci(m);
+    document.getElementById("lamOut").textContent = lam >= 1 ? lam.toFixed(2) + " nm" : lam.toFixed(4) + " nm";
+  }
+  evS.addEventListener("input", calc);
+  calc();
+})();
+</script>
+</body>
+</html>

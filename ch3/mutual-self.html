@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mutual &amp; Self Induction — Chapter 3: Electromagnetic Induction — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch3-mutual-self">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 3 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 3</a><span class="sep">›</span> Mutual &amp; Self Induction</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="faraday.html">Faraday &amp; Lenz</a>
+    <a href="wire.html">Moving Wire</a>
+    <a href="mutual-self.html" class="active">Mutual &amp; Self Induction</a>
+    <a href="generator.html">AC Generator</a>
+    <a href="motor.html">DC Motor</a>
+    <a href="transformer.html">Transformer</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 3</span>
+  <h1>Mutual &amp; Self Induction</h1>
+
+  <h2 class="section-title">Mutual Induction</h2>
+  <div class="panel">
+    <p>Place two coils near each other. When the current in the <strong>primary coil</strong> changes, its magnetic flux changes — and part of that flux passes through the <strong>secondary coil</strong>, inducing an EMF in it. This is <strong>mutual induction</strong>, and it is exactly how a transformer works (next pages).</p>
+    <div class="formula">EMF₂ = − M × ΔI₁ / Δt<span class="note">M = coefficient of mutual inductance (henry, H); ΔI₁/Δt = rate of change of the primary current (A/s). The minus sign: the induced EMF opposes the change (Lenz)</span></div>
+    <p>M depends on the <strong>geometry</strong> of the two coils: number of turns, area, distance apart, and their orientation. It is measured in <strong>henry (H)</strong>. Putting an <strong>iron core</strong> through both coils concentrates the flux and <strong>greatly increases M</strong>.</p>
+  </div>
+
+  <h2 class="section-title">Self Induction</h2>
+  <div class="panel">
+    <p>A coil does not need a neighbour: when its <strong>own current changes</strong>, its own flux changes, and an EMF is induced in the coil <strong>itself</strong>. This is <strong>self induction</strong>. By Lenz's rule the induced EMF always <strong>opposes the change of current</strong>, so it is called a <strong>back-EMF</strong>:</p>
+    <div class="formula">EMF = − L × ΔI / Δt<span class="note">L = self-inductance of the coil (henry, H); ΔI/Δt = rate of change of current (A/s)</span></div>
+    <h3>The henry (H)</h3>
+    <div class="tip"><strong>Definition:</strong> the self-inductance of a coil is <strong>1 henry</strong> if a current changing at the rate of <strong>1 A per second</strong> induces in it a back-EMF of <strong>1 volt</strong>.</div>
+    <h3>Factors affecting L</h3>
+    <ul class="clean">
+      <li><strong>Number of turns:</strong> more turns → larger L (it grows roughly with the square of N).</li>
+      <li><strong>Coil area:</strong> larger cross-sectional area → larger L.</li>
+      <li><strong>Core material:</strong> an iron core → much larger L than an air core.</li>
+    </ul>
+    <div class="tip"><strong>Why do we care?</strong> A large self-inductance resists sudden changes in current — useful in choke coils and filters, but the reason a switch opening an inductive circuit produces a spark: the back-EMF tries to keep the current flowing.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong>
+    (a) Two coupled coils have M = 0.5 H. The primary current changes at 20 A/s. Find the EMF induced in the secondary.<br>
+    EMF₂ = M × ΔI₁/Δt = 0.5 × 20 = <strong>10 V</strong><br>
+    (b) A coil of self-inductance L = 2 H carries a current changing at 3 A/s. Find the back-EMF.<br>
+    EMF = L × ΔI/Δt = 2 × 3 = <strong>6 V</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Two Calculators Side by Side</h2>
+  <div class="sim">
+    <h3>Play with M and L — see both induced EMFs at once</h3>
+    <div class="two-col">
+      <div class="panel" style="margin:0">
+        <h3>Mutual induction</h3>
+        <div class="control">
+          <label>Mutual inductance M <span class="val" id="mVal">0.50 H</span></label>
+          <input type="range" id="mSlider" min="0.05" max="2" step="0.05" value="0.5">
+        </div>
+        <div class="control">
+          <label>Rate ΔI₁/Δt <span class="val" id="mrVal">20 A/s</span></label>
+          <input type="range" id="mrSlider" min="1" max="100" step="1" value="20">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="meOut">10.00</div><div class="lbl">EMF₂ in secondary (V)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">An iron core couples the coils tightly and pushes M up — same idea as a transformer.</p>
+      </div>
+      <div class="panel" style="margin:0">
+        <h3>Self induction (back-EMF)</h3>
+        <div class="control">
+          <label>Self-inductance L <span class="val" id="lVal">2.0 H</span></label>
+          <input type="range" id="lSlider" min="0.1" max="10" step="0.1" value="2">
+        </div>
+        <div class="control">
+          <label>Rate ΔI/Δt <span class="val" id="lrVal">3 A/s</span></label>
+          <input type="range" id="lrSlider" min="1" max="20" step="1" value="3">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num warn" id="leOut">6.00</div><div class="lbl">Back-EMF (V)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Check the henry: L = 1 H with ΔI/Δt = 1 A/s gives exactly 1 V.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="wire.html">← Moving Wire</a>
+    <a href="generator.html">Next: AC Generator →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const mS = document.getElementById("mSlider");
+  const mrS = document.getElementById("mrSlider");
+  const lS = document.getElementById("lSlider");
+  const lrS = document.getElementById("lrSlider");
+  const meOut = document.getElementById("meOut");
+  const leOut = document.getElementById("leOut");
+
+  function mutual() {
+    const M = +mS.value, r = +mrS.value;
+    document.getElementById("mVal").textContent = M.toFixed(2) + " H";
+    document.getElementById("mrVal").textContent = r + " A/s";
+    meOut.textContent = (M * r).toFixed(2);
+  }
+  function self() {
+    const L = +lS.value, r = +lrS.value;
+    document.getElementById("lVal").textContent = L.toFixed(1) + " H";
+    document.getElementById("lrVal").textContent = r + " A/s";
+    leOut.textContent = (L * r).toFixed(2);
+  }
+  mS.addEventListener("input", mutual);
+  mrS.addEventListener("input", mutual);
+  lS.addEventListener("input", self);
+  lrS.addEventListener("input", self);
+  mutual();
+  self();
+})();
+</script>
+</body>
+</html>

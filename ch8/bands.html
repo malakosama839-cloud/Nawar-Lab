@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Bands &amp; Semiconductors — Chapter 8: Modern Electronics — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch8-bands">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 8 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 8</a><span class="sep">›</span> Energy Bands</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="bands.html" class="active">Energy Bands</a>
+    <a href="diode.html">The Diode</a>
+    <a href="transistor.html">The Transistor</a>
+    <a href="digital.html">Digital &amp; Binary</a>
+    <a href="logic-gates.html">Logic Gates</a>
+  </div>
+
+  <span class="chip">Part II · Chapter 8</span>
+  <h1>Energy Bands &amp; Semiconductors</h1>
+
+  <h2 class="section-title">Energy Bands in Solids</h2>
+  <div class="panel">
+    <p>In a single isolated atom, electrons sit at exact energy levels. But in a <strong>solid</strong>, billions of atoms are packed close together, and each atom influences its neighbours. The separate levels merge into wide ranges of allowed energy called <strong>energy bands</strong>.</p>
+    <ul class="clean">
+      <li><strong>Valence band:</strong> the band filled with the electrons that are <em>bound</em> to the atoms. Electrons here cannot move through the crystal.</li>
+      <li><strong>Conduction band:</strong> the higher band. An electron that reaches it is <em>free</em> to wander through the material — that is what makes electric current.</li>
+      <li><strong>Forbidden gap (E<sub>g</sub>):</strong> the energy range <em>between</em> the two bands where no electron may exist. To become free, an electron must gain at least E<sub>g</sub> of energy (from heat or light).</li>
+    </ul>
+    <div class="tip"><strong>Key idea:</strong> whether a material conducts depends on <em>one question</em> — how wide is the gap between the valence band and the conduction band?</div>
+  </div>
+
+  <h2 class="section-title">Conductors, Insulators &amp; Semiconductors</h2>
+  <div class="panel">
+    <div class="two-col">
+      <div>
+        <h3>Conductors (copper, iron)</h3>
+        <p>The conduction band <strong>overlaps</strong> the valence band — there is no gap at all. Plenty of electrons are always free, so current flows easily.</p>
+        <h3>Insulators (glass, diamond)</h3>
+        <p>A huge forbidden gap of about <strong>5 eV or more</strong>. Almost no electron can ever gather enough energy to cross it, so the material does not conduct.</p>
+        <h3>Semiconductors (silicon, germanium)</h3>
+        <p>A small gap of about <strong>1 eV</strong>. At room temperature some electrons manage to jump it — so a semiconductor conducts <em>better than an insulator but worse than a metal</em>.</p>
+      </div>
+      <div>
+        <table class="data">
+          <tr><th>Material</th><th>Forbidden gap</th><th>Behaviour</th></tr>
+          <tr><td>Copper (conductor)</td><td>0 — bands overlap</td><td>Conducts very well</td></tr>
+          <tr><td>Germanium</td><td>≈ 0.7 eV</td><td>Semiconductor</td></tr>
+          <tr><td>Silicon</td><td>≈ 1.1 eV</td><td>Semiconductor</td></tr>
+          <tr><td>Diamond / glass</td><td>≈ 5 eV or more</td><td>Insulator</td></tr>
+        </table>
+        <div class="stat-strip">
+          <span class="stat">Si gap ≈ <b>1.1 eV</b></span>
+          <span class="stat">Ge gap ≈ <b>0.7 eV</b></span>
+          <span class="stat">Insulators ≥ <b>5 eV</b></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Intrinsic Semiconductors (Pure)</h2>
+  <div class="panel">
+    <p>An <strong>intrinsic</strong> semiconductor is a perfectly <em>pure</em> crystal of silicon or germanium. When an electron gains enough thermal energy to jump into the conduction band, it leaves an empty place in the valence band called a <strong>hole</strong>. A hole behaves exactly like a <strong>positive charge carrier</strong> — nearby electrons fall into it, so the hole appears to move the opposite way.</p>
+    <div class="formula">n<sub>e</sub> = n<sub>h</sub><span class="note">in a pure semiconductor: number of free electrons = number of holes (they are created in pairs)</span></div>
+    <ul class="clean">
+      <li>Every electron promoted to the conduction band leaves exactly one hole behind.</li>
+      <li>Heating the crystal creates <strong>more electron–hole pairs</strong> → conductivity <strong>rises</strong> with temperature (the opposite of metals, whose resistance rises).</li>
+      <li>At room temperature a pure semiconductor still conducts poorly — only a few pairs exist.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">Extrinsic Semiconductors — Doping</h2>
+  <div class="panel">
+    <p><strong>Doping</strong> means adding a tiny amount (about one atom in a million) of a chosen impurity to a pure semiconductor. This gives the crystal a controlled number of extra carriers — it becomes <strong>extrinsic</strong>.</p>
+    <div class="two-col">
+      <div>
+        <h3>n-type (pentavalent donor)</h3>
+        <p>Add a <strong>pentavalent</strong> atom (5 valence electrons) such as <strong>arsenic</strong>, phosphorus or antimony. Four of its electrons bond with neighbouring silicon atoms — the fifth is left over and becomes a free <strong>electron</strong>.</p>
+        <div class="formula">Majority carriers = electrons<span class="note">holes are the minority carriers</span></div>
+      </div>
+      <div>
+        <h3>p-type (trivalent acceptor)</h3>
+        <p>Add a <strong>trivalent</strong> atom (3 valence electrons) such as <strong>indium</strong>, boron or aluminium. One bond is left incomplete — each impurity atom creates a <strong>hole</strong>.</p>
+        <div class="formula">Majority carriers = holes<span class="note">electrons are the minority carriers</span></div>
+      </div>
+    </div>
+    <div class="tip"><strong>Tip:</strong> doped crystals are still <em>electrically neutral</em> — the impurity atoms are neutral too. "n-type" and "p-type" refer only to which carrier is in the <em>majority</em>, not to any net charge.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Compare the jump an electron must make in germanium with the jump in diamond.<br>
+    Germanium: E<sub>g</sub> ≈ 0.7 eV. Diamond: E<sub>g</sub> ≈ 5.5 eV.<br>
+    Ratio = 5.5 / 0.7 ≈ <strong>8 times larger</strong> — that is why at room temperature germanium conducts (some electrons cross 0.7 eV) while diamond does not (no electron can cross 5.5 eV).
+  </div>
+
+  <h2 class="section-title">🔬 Simulator: Explore the Bands</h2>
+  <div class="sim">
+    <h3>Choose a material — watch the electron try to reach the conduction band — then dope the crystal</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg">
+          <!-- forbidden gap -->
+          <rect id="gapRect" x="70" y="100" width="240" height="30" fill="rgba(239,83,80,0.10)" stroke="#ef5350" stroke-dasharray="5,4" rx="4"/>
+          <text id="gapLbl" x="190" y="119" fill="#ef9a9a" font-size="11" text-anchor="middle">forbidden gap</text>
+          <!-- conduction band -->
+          <g id="condG" transform="translate(70,45)">
+            <rect x="0" y="0" width="240" height="55" rx="8" fill="rgba(41,182,246,0.15)" stroke="#29b6f6" stroke-width="1.5"/>
+            <text x="120" y="32" text-anchor="middle" fill="#7fd3ff" font-size="13">Conduction band (free electrons)</text>
+          </g>
+          <!-- valence band -->
+          <g id="valG" transform="translate(70,130)">
+            <rect x="0" y="0" width="240" height="55" rx="8" fill="rgba(255,152,0,0.13)" stroke="#ff9800" stroke-width="1.5"/>
+            <text x="120" y="32" text-anchor="middle" fill="#ffb74d" font-size="13">Valence band (bound electrons)</text>
+          </g>
+          <!-- energy gap label at right -->
+          <text id="egLbl" x="322" y="115" fill="#ef5350" font-size="11">E≈1eV</text>
+          <!-- mobile electron -->
+          <circle id="electron" cx="190" cy="157" r="8" fill="#ffd54f" stroke="#ff9800" stroke-width="1.5"/>
+          <!-- doped carriers -->
+          <g id="carriers"></g>
+          <text x="10" y="272" fill="#9a9ab0" font-size="10">yellow dot = an electron trying to jump the gap</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Material</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" id="matCon">Conductor</button>
+            <button class="btn warm" id="matSem">Semiconductor</button>
+            <button class="btn" id="matIns">Insulator</button>
+          </div>
+        </div>
+        <div class="control">
+          <label>Doping (semiconductor)</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn warm" id="dopI">Intrinsic</button>
+            <button class="btn" id="dopN">n-type</button>
+            <button class="btn" id="dopP">p-type</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="egOut">1 eV</div><div class="lbl">Forbidden gap</div></div>
+          <div class="readout"><div class="num good" id="majOut">e⁻ = h⁺</div><div class="lbl">Majority carriers</div></div>
+        </div>
+        <p id="bandCaption" style="font-size:0.85rem;color:var(--muted)">Pure silicon: occasionally heat energy lifts an electron across the small gap, leaving a hole behind.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="index.html">← Chapter Overview</a>
+    <a href="diode.html">Next: The Diode →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const condG = document.getElementById("condG");
+  const valG = document.getElementById("valG");
+  const gapRect = document.getElementById("gapRect");
+  const gapLbl = document.getElementById("gapLbl");
+  const egLbl = document.getElementById("egLbl");
+  const electron = document.getElementById("electron");
+  const carriers = document.getElementById("carriers");
+  const egOut = document.getElementById("egOut");
+  const majOut = document.getElementById("majOut");
+  const caption = document.getElementById("bandCaption");
+  const matBtns = { conductor: document.getElementById("matCon"), semiconductor: document.getElementById("matSem"), insulator: document.getElementById("matIns") };
+  const dopBtns = { intrinsic: document.getElementById("dopI"), n: document.getElementById("dopN"), p: document.getElementById("dopP") };
+
+  /* band geometry (band height is fixed at 55) */
+  const mats = {
+    conductor:     { condY: 90,  valY: 135, gap: 0,   eg: "0 (overlap)", maj: "free e⁻", egTxt: "overlapping" },
+    semiconductor: { condY: 45,  valY: 130, gap: 30,  eg: "≈ 1 eV",      maj: "—",       egTxt: "E≈1eV" },
+    insulator:     { condY: 25,  valY: 185, gap: 105, eg: "≥ 5 eV",      maj: "none",    egTxt: "E≥5eV" }
+  };
+  const captions = {
+    conductor: "In a conductor the two bands overlap: electrons flow freely into the conduction band with no jump needed.",
+    semiconductor: "Pure silicon: occasionally heat energy lifts an electron across the small gap, leaving a hole behind.",
+    insulator: "In an insulator the gap is enormous — the electron bounces back every time. No conduction."
+  };
+
+  let mat = "semiconductor";
+  let dop = "intrinsic";
+
+  function mark(btns, active) {
+    for (const k in btns) btns[k].classList.toggle("warm", k === active);
+  }
+
+  function drawCarriers() {
+    carriers.innerHTML = "";
+    const m = mats[mat];
+    if (mat !== "semiconductor" || dop === "intrinsic") return;
+    const xs = [130, 190, 250];
+    if (dop === "n") {
+      xs.forEach(x => {
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", x); c.setAttribute("cy", m.condY + 44);
+        c.setAttribute("r", 5); c.setAttribute("fill", "#29b6f6"); c.setAttribute("stroke", "#0a0a0f");
+        carriers.appendChild(c);
+      });
+    } else {
+      xs.forEach(x => {
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", x); c.setAttribute("cy", m.valY + 12);
+        c.setAttribute("r", 5); c.setAttribute("fill", "none"); c.setAttribute("stroke", "#ff5e62"); c.setAttribute("stroke-width", 2.5);
+        carriers.appendChild(c);
+      });
+    }
+  }
+
+  function update() {
+    const m = mats[mat];
+    condG.setAttribute("transform", "translate(70," + m.condY + ")");
+    valG.setAttribute("transform", "translate(70," + m.valY + ")");
+    gapRect.setAttribute("y", m.condY + 55);
+    gapRect.setAttribute("height", m.gap);
+    gapRect.setAttribute("opacity", m.gap === 0 ? 0 : 1);
+    gapLbl.setAttribute("y", m.condY + 55 + m.gap / 2 + 4);
+    gapLbl.setAttribute("opacity", m.gap === 0 ? 0 : 1);
+    egLbl.setAttribute("y", m.condY + 55 + m.gap / 2 + 4);
+    egLbl.setAttribute("opacity", m.gap === 0 ? 0 : 1);
+    egLbl.textContent = m.egTxt;
+    egOut.textContent = m.eg;
+    caption.textContent = captions[mat];
+    mark(matBtns, mat);
+    mark(dopBtns, dop);
+    drawCarriers();
+    if (mat === "conductor") {
+      majOut.textContent = "free e⁻";
+      majOut.className = "num good";
+    } else if (mat === "insulator") {
+      majOut.textContent = "none";
+      majOut.className = "num warn";
+    } else if (dop === "n") {
+      majOut.textContent = "electrons";
+      majOut.className = "num good";
+    } else if (dop === "p") {
+      majOut.textContent = "holes";
+      majOut.className = "num good";
+    } else {
+      majOut.textContent = "e⁻ = h⁺";
+      majOut.className = "num";
+    }
+  }
+
+  matBtns.conductor.addEventListener("click", () => { mat = "conductor"; update(); });
+  matBtns.semiconductor.addEventListener("click", () => { mat = "semiconductor"; update(); });
+  matBtns.insulator.addEventListener("click", () => { mat = "insulator"; update(); });
+  dopBtns.intrinsic.addEventListener("click", () => { dop = "intrinsic"; update(); });
+  dopBtns.n.addEventListener("click", () => { dop = "n"; update(); });
+  dopBtns.p.addEventListener("click", () => { dop = "p"; update(); });
+
+  /* electron animation */
+  const t0 = performance.now();
+  function tick(now) {
+    const t = (now - t0) / 1000;
+    const m = mats[mat];
+    const vc = m.valY + 27;   /* valence band centre */
+    const cc = m.condY + 27;  /* conduction band centre */
+    let y;
+    if (mat === "conductor") {
+      y = (vc + cc) / 2 + Math.sin(t * 2.4) * ((cc - vc) / 2 + 25);
+    } else if (mat === "semiconductor") {
+      const period = 3.2, ph = (t % period) / period;
+      if (ph < 0.55) {
+        y = vc + Math.sin(t * 6) * 7;
+      } else if (ph < 0.8) {
+        y = vc + (cc - vc) * ((ph - 0.55) / 0.25);
+      } else {
+        y = cc + (vc - cc) * ((ph - 0.8) / 0.2);
+      }
+    } else {
+      y = vc + Math.sin(t * 5) * 16;
+    }
+    electron.setAttribute("cy", y);
+    requestAnimationFrame(tick);
+  }
+  update();
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

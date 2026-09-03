@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirchhoff's Current Law (KCL) — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="kcl">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 1 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 1</a><span class="sep">›</span> Kirchhoff's Current Law (KCL)</div><div class="chapter-nav"><a href="index.html">Overview</a><a href="basics.html">Basic Concepts</a><a href="resistivity.html">Resistivity & Power</a><a href="connections.html">Series & Parallel</a><a href="ohm-circuit.html">Ohm's Law</a><a href="brightness.html">Brightness & Keys</a><a href="kcl.html" class="active">KCL</a><a href="kvl.html">KVL</a></div>
+  <span class="chip">Topic 6</span>
+  <h1>Kirchhoff's Current Law (KCL)</h1>
+
+  <h2 class="section-title">The Junction Rule</h2>
+  <div class="panel">
+    <p>Kirchhoff's Current Law deals with a <strong>junction (node)</strong> — a point where three or more wires meet. The law says:</p>
+    <div class="formula">Σ I<sub>in</sub> = Σ I<sub>out</sub><span class="note">The total current entering a junction equals the total current leaving it</span></div>
+    <p>This is really the <strong>conservation of charge</strong>: charge cannot pile up at a point or vanish from it. Whatever flows in per second must flow out per second — just like water in pipe junctions.</p>
+    <div class="tip"><strong>Sign convention:</strong> in algebraic form (Σ I = 0), currents entering are taken as <strong>positive</strong> and currents leaving as <strong>negative</strong> (or the reverse — just be consistent!).</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> At a junction, 3 A and 2 A flow in, while 1.5 A flows out through one wire. Find the current in the last wire.<br>
+    In: 3 + 2 = 5 A. Out: 1.5 + I → I = 5 − 1.5 = <strong>3.5 A</strong> leaving.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Junction Simulator</h2>
+  <div class="sim">
+    <h3>Set the incoming currents — the law balances the junction</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrC" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#4caf50"/>
+            </marker>
+            <marker id="arrO" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#ff9800"/>
+            </marker>
+          </defs>
+          <!-- incoming wires (left) -->
+          <path d="M20,60 L185,100" fill="none" stroke="#3a3a55" stroke-width="3"/>
+          <path d="M20,140 L185,100" fill="none" stroke="#3a3a55" stroke-width="3"/>
+          <!-- outgoing wires (right) -->
+          <path d="M195,100 L360,60" fill="none" stroke="#3a3a55" stroke-width="3"/>
+          <path d="M195,100 L360,140" fill="none" stroke="#3a3a55" stroke-width="3"/>
+          <!-- junction node -->
+          <circle cx="190" cy="100" r="9" fill="#7fd3ff"/>
+          <!-- arrows -->
+          <path d="M100,75 L150,88" fill="none" stroke="#4caf50" stroke-width="3" marker-end="url(#arrC)"/>
+          <path d="M100,125 L150,112" fill="none" stroke="#4caf50" stroke-width="3" marker-end="url(#arrC)"/>
+          <path d="M235,88 L290,72" fill="none" stroke="#ff9800" stroke-width="3" marker-end="url(#arrO)"/>
+          <path d="M235,112 L290,128" fill="none" stroke="#ff9800" stroke-width="3" marker-end="url(#arrO)"/>
+          <!-- labels -->
+          <text x="55" y="45" fill="#4caf50" font-size="14" font-weight="bold" id="in1L">3 A</text>
+          <text x="55" y="172" fill="#4caf50" font-size="14" font-weight="bold" id="in2L">2 A</text>
+          <text x="320" y="45" fill="#ff9800" font-size="14" font-weight="bold" id="out1L">2.5 A</text>
+          <text x="320" y="172" fill="#ff9800" font-size="14" font-weight="bold" id="out2L">2.5 A</text>
+          <text x="190" y="80" fill="#7fd3ff" font-size="11" text-anchor="middle">node</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Current in — wire 1 <span class="val" id="i1Val">3.0 A</span></label>
+          <input type="range" id="i1Slider" min="0" max="10" step="0.5" value="3">
+        </div>
+        <div class="control">
+          <label>Current in — wire 2 <span class="val" id="i2Val">2.0 A</span></label>
+          <input type="range" id="i2Slider" min="0" max="10" step="0.5" value="2">
+        </div>
+        <div class="control">
+          <label>Current out — wire 1 <span class="val" id="o1Val">2.5 A</span></label>
+          <input type="range" id="o1Slider" min="0" max="10" step="0.5" value="2.5">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="sumIn">5.0</div><div class="lbl">Total in (A)</div></div>
+          <div class="readout"><div class="num warn" id="sumOut">5.0</div><div class="lbl">Total out (A)</div></div>
+          <div class="readout"><div class="num good" id="balance">✓</div><div class="lbl">Balance</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Wire 2 going out is <strong>forced</strong> to carry the remainder — that's KCL. The node has no choice!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="brightness.html">← Previous: Brightness &amp; Keys</a>
+    <a href="kvl.html">Next: Kirchhoff's Voltage Law →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const i1 = document.getElementById("i1Slider");
+  const i2 = document.getElementById("i2Slider");
+  const o1 = document.getElementById("o1Slider");
+  const i1Val = document.getElementById("i1Val");
+  const i2Val = document.getElementById("i2Val");
+  const o1Val = document.getElementById("o1Val");
+  const o2L = document.getElementById("out2L");
+  const o1L = document.getElementById("out1L");
+  const in1L = document.getElementById("in1L");
+  const in2L = document.getElementById("in2L");
+  const sumIn = document.getElementById("sumIn");
+  const sumOut = document.getElementById("sumOut");
+  const balance = document.getElementById("balance");
+
+  function update() {
+    const a = +i1.value, b = +i2.value, c = +o1.value;
+    const d = a + b - c;
+    i1Val.textContent = a.toFixed(1) + " A";
+    i2Val.textContent = b.toFixed(1) + " A";
+    o1Val.textContent = c.toFixed(1) + " A";
+    in1L.textContent = a.toFixed(1) + " A";
+    in2L.textContent = b.toFixed(1) + " A";
+    o1L.textContent = c.toFixed(1) + " A";
+    o2L.textContent = d.toFixed(1) + " A";
+    sumIn.textContent = (a + b).toFixed(1);
+    sumOut.textContent = (c + d).toFixed(1);
+    balance.textContent = d >= 0 ? "✓ KCL" : "✗";
+    balance.className = "num " + (d >= 0 ? "good" : "");
+    balance.style.color = d >= 0 ? "" : "#ef5350";
+  }
+  i1.addEventListener("input", update);
+  i2.addEventListener("input", update);
+  o1.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

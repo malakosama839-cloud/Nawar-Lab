@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Broglie's Relation &amp; the Electron Microscope — Chapter 5: Wave-Particle Duality — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch5-debroglie">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 5 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 5</a><span class="sep">›</span> De Broglie's Relation &amp; the Electron Microscope</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="blackbody.html">Black Body &amp; Quanta</a>
+    <a href="photoelectric.html">Photoelectric Effect</a>
+    <a href="compton.html">Compton &amp; E=mc²</a>
+    <a href="debroglie.html" class="active">De Broglie &amp; Microscope</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 5</span>
+  <h1>De Broglie's Relation &amp; the Electron Microscope</h1>
+  <p style="color:var(--muted)">If waves can behave like particles, then particles must behave like waves. Louis de Broglie's symmetrical idea.</p>
+
+  <h2 class="section-title">Matter Waves</h2>
+  <div class="panel">
+    <p>Planck and Einstein showed that <strong>waves (light) act like particles</strong> (photons). In 1924 the young <strong>Louis de Broglie</strong> asked the natural reverse question: if waves can act like particles, why can't <strong>particles act like waves?</strong> He proposed that <strong>every moving particle</strong> is accompanied by a wave whose wavelength is:</p>
+    <div class="formula">λ = h / p = h / (m × v)<span class="note">p = momentum of the particle. Bigger momentum ⇒ shorter wavelength</span></div>
+    <p>For everyday objects (a football, a car) the wavelength is unimaginably small — far too small to ever notice. But for a tiny <strong>electron</strong> moving fast, the wavelength becomes comparable to atomic spacings and can be measured.</p>
+    <h3>An electron accelerated by a voltage V</h3>
+    <p>An electron accelerated from rest through a potential difference V gains kinetic energy e·V = ½m·v². Solving for v and substituting into de Broglie's relation gives a very useful exam formula:</p>
+    <div class="formula">λ = h / √(2 m e V)<span class="note">m = 9.1 × 10⁻³¹ kg, e = 1.6 × 10⁻¹⁹ C — note λ ∝ 1/√V</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> An electron is accelerated through 100 V. Find its de Broglie wavelength.<br>
+    Denominator: √(2meV) = √(2 × 9.1×10⁻³¹ × 1.6×10⁻¹⁹ × 100) = √(2.912×10⁻⁴⁷) ≈ 5.4×10⁻²⁴ kg·m/s<br>
+    λ = h / √(2meV) = 6.625×10⁻³⁴ / 5.4×10⁻²⁴ ≈ <strong>1.23 × 10⁻¹⁰ m = 1.23 Å</strong> — about the size of an atom!
+  </div>
+
+  <h2 class="section-title">Experimental Proof — Electron Diffraction</h2>
+  <div class="panel">
+    <p>If electrons really are waves, they should <strong>diffract</strong> like light does. In experiments of the <strong>Davisson–Germer type</strong>, a beam of electrons fired at a crystal produced a <strong>diffraction pattern</strong> (rings of bright and dark spots on a screen), exactly as X-rays do — and the measured wavelength matched λ = h/mv. A wave passing through a particle-free crystal could never do that: electrons are waves too.</p>
+  </div>
+
+  <h2 class="section-title">The Electron Microscope</h2>
+  <div class="panel">
+    <p>A microscope can never resolve details smaller than roughly <strong>one wavelength</strong> of the radiation it uses. An optical microscope works with visible light (λ ≈ 400–700 nm), so it stops at around <strong>200 nm</strong> — smaller objects are simply invisible to it.</p>
+    <p>De Broglie's idea gives a way out: accelerate electrons and their wavelength shrinks to thousandths of a nanometre. Because the electron's wavelength is <strong>thousands of times shorter</strong> than visible light's, the <strong>electron microscope</strong> has far better resolving power (resolving power improves as wavelength gets shorter) and can image viruses, molecules, and even individual atoms.</p>
+    <div class="tip">
+      <strong>Exam tip:</strong> to improve resolution, use a <em>shorter wavelength</em>. For electrons that means a <em>higher accelerating voltage</em>, since λ = h/√(2meV): ten times the voltage makes the electron √10 ≈ 3.2 times faster and its wavelength √10 times shorter.
+    </div>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: De Broglie Wavelength of an Electron</h2>
+  <div class="sim">
+    <h3>Accelerate the electron — faster means shorter waves</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+          <line x1="40" y1="80" x2="300" y2="80" stroke="#2a2a40" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <path id="dbWave" d="" fill="none" stroke="#7fd3ff" stroke-width="2.5"/>
+          <circle cx="46" cy="80" r="6" fill="#ffd54f"/>
+          <text x="46" y="62" fill="#ffd54f" font-size="10" text-anchor="middle">e⁻</text>
+          <text x="170" y="140" fill="#9a9ab0" font-size="12" text-anchor="middle" id="dbInfo">λ = 1.23 × 10⁻¹⁰ m</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Accelerating voltage <span class="val" id="accVal">100 V</span></label>
+          <input type="range" id="accSlider" min="1" max="10000" step="1" value="100">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="dbOut">1.23</div><div class="lbl">λ (×10⁻¹⁰ m)</div></div>
+          <div class="readout"><div class="num warn" id="speedOut">5.93</div><div class="lbl">Electron speed (×10⁶ m/s)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">×10 the voltage → the electron moves ×√10 faster → λ shrinks ×√10. Higher voltage = sharper microscope!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example (check it in the simulator):</strong> At V = 100 V the electron's speed is v = √(2eV/m) = √(2 × 1.6×10⁻¹⁹ × 100 / 9.1×10⁻³¹) ≈ <strong>5.9 × 10⁶ m/s</strong>, and λ = h/(mv) = 6.625×10⁻³⁴ / (9.1×10⁻³¹ × 5.93×10⁶) ≈ <strong>1.23 × 10⁻¹⁰ m</strong> ✓
+  </div>
+
+  <div class="pager">
+    <a href="compton.html">← The Compton Effect &amp; E = mc²</a>
+    <a href="../ch6/index.html">Next: Chapter 6 — Atomic Spectra →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const accS = document.getElementById("accSlider");
+  const dbWave = document.getElementById("dbWave");
+  const H = 6.625e-34, M_E = 9.1e-31, E_CH = 1.6e-19;
+
+  function deBroglie() {
+    const V = +accS.value;
+    document.getElementById("accVal").textContent = V.toLocaleString("en") + " V";
+    const lambda = H / Math.sqrt(2 * M_E * E_CH * V);
+    document.getElementById("dbOut").textContent = (lambda * 1e10).toFixed(2);
+    const v = Math.sqrt(2 * E_CH * V / M_E);
+    document.getElementById("speedOut").textContent = (v / 1e6).toFixed(2);
+    document.getElementById("dbInfo").textContent = "λ = " + (lambda * 1e10).toFixed(2) + " × 10⁻¹⁰ m   (v = " +
+      (v / 1e6).toFixed(2) + " × 10⁶ m/s)";
+    let d = "M40,80";
+    const cycles = Math.max(2, Math.min(12, Math.round(Math.sqrt(V / 20))));
+    for (let x = 46; x <= 300; x += 2) {
+      const t = (x - 46) / (300 - 46);
+      d += " L" + x + "," + (80 - 20 * Math.sin(2 * Math.PI * cycles * t));
+    }
+    dbWave.setAttribute("d", d);
+  }
+  accS.addEventListener("input", deBroglie);
+  deBroglie();
+})();
+</script>
+</body>
+</html>

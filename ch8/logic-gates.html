@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logic Gates — Chapter 8: Modern Electronics — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch8-logic-gates">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 8 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 8</a><span class="sep">›</span> Logic Gates</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="bands.html">Energy Bands</a>
+    <a href="diode.html">The Diode</a>
+    <a href="transistor.html">The Transistor</a>
+    <a href="digital.html">Digital &amp; Binary</a>
+    <a href="logic-gates.html" class="active">Logic Gates</a>
+  </div>
+
+  <span class="chip">Part II · Chapter 8</span>
+  <h1>Logic Gates</h1>
+
+  <h2 class="section-title">What Is a Logic Gate?</h2>
+  <div class="panel">
+    <p>A <strong>logic gate</strong> is a small electronic circuit (built from transistors) with one or more inputs and one output. Every input and output is a digital signal: <strong>0 (LOW)</strong> or <strong>1 (HIGH)</strong>. The gate "decides" its output according to a fixed rule — a piece of <em>logic</em>. Combining just three basic gates, you can build every digital circuit that exists.</p>
+  </div>
+
+  <h2 class="section-title">The Three Basic Gates</h2>
+  <div class="panel">
+    <div class="two-col">
+      <div>
+        <h3>AND — "both or nothing"</h3>
+        <p>Output is 1 only when <strong>A and B are both 1</strong>. Otherwise 0. Symbol: a <strong>D-shape</strong>.</p>
+        <h3>OR — "one is enough"</h3>
+        <p>Output is 1 when <strong>A or B (or both) is 1</strong>. Only 0 when both are 0. Symbol: a shield shape with a <strong>curved back</strong>.</p>
+        <h3>NOT — "the opposite"</h3>
+        <p>Output is the <strong>inversion</strong> of the single input: 0 in → 1 out, 1 in → 0 out. Symbol: a <strong>triangle with a small bubble</strong> (the bubble means "invert").</p>
+        <div class="tip"><strong>Memory aid:</strong> AND = series switches (both needed). OR = parallel switches (either one works). NOT = flips the answer.</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 360 215" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+          <!-- AND -->
+          <text x="20" y="16" fill="#9a9ab0" font-size="11">AND</text>
+          <line x1="5" y1="38" x2="20" y2="38" stroke="#e8e8f0" stroke-width="2"/>
+          <line x1="5" y1="58" x2="20" y2="58" stroke="#e8e8f0" stroke-width="2"/>
+          <path d="M20,28 L55,28 A20,20 0 0 1 55,68 L20,68 Z" fill="rgba(41,182,246,0.12)" stroke="#29b6f6" stroke-width="2"/>
+          <line x1="75" y1="48" x2="102" y2="48" stroke="#e8e8f0" stroke-width="2"/>
+          <text x="0" y="42" fill="#9a9ab0" font-size="10">A</text>
+          <text x="0" y="62" fill="#9a9ab0" font-size="10">B</text>
+          <text x="108" y="52" fill="#7fd3ff" font-size="10">A AND B</text>
+          <!-- OR -->
+          <text x="20" y="88" fill="#9a9ab0" font-size="11">OR</text>
+          <line x1="5" y1="112" x2="26" y2="112" stroke="#e8e8f0" stroke-width="2"/>
+          <line x1="5" y1="132" x2="26" y2="132" stroke="#e8e8f0" stroke-width="2"/>
+          <path d="M20,102 Q32,122 20,142 Q56,142 80,122 Q56,102 20,102 Z" fill="rgba(255,152,0,0.12)" stroke="#ff9800" stroke-width="2"/>
+          <line x1="80" y1="122" x2="102" y2="122" stroke="#e8e8f0" stroke-width="2"/>
+          <text x="0" y="116" fill="#9a9ab0" font-size="10">A</text>
+          <text x="0" y="136" fill="#9a9ab0" font-size="10">B</text>
+          <text x="108" y="126" fill="#ffb74d" font-size="10">A OR B</text>
+          <!-- NOT -->
+          <text x="20" y="162" fill="#9a9ab0" font-size="11">NOT</text>
+          <line x1="5" y1="188" x2="20" y2="188" stroke="#e8e8f0" stroke-width="2"/>
+          <path d="M20,172 L20,204 L52,188 Z" fill="rgba(76,175,80,0.12)" stroke="#4caf50" stroke-width="2"/>
+          <circle cx="57" cy="188" r="5" fill="none" stroke="#4caf50" stroke-width="2"/>
+          <line x1="62" y1="188" x2="102" y2="188" stroke="#e8e8f0" stroke-width="2"/>
+          <text x="0" y="192" fill="#9a9ab0" font-size="10">A</text>
+          <text x="108" y="192" fill="#81c784" font-size="10">NOT A</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Truth Tables</h2>
+  <div class="panel">
+    <p>A <strong>truth table</strong> lists the output of a gate for every possible combination of inputs. Two inputs (A, B) give 2 × 2 = 4 rows:</p>
+    <table class="data">
+      <tr><th>A</th><th>B</th><th>A AND B</th><th>A OR B</th><th>NOT A</th></tr>
+      <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+      <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+      <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+    </table>
+    <p>NOT takes one input only, so its table has just two rows: 0 → 1 and 1 → 0.</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A burglar alarm rings when the door sensor <em>AND</em> the motion sensor both send 1 — that is an AND gate. The same system also has a night-mode lamp that turns on when the door sensor <em>OR</em> the window sensor sends 1 — an OR gate. One night the door reads 1 and the window reads 0: alarm = 1 AND 0 = <strong>0 (silent)</strong>, lamp = 1 OR 0 = <strong>1 (on)</strong>.
+  </div>
+
+  <h2 class="section-title">Combining Gates</h2>
+  <div class="panel">
+    <p>Gates can be chained: the outputs of some gates become the inputs of others. For example, feeding A and B into an AND gate, then OR-ing the result with a third input C, gives <strong>(A AND B) OR C</strong> — output 1 if C alone is 1, or if A and B are both 1. Every processor, memory chip and calculator is millions of gates combined this way.</p>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Logic Gate Lab</h2>
+  <div class="sim">
+    <h3>Flip the inputs — every gate answers instantly, and the truth table follows</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+          <text x="30" y="40" fill="#9a9ab0" font-size="12">Inputs:</text>
+          <circle id="swA" cx="100" cy="36" r="12" fill="#333" style="cursor:pointer"/>
+          <text x="100" y="41" fill="#fff" font-size="11" text-anchor="middle" id="swATxt">A=0</text>
+          <circle id="swB" cx="180" cy="36" r="12" fill="#333" style="cursor:pointer"/>
+          <text x="180" y="41" fill="#fff" font-size="11" text-anchor="middle" id="swBTxt">B=0</text>
+          <text x="30" y="90" fill="#9a9ab0" font-size="12">AND</text>
+          <circle id="lampAND" cx="100" cy="86" r="12" fill="#222" stroke="#555"/>
+          <text x="140" y="91" fill="#9a9ab0" font-size="11" id="andTxt">0</text>
+          <text x="30" y="130" fill="#9a9ab0" font-size="12">OR</text>
+          <circle id="lampOR" cx="100" cy="126" r="12" fill="#222" stroke="#555"/>
+          <text x="140" y="131" fill="#9a9ab0" font-size="11" id="orTxt">0</text>
+          <text x="30" y="170" fill="#9a9ab0" font-size="12">NOT A</text>
+          <circle id="lampNOT" cx="100" cy="166" r="12" fill="#222" stroke="#555"/>
+          <text x="140" y="171" fill="#9a9ab0" font-size="11" id="notTxt">1</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <button class="btn" id="toggleA">Toggle A</button>
+        <button class="btn warm" id="toggleB">Toggle B</button>
+        <p style="font-size:0.85rem;color:var(--muted)">Click the circles in the diagram or the buttons. AND lights only when <em>both</em> inputs are 1; OR lights when <em>any</em> input is 1; NOT inverts A. The highlighted row below is your current combination.</p>
+      </div>
+    </div>
+    <table class="data" id="ttTable" style="max-width:520px;margin:18px auto 4px">
+      <thead>
+        <tr><th>A</th><th>B</th><th>A AND B</th><th>A OR B</th><th>NOT A</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pager">
+    <a href="digital.html">← Digital &amp; Binary</a>
+    <a href="../index.html">Back to All Chapters →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  /* ---------- Logic gate lab ---------- */
+  let A = 0, B = 0;
+  const swA = document.getElementById("swA");
+  const swB = document.getElementById("swB");
+  const rows = document.querySelectorAll("#ttTable tbody tr");
+
+  function gates() {
+    swA.setAttribute("fill", A ? "#4caf50" : "#333");
+    swB.setAttribute("fill", B ? "#4caf50" : "#333");
+    document.getElementById("swATxt").textContent = "A=" + A;
+    document.getElementById("swBTxt").textContent = "B=" + B;
+    const and = A && B ? 1 : 0;
+    const or = A || B ? 1 : 0;
+    const not = A ? 0 : 1;
+    document.getElementById("lampAND").setAttribute("fill", and ? "#ffd54f" : "#222");
+    document.getElementById("lampAND").setAttribute("stroke", and ? "#ffd54f" : "#555");
+    document.getElementById("lampOR").setAttribute("fill", or ? "#ffd54f" : "#222");
+    document.getElementById("lampOR").setAttribute("stroke", or ? "#ffd54f" : "#555");
+    document.getElementById("lampNOT").setAttribute("fill", not ? "#ffd54f" : "#222");
+    document.getElementById("lampNOT").setAttribute("stroke", not ? "#ffd54f" : "#555");
+    document.getElementById("andTxt").textContent = and;
+    document.getElementById("orTxt").textContent = or;
+    document.getElementById("notTxt").textContent = not;
+    /* highlight the active truth-table row */
+    rows.forEach((r, i) => {
+      r.style.background = i === A * 2 + B ? "#14222e" : "";
+      r.style.outline = i === A * 2 + B ? "1px solid #29b6f6" : "";
+    });
+  }
+  document.getElementById("toggleA").addEventListener("click", () => { A = A ? 0 : 1; gates(); });
+  document.getElementById("toggleB").addEventListener("click", () => { B = B ? 0 : 1; gates(); });
+  swA.addEventListener("click", () => { A = A ? 0 : 1; gates(); });
+  swB.addEventListener("click", () => { B = B ? 0 : 1; gates(); });
+  gates();
+})();
+</script>
+</body>
+</html>

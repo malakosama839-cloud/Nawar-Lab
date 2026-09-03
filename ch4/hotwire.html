@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hot-Wire Ammeter — Chapter 4: AC Circuits — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch4-hotwire">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 4 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 4</a><span class="sep">›</span> The Hot-Wire Ammeter</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="hotwire.html" class="active">Hot-Wire Ammeter</a>
+    <a href="components.html">R, L &amp; C on AC</a>
+    <a href="rlc.html">RLC &amp; Impedance</a>
+    <a href="resonance.html">Resonance</a>
+  </nav>
+
+  <span class="chip">Part I · Chapter 4</span>
+  <h1>The Hot-Wire Ammeter</h1>
+  <p style="color:var(--muted)">An ordinary moving-coil meter is useless for AC — so we measure alternating current with <em>heat</em>.</p>
+
+  <h2 class="section-title">The Problem with Ordinary Meters on AC</h2>
+  <div class="panel">
+    <p>A moving-coil (galvanometer-type) ammeter depends on the <strong>direction</strong> of the current: reverse the current and the pointer tries to swing backwards. House-hold AC reverses direction 100 times per second (50 Hz), so the pointer would only vibrate uselessly around zero — the <strong>average value of a sine wave over a full cycle is zero</strong>.</p>
+    <p>What we actually want to know is: <em>which steady (DC) current would deliver the same power as this AC?</em> That value is called the <strong>effective value (RMS value)</strong>. The hot-wire ammeter reads exactly it.</p>
+  </div>
+
+  <h2 class="section-title">Construction</h2>
+  <div class="panel">
+    <ul class="clean">
+      <li><strong>A thin wire (AB)</strong> of a high-melting-point alloy (platinum–iridium), stretched between two terminals — the current to be measured passes through it.</li>
+      <li><strong>A fine thread</strong> attached to the middle of the wire, wrapped once around a small <strong>pulley</strong> carrying the <strong>pointer</strong>.</li>
+      <li><strong>A spring</strong> that keeps the thread taut and pulls the pointer back to zero when the current stops.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">How It Works</h2>
+  <div class="panel">
+    <p>The current heats the thin wire by <strong>I²R heating</strong> (Joule's law). The wire expands and sags, the thread is pulled inwards, the pulley rotates and the pointer swings across the scale. When the current stops, the wire cools and contracts and the spring returns the pointer to zero.</p>
+    <p>The clever part: the heating produced by a current is proportional to <strong>I²</strong>, and squaring makes positive and negative halves identical — <strong>the heating is completely independent of the direction of the current</strong>. So the pointer settles at one steady reading no matter how fast the current alternates, and it reads the same for AC as it would for the equivalent DC. That is why the scale of a hot-wire ammeter gives the <strong>effective (RMS) value</strong> directly — and the instrument works for DC as well as AC.</p>
+    <div class="formula">I<sub>rms</sub> = I<sub>m</sub> / √2 &nbsp;&nbsp;,&nbsp;&nbsp; V<sub>rms</sub> = V<sub>m</sub> / √2<span class="note">for a sine wave: the effective value = peak value ÷ 1.414 (≈ 0.707 × peak)</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> The voltage of the mains has a peak value V<sub>m</sub> = 311 V. What does a hot-wire voltmeter read?<br>
+    V<sub>rms</sub> = V<sub>m</sub>/√2 = 311 / 1.414 = <strong>220 V</strong> — the familiar "mains voltage".<br>
+    If the same supply drives a peak current I<sub>m</sub> = 2 A, the meter reads I<sub>rms</sub> = 2 / 1.414 ≈ <strong>1.41 A</strong>.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: See the RMS Reading Stay Steady</h2>
+  <div class="sim">
+    <h3>Change V<sub>m</sub> and the frequency — the needle refuses to waver</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
+          <!-- AC wave plot -->
+          <line x1="40" y1="120" x2="320" y2="120" stroke="#2a2a40" stroke-width="1.5"/>
+          <text x="28" y="124" fill="#9a9ab0" font-size="10" text-anchor="end">0</text>
+          <text x="30" y="48" fill="#9a9ab0" font-size="10" text-anchor="end">+</text>
+          <text x="30" y="196" fill="#9a9ab0" font-size="10" text-anchor="end">−</text>
+          <line id="rmsLine" x1="40" y1="70" x2="320" y2="70" stroke="#4caf50" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="318" y="64" fill="#4caf50" font-size="10" text-anchor="end">effective (RMS) level</text>
+          <polyline id="sineTrace" points="" fill="none" stroke="#7fd3ff" stroke-width="2.5"/>
+          <text x="180" y="222" fill="#9a9ab0" font-size="10" text-anchor="middle">the AC voltage (peaks alternate + and −)</text>
+
+          <!-- heating wire glow -->
+          <rect x="40" y="236" width="280" height="12" rx="6" fill="#3a2a1a"/>
+          <rect id="heatGlow" x="40" y="236" width="280" height="12" rx="6" fill="#ff9800" opacity="0.5"/>
+          <text x="180" y="266" fill="#ff9800" font-size="10" text-anchor="middle" id="heatLabel">heating wire: glow ∝ I² (direction doesn't matter)</text>
+
+          <!-- hot-wire meter -->
+          <path d="M 422 165 A 90 90 0 0 1 578 165" fill="none" stroke="#2a2a40" stroke-width="2"/>
+          <text x="500" y="80" fill="#9a9ab0" font-size="10" text-anchor="middle">hot-wire meter</text>
+          <line x1="422" y1="165" x2="415" y2="161" stroke="#9a9ab0" stroke-width="2"/>
+          <text x="410" y="166" fill="#9a9ab0" font-size="9" text-anchor="end">0</text>
+          <line x1="500" y1="120" x2="500" y2="112" stroke="#9a9ab0" stroke-width="2"/>
+          <text x="500" y="104" fill="#9a9ab0" font-size="9" text-anchor="middle">170</text>
+          <line x1="578" y1="165" x2="585" y2="161" stroke="#9a9ab0" stroke-width="2"/>
+          <text x="590" y="166" fill="#9a9ab0" font-size="9" text-anchor="start">340</text>
+          <line id="needle" x1="500" y1="210" x2="500" y2="128" stroke="#ff5e62" stroke-width="3"/>
+          <circle cx="500" cy="210" r="6" fill="#12121a" stroke="#ff5e62" stroke-width="2"/>
+          <text x="500" y="248" fill="#e8e8f0" font-size="12" text-anchor="middle" id="meterTxt">reads 220 V — steady!</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Peak voltage V<sub>m</sub> <span class="val" id="vmVal">311 V</span></label>
+          <input type="range" id="vmSlider" min="20" max="340" step="1" value="311">
+        </div>
+        <div class="control">
+          <label>Frequency f <span class="val" id="fVal">50 Hz</span></label>
+          <input type="range" id="fSlider" min="10" max="100" step="1" value="50">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="vrmsOut">220</div><div class="lbl">V<sub>rms</sub> = V<sub>m</sub>/√2 (V)</div></div>
+          <div class="readout"><div class="num good" id="needleOut">0.65</div><div class="lbl">V<sub>rms</sub> / V<sub>m</sub> = 1/√2</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Slide the frequency as fast as you like — the wave scrolls faster, but the needle stays exactly at the RMS level. The wire cannot follow the alternations; it only feels the heating, and heating depends on I², which never cares about direction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> The hot-wire ammeter works for <em>both</em> AC and DC, and always reads the <strong>effective (RMS) value</strong>. A moving-coil meter reads the average value — which is <strong>zero</strong> for a pure sine-wave AC.
+  </div>
+
+  <div class="pager">
+    <a href="index.html">← Chapter 4 Overview</a>
+    <a href="components.html">Next: R, L &amp; C on AC →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const vmS = document.getElementById("vmSlider");
+  const fS = document.getElementById("fSlider");
+  const trace = document.getElementById("sineTrace");
+  const rmsLine = document.getElementById("rmsLine");
+  const needle = document.getElementById("needle");
+  const glow = document.getElementById("heatGlow");
+  const heatLabel = document.getElementById("heatLabel");
+  const meterTxt = document.getElementById("meterTxt");
+
+  let phase = 0, last = performance.now();
+
+  function meterAngle(v) {           // map 0..340 V to −60°..+60°
+    return (-60 + 120 * Math.min(v, 340) / 340) * Math.PI / 180;
+  }
+
+  function drawStatic() {
+    const Vm = +vmS.value;
+    const amp = 20 + 55 * (Vm / 340);
+    const yrms = 120 - amp / Math.SQRT2;
+    rmsLine.setAttribute("y1", yrms);
+    rmsLine.setAttribute("y2", yrms);
+    // meter needle at RMS value
+    const a = meterAngle(Vm / Math.SQRT2);
+    needle.setAttribute("x2", 500 + 82 * Math.sin(a));
+    needle.setAttribute("y2", 210 - 82 * Math.cos(a));
+    glow.setAttribute("opacity", (0.12 + 0.85 * (Vm / 340)).toFixed(2));
+    document.getElementById("vmVal").textContent = Vm + " V";
+    document.getElementById("fVal").textContent = fS.value + " Hz";
+    document.getElementById("vrmsOut").textContent = (Vm / Math.SQRT2).toFixed(1);
+    document.getElementById("needleOut").textContent = (1 / Math.SQRT2).toFixed(3);
+    meterTxt.textContent = "reads " + (Vm / Math.SQRT2).toFixed(0) + " V — steady!";
+    heatLabel.textContent = "heating wire: glow ∝ I²rms — direction doesn't matter";
+  }
+
+  function step(now) {
+    const dt = (now - last) / 1000;
+    last = now;
+    const fVis = Math.max(0.4, (+fS.value) / 20);   // slowed-down view of the AC
+    phase += 2 * Math.PI * fVis * dt;
+    const Vm = +vmS.value;
+    const amp = 20 + 55 * (Vm / 340);
+    let pts = "";
+    for (let x = 40; x <= 320; x += 4) {
+      const frac = (x - 40) / 280;
+      const y = 120 - amp * Math.sin(2 * Math.PI * 2.5 * frac - phase);
+      pts += x + "," + y.toFixed(1) + " ";
+    }
+    trace.setAttribute("points", pts);
+    requestAnimationFrame(step);
+  }
+
+  vmS.addEventListener("input", drawStatic);
+  fS.addEventListener("input", drawStatic);
+  drawStatic();
+  requestAnimationFrame(step);
+})();
+</script>
+</body>
+</html>

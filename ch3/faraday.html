@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faraday's Law &amp; Lenz's Rule — Chapter 3: Electromagnetic Induction — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch3-faraday">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 3 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 3</a><span class="sep">›</span> Faraday's Law &amp; Lenz's Rule</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="faraday.html" class="active">Faraday &amp; Lenz</a>
+    <a href="wire.html">Moving Wire</a>
+    <a href="mutual-self.html">Mutual &amp; Self Induction</a>
+    <a href="generator.html">AC Generator</a>
+    <a href="motor.html">DC Motor</a>
+    <a href="transformer.html">Transformer</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 3</span>
+  <h1>Faraday's Law &amp; Lenz's Rule</h1>
+
+  <h2 class="section-title">First, Remember Magnetic Flux</h2>
+  <div class="panel">
+    <p>Induction is all about <strong>magnetic flux (Φ)</strong> — the number of magnetic field lines passing through the area of a coil:</p>
+    <div class="formula">Φ = B × A × cos θ<span class="note">Φ in weber (Wb), B in tesla (T), A in m², θ = angle between B and the normal to the coil's face</span></div>
+    <p>Flux is <strong>maximum</strong> when the field is perpendicular to the coil's face (θ = 0) and <strong>zero</strong> when the field slides along the face (θ = 90°).</p>
+    <div class="tip"><strong>The big idea:</strong> a steady flux induces nothing. Only a <em>changing</em> flux produces an induced EMF — move the magnet, change the current, rotate or deform the coil.</div>
+  </div>
+
+  <h2 class="section-title">Faraday's Law</h2>
+  <div class="panel">
+    <p><strong>Faraday's law:</strong> whenever the magnetic flux linked with a coil changes, an <strong>induced EMF</strong> is generated in the coil, and its magnitude is directly proportional to the <em>rate of change</em> of flux. With N turns, each turn adds its own EMF:</p>
+    <div class="formula">EMF = − N × ΔΦ / Δt<span class="note">N = number of turns, ΔΦ in weber, Δt in seconds → EMF in volts</span></div>
+    <ul class="clean">
+      <li>Faster change (smaller Δt) → bigger EMF.</li>
+      <li>Bigger flux change (bigger ΔΦ) → bigger EMF.</li>
+      <li>More turns (bigger N) → bigger EMF.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">Lenz's Rule — Which Direction?</h2>
+  <div class="panel">
+    <p><strong>Lenz's rule</strong> gives the direction of the induced current:</p>
+    <div class="tip"><strong>Lenz's rule:</strong> the induced current flows in whatever direction makes its own magnetic field <strong>oppose the change</strong> that produced it.</div>
+    <p>Push a magnet's N pole toward a coil → the coil's face becomes an N pole to repel you. Pull the magnet away → the face becomes an S pole to attract you and hold you back. The minus sign in Faraday's law <em>is</em> Lenz's rule.</p>
+    <h3>Energy conservation</h3>
+    <p>Lenz's rule is the law of <strong>conservation of energy</strong> in disguise. The induced current delivers electrical energy, and that energy must come from somewhere: <strong>you</strong>. You must do mechanical work pushing the magnet against the opposing force, and that work is converted into electrical energy. If the induced current <em>helped</em> the motion instead, we would get free energy forever — which is impossible.</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A coil of 200 turns experiences a flux change of 5 × 10⁻³ Wb in 0.1 s. Find the induced EMF.<br>
+    EMF = N ΔΦ/Δt = 200 × (5 × 10⁻³) / 0.1 = 200 × 0.05 = <strong>10 V</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Push-the-Magnet Lab</h2>
+  <div class="sim">
+    <h3>Push a magnet through a coil — faster and stronger means more EMF</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="220" cy="80" rx="16" ry="55" fill="none" stroke="#ff9800" stroke-width="3"/>
+          <ellipse cx="220" cy="80" rx="16" ry="55" fill="none" stroke="#ff9800" stroke-width="3" transform="translate(14,0)" opacity="0.45"/>
+          <text x="245" y="150" fill="#ff9800" font-size="11" id="coilInfo">coil: N = 100 turns</text>
+          <g id="magnetG">
+            <rect x="60" y="70" width="50" height="20" rx="4" fill="#ef5350"/>
+            <rect x="110" y="70" width="50" height="20" rx="4" fill="#42a5f5"/>
+            <text x="78" y="84" fill="#fff" font-size="11">N</text>
+            <text x="140" y="84" fill="#fff" font-size="11">S</text>
+          </g>
+          <line x1="30" y1="80" x2="300" y2="80" stroke="#2a2a40" stroke-width="1" stroke-dasharray="3 5"/>
+          <path id="coilPath" d="M220,25 A16,55 0 1,1 219.9,25 Z" fill="none" stroke="none"/>
+          <g id="coilDots"></g>
+          <text x="170" y="30" fill="#7fd3ff" font-size="13" text-anchor="middle" font-weight="bold" id="emfBanner">EMF = 1.00 V</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Coil turns (N) <span class="val" id="nVal">100</span></label>
+          <input type="range" id="nSlider" min="10" max="1000" step="10" value="100">
+        </div>
+        <div class="control">
+          <label>Flux change (ΔΦ) <span class="val" id="dphiVal">0.020 Wb</span></label>
+          <input type="range" id="dphiSlider" min="1" max="50" step="1" value="20">
+        </div>
+        <div class="control">
+          <label>Time of change (Δt) <span class="val" id="dtVal">0.20 s</span></label>
+          <input type="range" id="dtSlider" min="1" max="100" step="1" value="20">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num good" id="emfOut">1.00</div><div class="lbl">Induced EMF (V)</div></div>
+        </div>
+        <button class="btn" id="pushBtn">Push the Magnet ⟶</button>
+        <p style="font-size:0.85rem;color:var(--muted)">Halve the time → double the EMF. The coil opposes you both ways (Lenz) — the yellow dots show the induced current while the magnet moves.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="index.html">← Chapter Overview</a>
+    <a href="wire.html">Next: Moving Wire →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const nS = document.getElementById("nSlider");
+  const dphiS = document.getElementById("dphiSlider");
+  const dtS = document.getElementById("dtSlider");
+  const pushBtn = document.getElementById("pushBtn");
+  const magnetG = document.getElementById("magnetG");
+  const emfBanner = document.getElementById("emfBanner");
+  const emfOut = document.getElementById("emfOut");
+  const coilInfo = document.getElementById("coilInfo");
+
+  function faraday() {
+    const N = +nS.value, dphi = dphiS.value / 1000, dt = dtS.value / 100;
+    const E = N * dphi / dt;
+    document.getElementById("nVal").textContent = N;
+    document.getElementById("dphiVal").textContent = dphi.toFixed(3) + " Wb";
+    document.getElementById("dtVal").textContent = dt.toFixed(2) + " s";
+    emfOut.textContent = E.toFixed(2);
+    emfBanner.textContent = "EMF = " + E.toFixed(2) + " V";
+    coilInfo.textContent = "coil: N = " + N + " turns";
+    return E;
+  }
+  nS.addEventListener("input", faraday);
+  dphiS.addEventListener("input", faraday);
+  dtS.addEventListener("input", faraday);
+  faraday();
+
+  const coilAnim = animateCurrent("coilPath", "coilDots", { on: false, speed: 60, count: 8, color: "#ffd54f", radius: 3.5 });
+
+  let pushing = false;
+  pushBtn.addEventListener("click", () => {
+    if (pushing) return;
+    pushing = true;
+    const E = faraday();
+    setAnimOn(coilAnim, true);
+    setAnimSpeed(coilAnim, Math.min(160, 20 + E * 10));
+    const t0 = performance.now();
+    const dur = 1800 - Math.min(1400, E * 8);
+    function anim(now) {
+      const f = (now - t0) / dur;
+      if (f < 1) {
+        const x = 60 + f * 200;
+        magnetG.setAttribute("transform", "translate(" + x + ",0)");
+        requestAnimationFrame(anim);
+      } else {
+        magnetG.setAttribute("transform", "");
+        setAnimOn(coilAnim, false);
+        pushing = false;
+      }
+    }
+    requestAnimationFrame(anim);
+  });
+})();
+</script>
+</body>
+</html>

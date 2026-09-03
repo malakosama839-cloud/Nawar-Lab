@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resistivity, Conductivity, Power &amp; Energy — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="resistivity">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 1 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 1</a><span class="sep">›</span> Resistivity, Conductivity, Power & Energy</div><div class="chapter-nav"><a href="index.html">Overview</a><a href="basics.html">Basic Concepts</a><a href="resistivity.html" class="active">Resistivity & Power</a><a href="connections.html">Series & Parallel</a><a href="ohm-circuit.html">Ohm's Law</a><a href="brightness.html">Brightness & Keys</a><a href="kcl.html">KCL</a><a href="kvl.html">KVL</a></div>
+  <span class="chip">Topic 2</span>
+  <h1>Resistivity, Conductivity, Power &amp; Energy</h1>
+
+  <h2 class="section-title">Resistivity (ρ)</h2>
+  <div class="panel">
+    <p>Every material has an intrinsic opposition to current called <strong>resistivity (ρ)</strong> — it depends on the material itself, not on the shape of the wire. But the resistance of an actual wire depends on both the material <em>and</em> its dimensions:</p>
+    <div class="formula">R = ρ × L / A<span class="note">L = wire length (m), A = cross-section area (m²), ρ = resistivity (Ω·m)</span></div>
+    <ul class="clean">
+      <li>Longer wire → more resistance (current struggles over a longer distance).</li>
+      <li>Thicker wire → less resistance (more room for electrons to pass).</li>
+    </ul>
+
+    <h3>Conductivity (σ)</h3>
+    <p>Conductivity is simply the <strong>opposite idea</strong>: how easily a material lets current flow.</p>
+    <div class="formula">σ = 1 / ρ<span class="note">Good conductor: high σ, low ρ (e.g. copper). Good insulator: low σ, high ρ (e.g. rubber)</span></div>
+
+    <table class="data">
+      <tr><th>Material</th><th>Resistivity ρ (Ω·m)</th><th>Type</th></tr>
+      <tr><td>Silver</td><td>1.6 × 10⁻⁸</td><td>Best conductor</td></tr>
+      <tr><td>Copper</td><td>1.7 × 10⁻⁸</td><td>Conductor (wiring!)</td></tr>
+      <tr><td>Iron</td><td>1.0 × 10⁻⁷</td><td>Conductor</td></tr>
+      <tr><td>Nichrome</td><td>1.1 × 10⁻⁶</td><td>Alloy — heating elements</td></tr>
+      <tr><td>Rubber</td><td>~10¹³</td><td>Insulator</td></tr>
+    </table>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A copper wire has length 20 m and cross-section area 1 × 10⁻⁶ m². Find its resistance (ρ = 1.7 × 10⁻⁸ Ω·m).<br>
+    R = ρL/A = (1.7 × 10⁻⁸ × 20) / (1 × 10⁻⁶) = <strong>0.34 Ω</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Experiment 1: Wire Resistance Simulator</h2>
+  <div class="sim">
+    <h3>Stretch the wire, thicken it, change the material</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+          <line x1="30" y1="80" x2="310" y2="80" stroke="#3a3a55" stroke-width="2"/>
+          <line x1="30" y1="40" x2="30" y2="120" stroke="#3a3a55" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="310" y1="40" x2="310" y2="120" stroke="#3a3a55" stroke-width="2" stroke-dasharray="4"/>
+          <rect id="wire" x="30" y="68" width="280" height="24" rx="6" fill="#ff9800"/>
+          <text x="170" y="140" fill="#9a9ab0" font-size="12" text-anchor="middle" id="wireInfo">Copper — L = 10 m, A = 1.0 mm²</text>
+          <text x="170" y="30" fill="#ff9800" font-size="16" text-anchor="middle" font-weight="bold" id="wireR">R = 0.17 Ω</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Material <span class="val" id="matVal">Copper</span></label>
+          <select id="matSel" style="width:100%;padding:8px;border-radius:8px;background:#0d1420;color:#e8e8f0;border:1px solid #1b2f45">
+            <option value="1.7e-8" selected>Copper</option>
+            <option value="1.0e-7">Iron</option>
+            <option value="1.1e-6">Nichrome</option>
+          </select>
+        </div>
+        <div class="control">
+          <label>Length (L) <span class="val" id="lVal">10 m</span></label>
+          <input type="range" id="lSlider" min="1" max="100" step="1" value="10">
+        </div>
+        <div class="control">
+          <label>Area (A) <span class="val" id="aVal">1.0 mm²</span></label>
+          <input type="range" id="aSlider" min="1" max="40" step="1" value="10">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="rOut">0.17</div><div class="lbl">Resistance R (Ω)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Watch: longer or thinner → bigger R. Switch to nichrome and R jumps ×65!</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Electric Power &amp; Energy</h2>
+  <div class="panel">
+    <p><strong>Power (P)</strong> is the rate at which a device converts electrical energy into heat, light or motion. Measured in <strong>watts (W)</strong>.</p>
+    <div class="formula">P = V × I = I² × R = V² / R<span class="note">All three are equivalent — pick whichever matches what you know</span></div>
+    <p><strong>Energy (E)</strong> is the total amount converted over a period of time. Measured in <strong>joules (J)</strong> — or in kilowatt-hours (kWh) on your electricity bill.</p>
+    <div class="formula">E = P × t<span class="note">t in seconds gives E in joules; t in hours with P in kW gives E in kWh</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A heater draws 5 A from a 220 V supply for 2 hours. Find its power and the energy consumed.<br>
+    P = V × I = 220 × 5 = <strong>1100 W</strong> &nbsp;•&nbsp; E = P × t = 1100 × 2 × 3600 = <strong>7.92 × 10⁶ J</strong> (= 2.2 kWh)
+  </div>
+
+  <h2 class="section-title">🔬 Experiment 2: Power &amp; Energy Calculator</h2>
+  <div class="sim">
+    <h3>Run a device and watch the energy bill climb</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="170" cy="80" r="46" fill="#0d1420" stroke="#1b2f45" stroke-width="2"/>
+          <path d="M155,58 L178,58 L166,80 L182,80 L152,108 L162,84 L150,84 Z" fill="url(#boltGrad)" id="boltIcon"/>
+          <defs>
+            <linearGradient id="boltGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff5e62"/><stop offset="1" stop-color="#ff9800"/>
+            </linearGradient>
+          </defs>
+          <text x="170" y="145" fill="#9a9ab0" font-size="12" text-anchor="middle" id="meterInfo">Running for 0 h 0 min</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Voltage (V) <span class="val" id="pvVal">220 V</span></label>
+          <input type="range" id="pvSlider" min="20" max="240" step="10" value="220">
+        </div>
+        <div class="control">
+          <label>Current (I) <span class="val" id="piVal">5.0 A</span></label>
+          <input type="range" id="piSlider" min="1" max="20" step="0.5" value="5">
+        </div>
+        <div class="control">
+          <label>Time (t) <span class="val" id="ptVal">1.0 h</span></label>
+          <input type="range" id="ptSlider" min="0.25" max="12" step="0.25" value="1">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num warn" id="pOut">1100</div><div class="lbl">Power P (W)</div></div>
+          <div class="readout"><div class="num good" id="eOut">1.10</div><div class="lbl">Energy E (kWh)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">1 kWh = 3.6 × 10⁶ J — this is the "unit" your home electricity meter counts.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="basics.html">← Previous: Basic Concepts</a>
+    <a href="connections.html">Next: Series &amp; Parallel →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  /* Wire simulator */
+  const matSel = document.getElementById("matSel");
+  const lS = document.getElementById("lSlider");
+  const aS = document.getElementById("aSlider");
+  const matVal = document.getElementById("matVal");
+  const lVal = document.getElementById("lVal");
+  const aVal = document.getElementById("aVal");
+  const wire = document.getElementById("wire");
+  const wireR = document.getElementById("wireR");
+  const wireInfo = document.getElementById("wireInfo");
+  const rOut = document.getElementById("rOut");
+
+  const matNames = { "1.7e-8": "Copper", "1.0e-7": "Iron", "1.1e-6": "Nichrome" };
+
+  function updateWire() {
+    const rho = +matSel.value;
+    const L = +lS.value;
+    const aMm = +aS.value;               // slider units
+    const A = aMm * 1e-6 / 10;           // map slider → mm²  (10 units = 1 mm²)
+    const A_mm2 = aMm / 10;
+    const R = rho * L / A;
+    matVal.textContent = matNames[matSel.value];
+    lVal.textContent = L + " m";
+    aVal.textContent = A_mm2.toFixed(1) + " mm²";
+    // visual: longer wire → wider rect; thicker → taller
+    const w = 40 + (L / 100) * 240;
+    const h = 6 + (aMm / 40) * 34;
+    wire.setAttribute("width", w);
+    wire.setAttribute("height", h);
+    wire.setAttribute("y", 80 - h / 2);
+    const Rtxt = R >= 1 ? R.toFixed(2) + " Ω" : R.toFixed(3) + " Ω";
+    wireR.textContent = "R = " + Rtxt;
+    wireInfo.textContent = matNames[matSel.value] + " — L = " + L + " m, A = " + A_mm2.toFixed(1) + " mm²";
+    rOut.textContent = R >= 1 ? R.toFixed(2) : R.toFixed(3);
+  }
+  matSel.addEventListener("change", updateWire);
+  lS.addEventListener("input", updateWire);
+  aS.addEventListener("input", updateWire);
+  updateWire();
+
+  /* Power & energy simulator */
+  const pvS = document.getElementById("pvSlider");
+  const piS = document.getElementById("piSlider");
+  const ptS = document.getElementById("ptSlider");
+  const pvVal = document.getElementById("pvVal");
+  const piVal = document.getElementById("piVal");
+  const ptVal = document.getElementById("ptVal");
+  const pOut = document.getElementById("pOut");
+  const eOut = document.getElementById("eOut");
+  const meterInfo = document.getElementById("meterInfo");
+
+  function updatePower() {
+    const V = +pvS.value, I = +piS.value, t = +ptS.value;
+    const P = V * I;
+    const E = P * t / 1000; // kWh
+    pvVal.textContent = V + " V";
+    piVal.textContent = I.toFixed(1) + " A";
+    const hh = Math.floor(t), mm = Math.round((t - hh) * 60);
+    ptVal.textContent = t.toFixed(2) + " h";
+    pOut.textContent = P.toLocaleString();
+    eOut.textContent = E.toFixed(2);
+    meterInfo.textContent = "Running for " + hh + " h " + mm + " min";
+  }
+  pvS.addEventListener("input", updatePower);
+  piS.addEventListener("input", updatePower);
+  ptS.addEventListener("input", updatePower);
+  updatePower();
+})();
+</script>
+</body>
+</html>

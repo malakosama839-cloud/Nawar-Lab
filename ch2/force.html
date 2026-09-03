@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magnetic Force — Chapter 2: Magnetic Effect — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch2-force">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 2 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 2</a><span class="sep">›</span> Magnetic Force</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="flux.html">Magnetic Flux</a>
+    <a href="fields.html">Fields from Currents</a>
+    <a href="force.html" class="active">Magnetic Force</a>
+    <a href="torque.html">Torque &amp; Dipole Moment</a>
+    <a href="instruments.html">Measuring Instruments</a>
+  </div>
+
+  <span class="chip">Part I · Chapter 2</span>
+  <h1>Magnetic Force</h1>
+
+  <h2 class="section-title">Force on a Straight Current-Carrying Wire</h2>
+  <div class="panel">
+    <p>Place a wire carrying current I of length L inside a magnetic field B, with the angle between the <strong>wire</strong> and B equal to θ: the field pushes the wire sideways with a force</p>
+    <div class="formula">F = B × I × L × sin θ<span class="note">F in newtons (N). θ is the angle between the WIRE and B. Force is ⊥ to both the wire and B</span></div>
+    <ul class="clean">
+      <li><strong>Maximum force</strong> F = B·I·L when the wire is <strong>perpendicular</strong> to B (θ = 90°).</li>
+      <li><strong>Zero force</strong> when the wire is <strong>parallel</strong> to B (θ = 0°) — the field cannot push along itself.</li>
+    </ul>
+    <div class="tip"><strong>Exam trap:</strong> in F = B I L sinθ the angle is between the <strong>wire</strong> and B. In Φ = B A cosθ the angle is between B and the <strong>normal</strong>. Check which one the question means!</div>
+  </div>
+
+  <h2 class="section-title">Fleming's Left-Hand Rule</h2>
+  <div class="panel">
+    <p>The direction of the force is found by holding your <strong>left hand</strong> flat with the thumb, first finger and second finger all at right angles to each other:</p>
+    <ul class="clean">
+      <li><strong>First finger</strong> (index) → points along the <strong>Field</strong> (N → S).</li>
+      <li><strong>Second finger</strong> (middle) → points along the <strong>Current</strong> (conventional + → −).</li>
+      <li><strong>Thumb</strong> → points along the <strong>force / Motion</strong> of the wire.</li>
+    </ul>
+    <p>Memory aid: <strong>F</strong>ield – <strong>C</strong>urrent – <strong>M</strong>otion for the First, seCond and thuMb. This rule explains why an electric motor spins: current + field → sideways push.</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A horizontal wire of length 0.5 m carries a current of 3 A perpendicular to a field of 0.4 T. Find the force on it, and the force if the wire is tilted so θ = 30°.<br>
+    θ = 90°:  F = B I L sin90° = 0.4 × 3 × 0.5 × 1 = <strong>0.6 N</strong><br>
+    θ = 30°:  F = 0.4 × 3 × 0.5 × sin30° = 0.6 × 0.5 = <strong>0.3 N</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Force on a Wire Lab</h2>
+  <div class="sim">
+    <h3>Tilt the wire, grow the force — the bar moves</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg">
+          <rect x="60" y="60" width="220" height="60" fill="none" stroke="#1b2f45" stroke-width="2" stroke-dasharray="6 4"/>
+          <text x="75" y="55" fill="#556" font-size="10" fill-opacity="0.9">region of field B (into the page)</text>
+          <text x="290" y="95" fill="#7fd3ff" font-size="12">⊗ B</text>
+          <line id="fWire" x1="90" y1="90" x2="250" y2="90" stroke="#ff9800" stroke-width="4" stroke-linecap="round"/>
+          <g id="fArrows"></g>
+          <text x="170" y="150" fill="#9a9ab0" font-size="12" text-anchor="middle" id="fInfo">F = 0.60 N</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Field B <span class="val" id="fbVal">0.4 T</span></label>
+          <input type="range" id="fbSlider" min="0" max="2" step="0.1" value="0.4">
+        </div>
+        <div class="control">
+          <label>Current I <span class="val" id="fiVal2">3 A</span></label>
+          <input type="range" id="fiSlider2" min="0" max="10" step="0.5" value="3">
+        </div>
+        <div class="control">
+          <label>Length L <span class="val" id="flVal">0.5 m</span></label>
+          <input type="range" id="flSlider" min="0.1" max="2" step="0.1" value="0.5">
+        </div>
+        <div class="control">
+          <label>Angle θ (wire → B) <span class="val" id="ftVal">90°</span></label>
+          <input type="range" id="ftSlider" min="0" max="90" step="5" value="90">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num warn" id="fOut">0.60</div><div class="lbl">Force F (N)</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">θ = 90° → maximum force. θ = 0° (wire parallel to B) → zero force.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Force Between Two Parallel Wires</h2>
+  <div class="panel">
+    <p>Wire 1's field acts on the current of wire 2, so two parallel wires a distance d apart exert equal and opposite forces on each other. For wires of length L carrying currents I₁ and I₂:</p>
+    <div class="formula">F / L = μ₀ × I₁ × I₂ / (2π d)<span class="note">F per metre of wire (N/m). Same direction currents → <b>attraction</b>. Opposite directions → <b>repulsion</b></span></div>
+    <div class="tip"><strong>Exam trap:</strong> parallel currents in the <strong>same</strong> direction <strong>attract</strong> — opposite to what you might guess from charges! This idea is also used to define the ampere.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Two parallel wires 0.1 m apart each carry 5 A in the same direction. Find the force per metre between them.<br>
+    F/L = μ₀ I₁ I₂ / (2π d) = (4π×10⁻⁷ × 5 × 5) / (2π × 0.1) = (2×10⁻⁷ × 25) / 0.1 = 5×10⁻⁶ / 0.1 = <strong>5 × 10⁻⁵ N/m</strong> (attraction)
+  </div>
+
+  <div class="pager">
+    <a href="fields.html">← Fields from Currents</a>
+    <a href="torque.html">Next: Torque &amp; Dipole Moment →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const fbS = document.getElementById("fbSlider");
+  const fiS2 = document.getElementById("fiSlider2");
+  const flS = document.getElementById("flSlider");
+  const ftS = document.getElementById("ftSlider");
+  const fOut = document.getElementById("fOut");
+  const fInfo = document.getElementById("fInfo");
+  const fArrows = document.getElementById("fArrows");
+  const NS = "http://www.w3.org/2000/svg";
+
+  function el(tag, attrs) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  function updateForce() {
+    const B = +fbS.value, I = +fiS2.value, L = +flS.value, th = +ftS.value;
+    const F = B * I * L * Math.sin(th * Math.PI / 180);
+    document.getElementById("fbVal").textContent = B.toFixed(1) + " T";
+    document.getElementById("fiVal2").textContent = I.toFixed(1) + " A";
+    document.getElementById("flVal").textContent = L.toFixed(1) + " m";
+    document.getElementById("ftVal").textContent = th + "°";
+    fOut.textContent = F.toFixed(2);
+    fInfo.textContent = "F = " + F.toFixed(2) + " N" + (th === 0 ? "  (wire ∥ B → no force)" : "");
+    // tilt the wire: horizontal at θ = 0° (wire ∥ horizontal field B), vertical at θ = 90° (wire ⊥ B)
+    const rad = th * Math.PI / 180;
+    const half = 80 * Math.cos(rad);        // horizontal extent
+    const dy = 35 * Math.sin(rad);          // vertical extent
+    const wire = document.getElementById("fWire");
+    wire.setAttribute("x1", 170 - half); wire.setAttribute("y1", 90 - dy);
+    wire.setAttribute("x2", 170 + half); wire.setAttribute("y2", 90 + dy);
+    fArrows.innerHTML = "";
+    const arrows = Math.min(6, Math.max(1, Math.round(F * 8)));
+    for (let i = 0; i < arrows; i++) {
+      const y = 70 + i * 8;
+      fArrows.appendChild(el("line", { x1: 262, y1: y, x2: 286, y2: y, stroke: "#ef5350", "stroke-width": 3 }));
+      fArrows.appendChild(el("path", { d: "M286," + (y - 4) + " L294," + y + " L286," + (y + 4), fill: "none", stroke: "#ef5350", "stroke-width": 3 }));
+    }
+  }
+  for (const s of [fbS, fiS2, flS, ftS]) s.addEventListener("input", updateForce);
+  updateForce();
+})();
+</script>
+</body>
+</html>

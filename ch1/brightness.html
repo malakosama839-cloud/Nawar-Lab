@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brightness &amp; Keys Ideas — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="brightness">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 1 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 1</a><span class="sep">›</span> Brightness & Keys Ideas</div><div class="chapter-nav"><a href="index.html">Overview</a><a href="basics.html">Basic Concepts</a><a href="resistivity.html">Resistivity & Power</a><a href="connections.html">Series & Parallel</a><a href="ohm-circuit.html">Ohm's Law</a><a href="brightness.html" class="active">Brightness & Keys</a><a href="kcl.html">KCL</a><a href="kvl.html">KVL</a></div>
+  <span class="chip">Topic 5</span>
+  <h1>Brightness &amp; Keys Ideas</h1>
+
+  <h2 class="section-title">What Makes a Bulb Glow Brighter?</h2>
+  <div class="panel">
+    <p>The brightness of a bulb depends on the <strong>electrical power it consumes</strong> — a bulb is just a resistor (the filament) that glows when it gets hot. Power depends on the current through it:</p>
+    <div class="formula">P = I² × R<sub>bulb</sub><span class="note">More current → more power → brighter glow</span></div>
+    <ul class="clean">
+      <li>Two identical bulbs <strong>in series</strong>: each gets half the voltage → much dimmer.</li>
+      <li>Two identical bulbs <strong>in parallel</strong>: each gets the full voltage → both shine at full brightness.</li>
+      <li>A battery with high internal resistance gives dimmer bulbs, because some voltage is lost inside the battery.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">The Key (Switch)</h2>
+  <div class="panel">
+    <p>A <strong>key</strong> is simply a switch that can open or close the path of the current:</p>
+    <ul class="clean">
+      <li><strong>Closed key:</strong> the circuit is complete → current flows → the bulb lights.</li>
+      <li><strong>Open key:</strong> the path is broken → I = 0 → the bulb is off, and the voltmeter across the battery reads the full EMF (no lost volts!).</li>
+      <li>A key in <strong>series</strong> with a bulb controls that bulb. A key in <strong>parallel</strong> with a bulb "short-circuits" it — current takes the easy path and the bulb goes out.</li>
+    </ul>
+    <div class="tip"><strong>Exam favourite:</strong> when the key opens, I = 0 everywhere in that loop, so lost volts = 0 and the terminal voltage jumps up to the EMF.</div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Two identical bulbs, each 6 Ω, are connected in series to a 12 V battery.<br>
+    R<sub>eq</sub> = 12 Ω → I = 1 A → each bulb gets P = I²R = 1² × 6 = <strong>6 W</strong> (half brightness).<br>
+    Now connect them in parallel: each gets 12 V directly → P = V²/R = 144/6 = <strong>24 W</strong> each — full brightness!
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Bulb Brightness &amp; Key Simulator</h2>
+  <div class="sim">
+    <h3>Flip the key and adjust the circuit — watch the glow</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 360 230" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="glowGrad" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#fff7c0" stop-opacity="1"/>
+              <stop offset="0.4" stop-color="#ffd54f" stop-opacity="0.8"/>
+              <stop offset="1" stop-color="#ffd54f" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- loop -->
+          <path d="M80,190 L80,55 L290,55 L290,190 L80,190" fill="none" stroke="#3a3a55" stroke-width="3"/>
+          <!-- battery on left -->
+          <rect x="54" y="105" width="52" height="38" fill="#0a0a0f" stroke="none"/>
+          <line x1="60" y1="114" x2="100" y2="114" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="68" y1="124" x2="92" y2="124" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="60" y1="134" x2="100" y2="134" stroke="#7fd3ff" stroke-width="1.5"/>
+          <text x="112" y="130" fill="#7fd3ff" font-size="12" id="battV">12 V</text>
+          <!-- key on bottom -->
+          <g id="keyGroup" style="cursor:pointer">
+            <circle cx="150" cy="190" r="5" fill="#3a3a55"/>
+            <circle cx="210" cy="190" r="5" fill="#3a3a55"/>
+            <line id="keyLever" x1="150" y1="190" x2="206" y2="178" stroke="#e8e8f0" stroke-width="4" stroke-linecap="round"/>
+            <text x="180" y="216" fill="#9a9ab0" font-size="11" text-anchor="middle" id="keyText">Key: CLOSED (click to open)</text>
+          </g>
+          <!-- bulb on top right -->
+          <g id="bulbGroup">
+            <circle id="glow" cx="290" cy="90" r="0" fill="url(#glowGrad)" opacity="0"/>
+            <circle cx="290" cy="90" r="20" fill="#1a1a26" stroke="#888" stroke-width="2" id="bulbGlass"/>
+            <path d="M283,106 L283,114 L297,114 L297,106" fill="#555" id="bulbBase"/>
+            <path d="M284,96 L287,90 L290,96 L293,90 L296,96" fill="none" stroke="#777" stroke-width="1.5" id="filament"/>
+            <text x="290" y="52" fill="#ff9800" font-size="12" text-anchor="middle" id="bulbP">P = 24 W</text>
+          </g>
+          <g id="dots"></g>
+          <path id="loopPath" d="M80,190 L80,55 L290,55 L290,190 L80,190" fill="none" stroke="none"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Battery voltage <span class="val" id="vVal2">12 V</span></label>
+          <input type="range" id="vSlider" min="1" max="24" step="1" value="12">
+        </div>
+        <div class="control">
+          <label>Bulb resistance <span class="val" id="bVal">6 Ω</span></label>
+          <input type="range" id="bSlider" min="2" max="20" step="1" value="6">
+        </div>
+        <button class="btn" id="keyBtn">Open / Close the Key</button>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="iOut3">2.00</div><div class="lbl">Current I (A)</div></div>
+          <div class="readout"><div class="num warn" id="pOut2">24.0</div><div class="lbl">Bulb power (W)</div></div>
+          <div class="readout"><div class="num good" id="stateOut">ON</div><div class="lbl">Bulb state</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Click the key in the diagram or the button. Raise the voltage → brighter glow. Raise the bulb's resistance → dimmer (less current)!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="ohm-circuit.html">← Previous: Ohm's Law</a>
+    <a href="kcl.html">Next: Kirchhoff's Current Law →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const vS = document.getElementById("vSlider");
+  const bS = document.getElementById("bSlider");
+  const keyBtn = document.getElementById("keyBtn");
+  const keyGroup = document.getElementById("keyGroup");
+  const keyLever = document.getElementById("keyLever");
+  const keyText = document.getElementById("keyText");
+  const glow = document.getElementById("glow");
+  const filament = document.getElementById("filament");
+  const bulbGlass = document.getElementById("bulbGlass");
+  const iOut = document.getElementById("iOut3");
+  const pOut = document.getElementById("pOut2");
+  const stateOut = document.getElementById("stateOut");
+  const bulbP = document.getElementById("bulbP");
+  const vVal = document.getElementById("vVal2");
+  const bVal = document.getElementById("bVal");
+
+  const anim = animateCurrent("loopPath", "dots", { on: true, speed: 50, count: 10, color: "#ffd54f" });
+
+  let closed = true;
+
+  function update() {
+    const V = +vS.value, R = +bS.value;
+    const I = closed ? V / R : 0;
+    const P = I * I * R;
+    vVal.textContent = V + " V";
+    bVal.textContent = R + " Ω";
+    iOut.textContent = I.toFixed(2);
+    pOut.textContent = P.toFixed(1);
+    stateOut.textContent = closed ? "ON" : "OFF";
+    bulbP.textContent = "P = " + P.toFixed(0) + " W";
+    keyText.textContent = closed ? "Key: CLOSED (click to open)" : "Key: OPEN (click to close)";
+    setAnimSpeed(anim, Math.max(3, I * 22));
+    setAnimOn(anim, closed);
+
+    if (closed) {
+      const frac = Math.min(1, P / 90);
+      glow.setAttribute("r", 22 + frac * 55);
+      glow.setAttribute("opacity", 0.25 + frac * 0.75);
+      filament.setAttribute("stroke", frac > 0.5 ? "#ffcc33" : "#c98a2a");
+      bulbGlass.setAttribute("fill", frac > 0.5 ? "#3a3320" : "#1a1a26");
+    } else {
+      glow.setAttribute("r", 0);
+      glow.setAttribute("opacity", 0);
+      filament.setAttribute("stroke", "#777");
+      bulbGlass.setAttribute("fill", "#1a1a26");
+    }
+    keyLever.setAttribute("x2", closed ? 206 : 205);
+    keyLever.setAttribute("y2", closed ? 178 : 190);
+  }
+
+  function toggle() { closed = !closed; update(); }
+  keyBtn.addEventListener("click", toggle);
+  keyGroup.addEventListener("click", toggle);
+  vS.addEventListener("input", update);
+  bS.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>

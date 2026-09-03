@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Photoelectric Effect — Chapter 5: Wave-Particle Duality — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch5-photoelectric">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 5 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 5</a><span class="sep">›</span> The Photoelectric Effect</div>
+
+  <nav class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="blackbody.html">Black Body &amp; Quanta</a>
+    <a href="photoelectric.html" class="active">Photoelectric Effect</a>
+    <a href="compton.html">Compton &amp; E=mc²</a>
+    <a href="debroglie.html">De Broglie &amp; Microscope</a>
+  </nav>
+
+  <span class="chip">Part II · Chapter 5</span>
+  <h1>The Photoelectric Effect</h1>
+  <p style="color:var(--muted)">How light knocks electrons out of metal — and why only Einstein's photons could explain the experiment.</p>
+
+  <h2 class="section-title">Getting Electrons Out of Metal: Thermionic Emission</h2>
+  <div class="panel">
+    <p>Free electrons inside a metal are held back by the surface — they need energy to escape. One way to give it to them is <strong>heat</strong>: heating a metal (e.g. a cathode filament) gives its free electrons enough energy to leave the surface. This is called <strong>thermionic emission</strong> ("thermal electron emission").</p>
+    <h3>The cathode ray tube (CRT)</h3>
+    <p>The CRT uses thermionic emission to produce a beam of electrons:</p>
+    <ul class="clean">
+      <li><strong>Heated cathode:</strong> the filament boils off electrons (thermionic emission).</li>
+      <li><strong>Anode:</strong> kept at a high positive voltage, it <strong>accelerates</strong> the electrons forward through a small hole — a fast <strong>cathode ray</strong> (electron beam).</li>
+      <li><strong>Deflecting plates:</strong> electric fields between parallel plates steer the beam up/down and left/right onto the screen (old TVs and oscilloscopes).</li>
+    </ul>
+    <div class="sim-svg">
+      <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="eArrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#ffd54f"/>
+          </marker>
+        </defs>
+        <!-- tube outline -->
+        <path d="M30,60 L300,60 L440,35 L440,165 L300,140 L30,140 Z" fill="none" stroke="#3a3a55" stroke-width="2.5"/>
+        <!-- cathode (heated) -->
+        <rect x="55" y="88" width="26" height="24" rx="4" fill="#5a2a33" stroke="#ff9800" stroke-width="2"/>
+        <text x="68" y="80" fill="#ff9800" font-size="11" text-anchor="middle">heated cathode (−)</text>
+        <!-- anode with slot -->
+        <rect x="150" y="70" width="12" height="34" fill="#1f3a52" stroke="#29b6f6" stroke-width="1.5"/>
+        <rect x="150" y="116" width="12" height="34" fill="#1f3a52" stroke="#29b6f6" stroke-width="1.5"/>
+        <text x="156" y="62" fill="#29b6f6" font-size="11" text-anchor="middle">anode (+) accelerates</text>
+        <!-- deflecting plates -->
+        <rect x="230" y="72" width="70" height="7" fill="#4caf50" opacity="0.8"/>
+        <rect x="230" y="121" width="70" height="7" fill="#ef5350" opacity="0.8"/>
+        <text x="265" y="62" fill="#4caf50" font-size="11" text-anchor="middle">deflecting plates</text>
+        <!-- beam -->
+        <line x1="82" y1="100" x2="436" y2="100" stroke="#ffd54f" stroke-width="2.5" marker-end="url(#eArrow)"/>
+        <!-- screen spot -->
+        <circle cx="452" cy="100" r="7" fill="#7fd3ff" opacity="0.85"/>
+        <text x="470" y="104" fill="#9a9ab0" font-size="11">screen</text>
+        <text x="220" y="185" fill="#9a9ab0" font-size="11" text-anchor="middle">e⁻ beam travels cathode → anode → plates → screen</text>
+      </svg>
+    </div>
+  </div>
+
+  <h2 class="section-title">The Photoelectric Effect &amp; the Photoelectric Cell</h2>
+  <div class="panel">
+    <p>Another way to free electrons is with <strong>light</strong>. When light of high enough frequency shines on a metal surface, electrons are ejected immediately — this is the <strong>photoelectric effect</strong>, and the ejected electrons are called <strong>photoelectrons</strong>.</p>
+    <p>The <strong>photoelectric cell</strong> puts this to work: light hits a photosensitive cathode, the emitted electrons are collected by an anode, and a small <strong>current flows whenever light falls on the cell</strong>. Brighter light ⇒ more current. Uses: automatic doors, burglar alarms, camera exposure meters.</p>
+  </div>
+
+  <h2 class="section-title">The Puzzling Experimental Facts</h2>
+  <div class="panel">
+    <p>Wave theory of light could not explain what experiments showed:</p>
+    <ul class="clean">
+      <li><strong>No emission below the threshold frequency</strong> — no matter how intense the light is, if f &lt; f₀ not a single electron escapes. (Waves say: brighter light should eventually do the job!)</li>
+      <li><strong>Maximum kinetic energy depends on frequency, not intensity</strong> — brighter light ejects <em>more</em> electrons, but not <em>faster</em> ones. Only raising the frequency makes them faster.</li>
+      <li><strong>Emission is instantaneous</strong> — electrons leave the instant light hits, with no time delay, even for very dim light.</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title">Einstein's Photon Explanation</h2>
+  <div class="panel">
+    <p>In 1905 Einstein used Planck's quanta: light travels as particles — <strong>photons</strong> — each carrying energy E = h·f. <strong>One photon is absorbed by one electron</strong> in a single event. This explains everything:</p>
+    <ul class="clean">
+      <li>A photon either has enough energy to free an electron or it does not — intensity (number of photons) is irrelevant below the threshold. Hence the <strong>threshold frequency f₀</strong>.</li>
+      <li>Each photon delivers its whole energy at once ⇒ <strong>instantaneous</strong> emission.</li>
+      <li>More photons per second ⇒ more electrons, but each electron's energy depends only on the photon's frequency.</li>
+    </ul>
+    <p>The <strong>work function (E<sub>w</sub> or φ)</strong> is the minimum energy needed to free one electron from the metal's surface. At the threshold, the photon energy just equals it:</p>
+    <div class="formula">h × f₀ = E<sub>w</sub><span class="note">threshold frequency f₀ = E_w / h — below f₀, no emission at any intensity</span></div>
+    <p>If the photon has more energy than the work function, the leftover becomes kinetic energy of the electron — <strong>Einstein's photoelectric equation</strong>:</p>
+    <div class="formula">K.E = E − E<sub>w</sub> = h·f − h·f₀<span class="note">this is the maximum kinetic energy of the photoelectrons (Nobel Prize 1921)</span></div>
+    <p>The fastest electrons can be stopped by a reverse voltage V<sub>s</sub> (the <strong>stopping potential</strong>), which measures their kinetic energy:</p>
+    <div class="formula">e × V<sub>s</sub> = K.E<span class="note">e = 1.6 × 10⁻¹⁹ C — so a stopping potential of 1.1 V means K.E = 1.1 eV</span></div>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> Light of wavelength 400 nm falls on a metal with work function E<sub>w</sub> = 2.0 eV.<br>
+    Photon energy: E = hc/λ = 1240 / 400 = <strong>3.1 eV</strong> &gt; E<sub>w</sub> ⇒ emission happens.<br>
+    Maximum kinetic energy: K.E = E − E<sub>w</sub> = 3.1 − 2.0 = <strong>1.1 eV</strong>, so the stopping potential V<sub>s</sub> = 1.1 V.<br>
+    Threshold: λ₀ = 1240/2.0 = 620 nm, so f₀ = c/λ₀ = 3×10⁸ / 620×10⁻⁹ ≈ <strong>4.8 × 10¹⁴ Hz</strong>. Any light with λ &gt; 620 nm ejects nothing, however bright.
+  </div>
+
+  <h2 class="section-title">🔬 Experiment: Photoelectric Effect Simulator</h2>
+  <div class="sim">
+    <h3>Choose the light and the metal — will electrons fly?</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 340 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="40" y="120" width="260" height="14" rx="4" id="metalBar" fill="#556"/>
+          <text x="170" y="155" fill="#9a9ab0" font-size="11" text-anchor="middle" id="metalTxt">metal: φ = 2.9 eV</text>
+          <g id="photonRays"></g>
+          <g id="ejectedEs"></g>
+          <text x="170" y="30" fill="#7fd3ff" font-size="13" text-anchor="middle" font-weight="bold" id="peResult">—</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Light wavelength <span class="val" id="wlVal">400 nm</span></label>
+          <input type="range" id="wlSlider" min="200" max="750" step="10" value="400">
+        </div>
+        <div class="control">
+          <label>Intensity <span class="val" id="intVal">5 rays</span></label>
+          <input type="range" id="intSlider" min="1" max="10" step="1" value="5">
+        </div>
+        <div class="control">
+          <label>Metal (work function E<sub>w</sub>)</label>
+          <select id="metalSel" style="width:100%;padding:8px;border-radius:8px;background:#0d1420;color:#e8e8f0;border:1px solid #1b2f45">
+            <option value="2.0">Cesium-like (E_w = 2.0 eV)</option>
+            <option value="2.9" selected>Zinc-like (E_w = 2.9 eV)</option>
+            <option value="4.5">Copper-like (E_w = 4.5 eV)</option>
+            <option value="5.0">Platinum-like (E_w = 5.0 eV)</option>
+          </select>
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="peOut">3.10</div><div class="lbl">Photon E (eV)</div></div>
+          <div class="readout"><div class="num warn" id="ekOut">0.20</div><div class="lbl">K.E of electrons (eV)</div></div>
+          <div class="readout"><div class="num" id="lam0Out">428</div><div class="lbl">Threshold λ₀ (nm)</div></div>
+          <div class="readout"><div class="num good" id="emitOut">YES</div><div class="lbl">Emission?</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">Try it: crank the intensity to maximum with a long wavelength — still no emission! Only a shorter wavelength (higher frequency) works. That is the photon argument.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Exam tip:</strong> Intensity controls <em>how many</em> electrons (the current); frequency controls <em>how fast</em> they come out (K.E and stopping potential). Mixing these two up is the most common exam mistake.
+  </div>
+
+  <div class="pager">
+    <a href="blackbody.html">← Black Body Radiation &amp; Quanta</a>
+    <a href="compton.html">Next: The Compton Effect &amp; E = mc² →</a>
+  </div>
+</main>
+
+<footer><div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div></footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  const wlS = document.getElementById("wlSlider");
+  const intS = document.getElementById("intSlider");
+  const metalSel = document.getElementById("metalSel");
+  const rays = document.getElementById("photonRays");
+  const ejected = document.getElementById("ejectedEs");
+  const waveColors = [[200,"#8b5cf6"],[300,"#6366f1"],[400,"#3b82f6"],[500,"#22c55e"],[580,"#eab308"],[640,"#f97316"],[720,"#ef4444"]];
+
+  function waveColor(wl) {
+    let c = "#3b82f6";
+    for (const [w, col] of waveColors) if (wl >= w) c = col;
+    return c;
+  }
+
+  function photoelectric() {
+    const wl = +wlS.value, inten = +intS.value, phi = +metalSel.value;
+    const E = 1240 / wl;              // eV
+    const ek = E - phi;
+    const emits = ek > 0;
+    const lam0 = 1240 / phi;          // threshold wavelength in nm
+    document.getElementById("wlVal").textContent = wl + " nm";
+    document.getElementById("intVal").textContent = inten + " rays";
+    document.getElementById("peOut").textContent = E.toFixed(2);
+    document.getElementById("ekOut").textContent = Math.max(0, ek).toFixed(2);
+    document.getElementById("lam0Out").textContent = lam0.toFixed(0);
+    const emitOut = document.getElementById("emitOut");
+    emitOut.textContent = emits ? "YES" : "NO";
+    emitOut.className = "num " + (emits ? "good" : "");
+    emitOut.style.color = emits ? "" : "#ef5350";
+
+    document.getElementById("peResult").textContent = emits
+      ? "Emission! K.E = " + ek.toFixed(2) + " eV"
+      : "No emission — need λ < " + lam0.toFixed(0) + " nm (f₀ = " + (3e8 / (lam0 * 1e-9) / 1e14).toFixed(1) + "×10¹⁴ Hz)";
+    document.getElementById("metalTxt").textContent = "metal: E_w = " + phi.toFixed(1) + " eV";
+    document.getElementById("metalBar").setAttribute("fill", emits ? "#4a6a35" : "#556");
+
+    rays.innerHTML = "";
+    const col = waveColor(wl);
+    for (let i = 0; i < inten; i++) {
+      const y = 20 + i * 10;
+      rays.appendChild(el("path", { d: "M60," + y + " L120," + (y + 45), stroke: col, "stroke-width": 2, fill: "none" }));
+      rays.appendChild(el("circle", { cx: 126, cy: y + 49, r: 3, fill: col }));
+    }
+    ejected.innerHTML = "";
+    if (emits) {
+      const n = Math.min(inten, 6);
+      for (let i = 0; i < n; i++) {
+        ejected.appendChild(el("circle", { cx: 170 + i * 25, cy: 100, r: 4, fill: "#ffd54f" }));
+      }
+    }
+  }
+  wlS.addEventListener("input", photoelectric);
+  intS.addEventListener("input", photoelectric);
+  metalSel.addEventListener("change", photoelectric);
+  photoelectric();
+})();
+</script>
+</body>
+</html>

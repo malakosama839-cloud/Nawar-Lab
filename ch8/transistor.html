@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Transistor — Chapter 8: Modern Electronics — Nawar Academy</title>
+<link rel="icon" type="image/png" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="ch8-transistor">
+
+<header>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><img src="../assets/logo.png" alt="Nawar Academy Logo"></a>
+    <nav class="nav-links">
+      <a href="../index.html">All Chapters</a>
+      <a href="index.html" class="active">Chapter 8 Overview</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">All Chapters</a><span class="sep">›</span><a href="index.html">Chapter 8</a><span class="sep">›</span> The Transistor</div>
+
+  <div class="chapter-nav">
+    <a href="index.html">Overview</a>
+    <a href="bands.html">Energy Bands</a>
+    <a href="diode.html">The Diode</a>
+    <a href="transistor.html" class="active">The Transistor</a>
+    <a href="digital.html">Digital &amp; Binary</a>
+    <a href="logic-gates.html">Logic Gates</a>
+  </div>
+
+  <span class="chip">Part II · Chapter 8</span>
+  <h1>The Transistor</h1>
+
+  <h2 class="section-title">Structure: Two Junctions, Three Terminals</h2>
+  <div class="panel">
+    <p>A transistor is made of <strong>three semiconductor layers</strong> joined back to back, so it contains <strong>two p-n junctions</strong>. The layers can be arranged as <strong>npn</strong> or <strong>pnp</strong>. Each layer has a name and a terminal:</p>
+    <ul class="clean">
+      <li><strong>Emitter (E):</strong> <em>heavily doped</em> — its job is to emit (send) the charge carriers through the device.</li>
+      <li><strong>Base (B):</strong> <em>very thin and lightly doped</em> — the middle layer that controls how many carriers get through.</li>
+      <li><strong>Collector (C):</strong> moderately doped and larger — it collects the carriers arriving from the emitter.</li>
+    </ul>
+    <p>The two circuits that connect a transistor are the <strong>common base</strong> and the <strong>common emitter</strong> connections (the "common" terminal is the one shared by input and output).</p>
+    <div class="tip"><strong>Remember the doping:</strong> Emitter = heavily doped, Base = thin &amp; lightly doped, Collector = largest area. E-B and C-B are the two junctions.</div>
+  </div>
+
+  <h2 class="section-title">The Action: a Small Current Controls a Big One</h2>
+  <div class="panel">
+    <p>The magic of the transistor: a <strong>small base current</strong> allows a <strong>much larger collector current</strong> to flow from emitter to collector. The ratio between them is called the <strong>current gain, β</strong> (beta):</p>
+    <div class="formula">β = I<sub>c</sub> / I<sub>b</sub> &nbsp;&nbsp;→&nbsp;&nbsp; I<sub>c</sub> = β × I<sub>b</sub><span class="note">I<sub>b</sub> = base current, I<sub>c</sub> = collector current; β is typically 20 to 200</span></div>
+    <div class="formula">I<sub>e</sub> = I<sub>b</sub> + I<sub>c</sub><span class="note">Kirchhoff's current law: the emitter carries whatever enters through base and collector</span></div>
+    <h3>As an amplifier</h3>
+    <p>A tiny changing signal fed to the base produces a large, identical change of collector current — so a <strong>small input appears greatly enlarged at the output</strong>. A weak microphone signal, for example, can drive a loudspeaker.</p>
+    <h3>As a switch</h3>
+    <ul class="clean">
+      <li><strong>No base current</strong> → collector current ≈ 0 → the transistor is <strong>OFF</strong>.</li>
+      <li><strong>Saturating the base</strong> (a large enough base current) → the transistor passes its full collector current → <strong>ON</strong>.</li>
+    </ul>
+    <p>Billions of such switches, flipping on and off billions of times per second, are the heart of every computer processor.</p>
+  </div>
+
+  <div class="example">
+    <strong>Worked example:</strong> A transistor has β = 100 and a base current I<sub>b</sub> = 20 μA. Find the collector current and the emitter current.<br>
+    I<sub>c</sub> = β × I<sub>b</sub> = 100 × 20 μA = 2000 μA = <strong>2 mA</strong><br>
+    I<sub>e</sub> = I<sub>b</sub> + I<sub>c</sub> = 0.02 mA + 2 mA = <strong>2.02 mA</strong>
+  </div>
+
+  <h2 class="section-title">🔬 Simulator: Transistor Switch &amp; Amplifier</h2>
+  <div class="sim">
+    <h3>Switch mode — choose the base current and watch the lamp</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 380 270" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrE" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+              <path d="M0,0 L8,3.5 L0,7 Z" fill="#ffb74d"/>
+            </marker>
+          </defs>
+          <!-- main loop wires -->
+          <line x1="55" y1="40" x2="55" y2="112" stroke="#3a3a55" stroke-width="3"/>
+          <line x1="55" y1="124" x2="55" y2="220" stroke="#3a3a55" stroke-width="3"/>
+          <line x1="40" y1="112" x2="70" y2="112" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="48" y1="124" x2="62" y2="124" stroke="#7fd3ff" stroke-width="5"/>
+          <text x="24" y="108" fill="#4caf50" font-size="12">+</text>
+          <text x="24" y="136" fill="#ef5350" font-size="12">−</text>
+          <text x="14" y="180" fill="#7fd3ff" font-size="11">V = 9 V</text>
+          <!-- top rail with lamp -->
+          <line x1="55" y1="40" x2="167" y2="40" stroke="#3a3a55" stroke-width="3"/>
+          <line x1="193" y1="40" x2="262" y2="40" stroke="#3a3a55" stroke-width="3"/>
+          <circle id="lampGlow" cx="180" cy="40" r="24" fill="#ffd54f" opacity="0"/>
+          <circle id="lamp" cx="180" cy="40" r="13" fill="#222" stroke="#555" stroke-width="2"/>
+          <line x1="172" y1="32" x2="188" y2="48" stroke="#555" stroke-width="2"/>
+          <line x1="188" y1="32" x2="172" y2="48" stroke="#555" stroke-width="2"/>
+          <text x="180" y="18" fill="#9a9ab0" font-size="10" text-anchor="middle">lamp</text>
+          <!-- collector wire -->
+          <line x1="262" y1="40" x2="262" y2="100" stroke="#3a3a55" stroke-width="3"/>
+          <!-- transistor -->
+          <circle cx="255" cy="135" r="42" fill="#12121a" stroke="#445" stroke-width="1.5"/>
+          <line x1="238" y1="115" x2="238" y2="155" stroke="#e8e8f0" stroke-width="3.5"/>
+          <line x1="262" y1="100" x2="240" y2="122" stroke="#3a3a55" stroke-width="3"/>
+          <line x1="240" y1="148" x2="262" y2="168" stroke="#ffb74d" stroke-width="3" marker-end="url(#arrE)"/>
+          <line x1="262" y1="168" x2="262" y2="220" stroke="#3a3a55" stroke-width="3"/>
+          <text x="268" y="96" fill="#9a9ab0" font-size="11">C</text>
+          <text x="216" y="132" fill="#9a9ab0" font-size="11">B</text>
+          <text x="268" y="180" fill="#9a9ab0" font-size="11">E</text>
+          <text x="255" y="215" fill="#9a9ab0" font-size="10" text-anchor="middle" opacity="0"> </text>
+          <!-- base branch -->
+          <line x1="238" y1="135" x2="205" y2="135" stroke="#3a3a55" stroke-width="3"/>
+          <path d="M205,135 L200,127 L190,143 L180,127 L170,143 L160,135" fill="none" stroke="#ff9800" stroke-width="3"/>
+          <line x1="160" y1="135" x2="130" y2="135" stroke="#3a3a55" stroke-width="3"/>
+          <text x="180" y="158" fill="#ff9800" font-size="10" text-anchor="middle">R_B</text>
+          <line x1="130" y1="135" x2="130" y2="158" stroke="#3a3a55" stroke-width="3"/>
+          <line x1="116" y1="158" x2="144" y2="158" stroke="#7fd3ff" stroke-width="3"/>
+          <line x1="123" y1="170" x2="137" y2="170" stroke="#7fd3ff" stroke-width="5"/>
+          <line x1="130" y1="170" x2="130" y2="220" stroke="#3a3a55" stroke-width="3"/>
+          <text x="90" y="168" fill="#7fd3ff" font-size="10">V_BB</text>
+          <!-- bottom rail -->
+          <line x1="55" y1="220" x2="262" y2="220" stroke="#3a3a55" stroke-width="3"/>
+          <!-- current dots -->
+          <g id="dots"></g>
+          <path id="colPath" d="M55,220 L55,40 L262,40 L262,100 L240,122 C258,128 258,142 240,148 L262,168 L262,220 L55,220" fill="none" stroke="none"/>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Base current I<sub>b</sub></label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn" id="ib0">0 μA (OFF)</button>
+            <button class="btn" id="ib1">20 μA</button>
+            <button class="btn" id="ib2">100 μA (ON)</button>
+          </div>
+        </div>
+        <div class="control">
+          <label>Current gain β <span class="val" id="bVal">100</span></label>
+          <input type="range" id="bSlider" min="20" max="200" step="5" value="100">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="ibOut">20</div><div class="lbl">I_b (μA)</div></div>
+          <div class="readout"><div class="num good" id="icOut">2.00</div><div class="lbl">I_c = β·I_b (mA)</div></div>
+          <div class="readout"><div class="num" id="stOut">Active</div><div class="lbl">State</div></div>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin-top:26px">Amplifier mode — a small signal at the base, a big one at the collector</h3>
+    <div class="sim-layout">
+      <div class="sim-svg">
+        <svg viewBox="0 0 360 130" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10" y1="65" x2="350" y2="65" stroke="#2a2a40" stroke-dasharray="4,4"/>
+          <polyline id="waveIn" fill="none" stroke="#29b6f6" stroke-width="2"/>
+          <polyline id="waveOut" fill="none" stroke="#ff9800" stroke-width="2"/>
+          <circle id="wDotIn" r="4" fill="#7fd3ff" opacity="0"/>
+          <circle id="wDotOut" r="4" fill="#ffd54f" opacity="0"/>
+          <text x="12" y="14" fill="#29b6f6" font-size="10">input at the base (small)</text>
+          <text x="12" y="124" fill="#ff9800" font-size="10">output at the collector (β × larger)</text>
+        </svg>
+      </div>
+      <div class="controls">
+        <div class="control">
+          <label>Input signal amplitude <span class="val" id="ampVal">10 μA</span></label>
+          <input type="range" id="ampSlider" min="1" max="50" step="1" value="10">
+        </div>
+        <div class="readouts">
+          <div class="readout"><div class="num" id="ampIn">10 μA</div><div class="lbl">Input swing</div></div>
+          <div class="readout"><div class="num warn" id="ampGain">1.00 mA</div><div class="lbl">Output = β × input</div></div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted)">The same β from the switch above multiplies the signal: raise β or the input and the orange output wave grows instantly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pager">
+    <a href="diode.html">← The Diode</a>
+    <a href="digital.html">Next: Digital &amp; Binary →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="credit">Nawar Academy — Fight till the end &nbsp;•&nbsp; Made by <b>Eng/Malak Osama</b></div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+(function () {
+  /* ---------- Switch mode ---------- */
+  const bSlider = document.getElementById("bSlider");
+  const bVal = document.getElementById("bVal");
+  const ibOut = document.getElementById("ibOut");
+  const icOut = document.getElementById("icOut");
+  const stOut = document.getElementById("stOut");
+  const lamp = document.getElementById("lamp");
+  const lampGlow = document.getElementById("lampGlow");
+  const btns = { 0: document.getElementById("ib0"), 20: document.getElementById("ib1"), 100: document.getElementById("ib2") };
+
+  const anim = animateCurrent("colPath", "dots", { on: false, speed: 40, count: 12, color: "#ffd54f" });
+
+  let ib = 20;
+
+  function updateSwitch() {
+    const beta = +bSlider.value;
+    const icmA = beta * ib / 1000; /* μA × β → μA → mA */
+    bVal.textContent = beta;
+    ibOut.textContent = ib;
+    icOut.textContent = icmA.toFixed(2);
+    for (const k in btns) btns[k].classList.toggle("warm", +k === ib);
+    let state, bright;
+    if (ib === 0) {
+      state = "OFF"; bright = 0;
+    } else if (ib === 100) {
+      state = "Saturated (ON)"; bright = 1;
+    } else {
+      state = "Active"; bright = Math.min(icmA / 10, 1);
+    }
+    stOut.textContent = state;
+    stOut.className = "num" + (ib === 0 ? " warn" : ib === 100 ? " good" : "");
+    lamp.setAttribute("fill", bright > 0.05 ? "#ffd54f" : "#222");
+    lamp.setAttribute("stroke", bright > 0.05 ? "#ffd54f" : "#555");
+    lampGlow.setAttribute("opacity", (bright * 0.5).toFixed(2));
+    setAnimOn(anim, ib > 0);
+    setAnimSpeed(anim, ib === 100 ? 70 : 20 + icmA * 12);
+  }
+  bSlider.addEventListener("input", updateSwitch);
+  btns[0].addEventListener("click", () => { ib = 0; updateSwitch(); });
+  btns[20].addEventListener("click", () => { ib = 20; updateSwitch(); });
+  btns[100].addEventListener("click", () => { ib = 100; updateSwitch(); });
+  updateSwitch();
+
+  /* ---------- Amplifier mode ---------- */
+  const ampSlider = document.getElementById("ampSlider");
+  const ampVal = document.getElementById("ampVal");
+  const ampIn = document.getElementById("ampIn");
+  const ampGain = document.getElementById("ampGain");
+  const waveIn = document.getElementById("waveIn");
+  const waveOut = document.getElementById("waveOut");
+  const wDotIn = document.getElementById("wDotIn");
+  const wDotOut = document.getElementById("wDotOut");
+
+  function wavePoints(ampPx) {
+    const pts = [];
+    for (let x = 10; x <= 350; x += 4) {
+      const y = 65 - ampPx * Math.sin(2 * Math.PI * (x - 10) / 80);
+      pts.push([x, y]);
+    }
+    return pts;
+  }
+
+  function updateAmp() {
+    const beta = +bSlider.value;
+    const input = +ampSlider.value;           /* μA */
+    const outmA = beta * input / 1000;        /* mA */
+    ampVal.textContent = input + " μA";
+    ampIn.textContent = input + " μA";
+    ampGain.textContent = outmA.toFixed(2) + " mA";
+    const inPx = input * 0.6;                 /* max 30 px */
+    const outPx = Math.min(outmA * 3, 32);    /* max ~32 px */
+    const pi = wavePoints(inPx), po = wavePoints(outPx);
+    waveIn.setAttribute("points", pi.map(p => p[0] + "," + p[1].toFixed(1)).join(" "));
+    waveOut.setAttribute("points", po.map(p => p[0] + "," + p[1].toFixed(1)).join(" "));
+  }
+  ampSlider.addEventListener("input", updateAmp);
+  bSlider.addEventListener("input", updateAmp);
+  updateAmp();
+
+  /* sweep dots along the waves */
+  const t0 = performance.now();
+  function sweep(now) {
+    const t = (now - t0) / 1000;
+    const x = 10 + (t * 90) % 340;
+    const input = +ampSlider.value;
+    const beta = +bSlider.value;
+    const inPx = input * 0.6;
+    const outPx = Math.min(beta * input / 1000 * 3, 32);
+    const yIn = 65 - inPx * Math.sin(2 * Math.PI * (x - 10) / 80);
+    const yOut = 65 - outPx * Math.sin(2 * Math.PI * (x - 10) / 80);
+    wDotIn.setAttribute("cx", x); wDotIn.setAttribute("cy", yIn); wDotIn.setAttribute("opacity", 1);
+    wDotOut.setAttribute("cx", x); wDotOut.setAttribute("cy", yOut); wDotOut.setAttribute("opacity", 1);
+    requestAnimationFrame(sweep);
+  }
+  requestAnimationFrame(sweep);
+})();
+</script>
+</body>
+</html>
